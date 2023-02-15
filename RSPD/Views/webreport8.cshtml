@@ -1,0 +1,113 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html lang="en">
+    <head>
+        <title>Report: Settings</title>
+		<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+   <LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+        @(Model.displayVar("h_includes"))
+    </head>
+    <BODY class="@(Model.displayVar("wr_pagestylepath"))">
+        @(Model.displayVar("b_includes"))
+	@{Html.RenderSharedView("header");}
+		<div class="rnr-page">
+			<div class="rnr-top">
+				<DIV class="rnr-s-1 @(Model.displayVar("wr_pagestylepath"))">
+					<div class="rnr-c rnr-cv">
+						<div class="style2" align=center>
+							Report: Settings, Title: @(Model.displayVar("report_title"))@(Model.displayVar("report_table"))</td>
+						</div>
+						<div class="style1 rnr-b-wrapper">
+							<DIV class="rnr-s-fields @(Model.displayVar("wr_pagestylepath"))">
+								<div class="rnr-c rnr-cv">
+									<div class="style1">
+										<table class="fieldGrid"><TR>
+											<tr">
+												<td colspan=2 style="text-align:left">
+													<p>Set report title:</p>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align:left">
+													<span class="label">Name:</span>
+												</td>
+												<td style="text-align:left">
+													<INPUT name="rname" id="rname" class="rname" size=40 value="@(Model.displayVar("report_name"))" />
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align:left">
+													<span class="label">Title:&nbsp;&nbsp;</span>
+												</td>
+												<td style="text-align:left">
+													<INPUT name="rtitle" id="rtitle" class="rtitle" size=40 value="@(Model.displayVar("report_title"))" />
+												</td>
+											</tr>
+											<TR @(Model.displayVar("show_status"))>
+												<td style="text-align:left">
+													<span class="label">Private:</span>
+												</td>
+												<td style="text-align:left">
+													<INPUT type="checkbox" @(Model.displayVar("report_status")) name="rstatus" id="rstatus" class="rstatus" />
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="style2" align=center id="btns">
+										<A id="backbtn" name="backbtn" class="rnr-button" href="#">Back</a>
+										<span style="position:absolute;" id="jumptospan"></span>
+										<A id="jumpto" name="jumpto" class="rnr-button" href="#" onclick="event.cancelBubble = true;return false;" onmouseover="event.cancelBubble = true;return false;">Jump to ...</a>
+										<A id="nextbtn" name="nextbtn" class="rnr-button" href="#">Next</a>
+										<A id="savebtn" name="savebtn" class="rnr-button" href="#">Save</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	@{Html.RenderSharedView("footer");}
+        
+        <style>@MvcHtmlString.Create(@"
+{literal}
+	div.action { position: absolute;  width: 170px; padding: 0; font-size:11px}
+	td {font-size:11px}
+{/literal}")</style>
+<iframe id="framejump" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+<div id="menujump" class=action style="display:none;position:absolute;">
+	<table width=100% cellpadding=0 cellspacing=0 border=0 style="background-color:#F4F7FB;border: solid 1px blue;">
+		<tr><td id=row0 style="cursor:pointer;padding:5px;">Tables</td></tr>
+		<tr><td id=row1 style="cursor:pointer;padding:5px;">Table Relations</td></tr>
+		<tr><td id=row2 style="cursor:pointer;padding:5px;">Where Condition</td></tr>
+		<tr><td id=row3 style="cursor:pointer;padding:5px;">Group fields</td></tr>
+		<tr><td id=row4 style="cursor:pointer;padding:5px;">Totals</td></tr>
+		<tr><td id=row5 style="cursor:pointer;padding:5px;">Miscellaneous</td></tr>
+		<tr><td id=row6 style="cursor:pointer;padding:5px;">Sort fields</td></tr>
+		<tr><td id=row7 style="cursor:pointer;padding:5px;">Style Editor</td></tr>
+		<tr><td id=row8 style="cursor:pointer;padding:5px;">Report Settings</td></tr>
+		<tr><td id=row9 style="cursor:pointer;padding:5px;">Dynamic Permissions</td></tr>
+		<tr><td id=row10 style="cursor:pointer;padding:5px;;border-top:1px solid blue;">Back to Web Reports menu</td></tr>
+		<tr><td id=row11 style="cursor:pointer;padding:5px;">Back to main application</td></tr>
+	</table>
+</div>
+       <iframe id="aframe" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+        <div id="alert">
+		</div>        
+    </body>
+</html>

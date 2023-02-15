@@ -1,0 +1,6 @@
+Import into dbo.city
+14/02/2023 1:43:37 pm
+
+1007 out of 1007 records processed successfully.
+1007 records added.
+0 records updated.

@@ -1,0 +1,6 @@
+Import into dbo.spectrum_beta_users
+10/02/2023 2:53:02 pm
+
+1 out of 1 records processed successfully.
+1 records added.
+0 records updated.

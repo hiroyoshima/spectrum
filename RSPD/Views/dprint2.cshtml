@@ -1,0 +1,349 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html lang="en">
+    <head>
+        <title>@(Model.displayVar("reportTitle"))</title>
+		<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+        @foreach (string _style_block in Model.GetSection("style_block", this)){
+		<LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+        }				
+        <style>@MvcHtmlString.Create(@"
+        	.report	{font-size:11px}
+            .report-title		{font:bold 12px arial, verdana, sans serif, helvetica;}
+            table.report		{border-collapse: collapse; border: solid 2px #000;}
+				table.report td	{padding: 2px; border: solid 1px #ccc;}
+            .groupsummary		{border-bottom: solid 1px #000;}
+            td.pagesummary		{background: #ffffbb;}
+            td.globalsummary	{background: #ffe0b0;}
+			.page-summary		{border-top: 4px double #333;}
+			select.apply-style	{line-height: 1.4em; width: 90%;}
+			.buttonborder 		{margin-right: 10px;}
+			#wnd_header			{cursor: move;}")@foreach (string _group_field_colors in Model.GetSection("group_field_colors", this)){@MvcHtmlString.Create(@"
+            td.group_")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@",
+            td.nbgroup_")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@"		{background: #")@(Model.displayVar("color1"))@MvcHtmlString.Create(@";}
+            td.header_")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@"		{background: #")@(Model.displayVar("color2"))@MvcHtmlString.Create(@";}")}@MvcHtmlString.Create(@"")@(Model.displayVar("styleStr"))@MvcHtmlString.Create(@"")</style>
+		@(Model.displayVar("includes"))
+    </head>
+	
+<BODY @(Model.displayVar("onload")) class="@(Model.displayVar("wr_pagestylepath"))">
+<div class="rnr-page dreport">
+	<div class="rnr-top ">
+@{Html.RenderSharedView("header");}
+		<h1>@(Model.displayVar("reportTitle"))</h1>
+        @foreach (string _grid_block in Model.GetSection("grid_block", this)){
+		<DIV class="rnr-s-grid @(Model.displayVar("wr_pagestylepath"))">
+	<TABLE class="report rnr-b-report" width="95%" cellpadding="1" cellspacing="0" align="center" id="legend" @{foreach (string _legend_disp in Model.GetSection("legend_disp", this)){@MvcHtmlString.Create(@"style=""display: none;"" ")}}>
+	@foreach (string _grid_row in Model.GetSection("grid_row", this)){
+		foreach (string _group in Model.GetSection("group", this)){
+		<!--  group headers -->
+		foreach (string _newgroup in Model.GetSection("newgroup", this)){
+		<tr>
+		@foreach (string _group_headers in Model.GetSection("group_headers", this)){
+			foreach (string _groups_order_block in Model.GetSection("groups_order_block", this)){
+			<TD class="group_@(Model.displayVar("group2_group_order")) class@(Model.displayVar("groupId3"))g class@(Model.displayVar("group2_group_order"))f class@(Model.displayVar("groupId3"))g@(Model.displayVar("group2_group_order"))f@(Model.displayVar("group2_in_uniq"))u" groupname="@(Model.displayVar("groupId3"))" fieldname="@(Model.displayVar("group2_group_order"))" uniqe="@(Model.displayVar("group2_in_uniq"))" style="border:none;border-left:1px solid #ccc;border-right:1px solid #ccc;">&nbsp;</td>
+			}
+		}
+			<TD class="header_@(Model.displayVar("group_order")) class@(Model.displayVar("groupId4"))g class@(Model.displayVar("groupId4"))g0f0u" groupname="@(Model.displayVar("groupId4"))" colspan=@(Model.displayVar("head_colspan"))>
+				@(Model.displayVar("group_label")):&nbsp;
+				<font style="font-weight:900">@(Model.displayVar("grval"))</font>
+			</td>
+		</tr>
+		foreach (string _last_group_block in Model.GetSection("last_group_block", this)){
+		<tr>
+			@foreach (string _group_headers_1 in Model.GetSection("group_headers", this)){
+			<TD class="group_@(Model.displayVar("group2_group_order")) class@(Model.displayVar("groupId3"))g class@(Model.displayVar("group2_group_order"))f class@(Model.displayVar("groupId3"))g@(Model.displayVar("group2_group_order"))f@(Model.displayVar("group2_in_uniq"))u" groupname="@(Model.displayVar("groupId3"))" fieldname="@(Model.displayVar("group2_group_order"))" uniqe="@(Model.displayVar("group_in_uniq"))" style="border:none;border-left:1px solid #ccc;border-right:1px solid #ccc;">&nbsp;</td>
+			}
+			@foreach (string _not_group_fields_values in Model.GetSection("not_group_fields_values", this)){
+			<TD class="blackshade class40g class@(Model.displayVar("fieldNum"))f class40g@(Model.displayVar("fieldNum"))f0u" groupname="40" fieldname="@(Model.displayVar("fieldNum"))">@(Model.displayVar("field_label"))</td>
+			}
+		</tr>
+		}
+		}
+		<!--end new group-->
+		}
+						
+		foreach (string _details_summary_block in Model.GetSection("details_summary_block", this)){
+		<!-- data -->
+		foreach (string _row_data in Model.GetSection("row_data", this)){
+		<tr>
+		@foreach (string _group_1 in Model.GetSection("group", this)){
+			foreach (string _group_level in Model.GetSection("group_level", this)){
+			<TD class="group_@(Model.displayVar("iteration")) class@(Model.displayVar("groupId3"))g class@(Model.displayVar("group2_group_order"))f class@(Model.displayVar("groupId3"))g@(Model.displayVar("group2_group_order"))f0u" groupname="@(Model.displayVar("groupId3"))" fieldname="@(Model.displayVar("group2_group_order"))">@(Model.displayVar("group_field_value"))</td>
+			}
+			foreach (string _default_level in Model.GetSection("default_level", this)){
+			<TD class="nbgroup_@(Model.displayVar("iteration")) class@(Model.displayVar("groupIdCo"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdCo"))g@(Model.displayVar("iteration"))f@(Model.displayVar("group_in_uniq_outline"))u" groupname="@(Model.displayVar("groupIdCo"))" fieldname="@(Model.displayVar("iteration"))" uniqe="@(Model.displayVar("group_in_uniq_outline"))" style="border:none;border-left:1px solid #ccc;border-right:1px solid #ccc;">&nbsp;</td>
+			}
+		}
+		@foreach (string _not_group_fields_values_1 in Model.GetSection("not_group_fields_values", this)){
+			<TD class="data class25g class@(Model.displayVar("fieldNum"))f class25g@(Model.displayVar("fieldNum"))f0u" groupname="25" fieldname="@(Model.displayVar("fieldNum"))">@(Model.displayVar("field_value"))</td>
+		}
+		</tr>
+		}
+		<!--end data-->
+		}
+						
+		<!-- group summary -->
+		foreach (string _group_summary_block in Model.GetSection("group_summary_block", this)){
+		<tr>
+			@(Model.displayVar("td_columns"))
+		@foreach (string _group_summary_totals in Model.GetSection("group_summary_totals", this)){
+			<TD style="font-weight:bold;" groupname="@(Model.displayVar("groupIdSummary"))" class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdSummary"))g class@(Model.displayVar("groupIdSummary"))g0f0u" colspan=@(Model.displayVar("colspan_expr"))>Summary for @(Model.displayVar("label")) @(Model.displayVar("grval")) - @(Model.displayVar("total_cnt")) records total</td>
+		}
+		</tr>
+		<!--sum-->
+		foreach (string _sum_aggregation_block in Model.GetSection("sum_aggregation_block", this)){
+		<tr>
+		@foreach (string _group_summary_fields_sum in Model.GetSection("group_summary_fields_sum", this)){
+			foreach (string _group_field_flag in Model.GetSection("group_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdSum"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdSum"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdSum"))" fieldname="@(Model.displayVar("iteration"))" style="border-top: solid #cccccc 1px;">Sum</td>
+			}
+			foreach (string _sum_field_flag in Model.GetSection("sum_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdSum"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdSum"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdSum"))" fieldname="@(Model.displayVar("iteration"))">@(Model.displayVar("group_total_sum_value"))</td>
+			}
+			foreach (string _border_flag in Model.GetSection("border_flag", this)){
+			<TD class="group_@(Model.displayVar("iteration")) class@(Model.displayVar("groupIdSum"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdSum"))g@(Model.displayVar("iteration"))f@(Model.displayVar("group_in_uniq"))u" groupname="@(Model.displayVar("groupIdSum"))" fieldname="@(Model.displayVar("iteration"))" uniqe="@(Model.displayVar("group_in_uniq"))" style="border-style:none;">&nbsp;</td>
+			}
+			foreach (string _default_flag in Model.GetSection("default_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdSum"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdSum"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdSum"))" fieldname="@(Model.displayVar("iteration"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--avg-->
+		foreach (string _avg_aggregation_block in Model.GetSection("avg_aggregation_block", this)){
+		<tr>
+		@foreach (string _group_summary_fields_avg in Model.GetSection("group_summary_fields_avg", this)){
+			foreach (string _group_field_flag_1 in Model.GetSection("group_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdAvg"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdAvg"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdAvg"))" fieldname="@(Model.displayVar("iteration"))">Average</td>
+			}
+			foreach (string _avg_field_flag in Model.GetSection("avg_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdAvg"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdAvg"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdAvg"))" fieldname="@(Model.displayVar("iteration"))">@(Model.displayVar("group_total_avg_value"))</td>
+			}
+			foreach (string _border_flag_1 in Model.GetSection("border_flag", this)){
+			<TD class="group_@(Model.displayVar("iteration")) class@(Model.displayVar("groupIdAvg"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdAvg"))g@(Model.displayVar("iteration"))f@(Model.displayVar("group_in_uniq"))u" groupname="@(Model.displayVar("groupIdAvg"))" fieldname="@(Model.displayVar("iteration"))" uniqe="@(Model.displayVar("group_in_uniq"))" style="border-style:none;">&nbsp;</td>
+			}
+			foreach (string _default_flag_1 in Model.GetSection("default_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdAvg"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdAvg"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdAvg"))" fieldname="@(Model.displayVar("iteration"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--min-->
+		foreach (string _min_aggregation_block in Model.GetSection("min_aggregation_block", this)){
+		<tr>
+		@foreach (string _group_summary_fields_min in Model.GetSection("group_summary_fields_min", this)){
+			foreach (string _group_field_flag_2 in Model.GetSection("group_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMin"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMin"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMin"))" fieldname="@(Model.displayVar("iteration"))">Min</td>
+			}
+			foreach (string _min_field_flag in Model.GetSection("min_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMin"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMin"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMin"))" fieldname="@(Model.displayVar("iteration"))">@(Model.displayVar("group_total_min_value"))</td>
+			}
+			foreach (string _border_flag_2 in Model.GetSection("border_flag", this)){
+			<TD class="group_@(Model.displayVar("iteration")) class@(Model.displayVar("groupIdMin"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMin"))g@(Model.displayVar("iteration"))f@(Model.displayVar("group_in_uniq"))u" groupname="@(Model.displayVar("groupIdMin"))" fieldname="@(Model.displayVar("iteration"))" uniqe="@(Model.displayVar("group_in_uniq"))" style="border-style:none;">&nbsp;</td>
+			}
+			foreach (string _default_flag_2 in Model.GetSection("default_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMin"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMin"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMin"))" fieldname="@(Model.displayVar("iteration"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--max-->
+		foreach (string _max_aggregation_block in Model.GetSection("max_aggregation_block", this)){
+		<tr>
+		@foreach (string _group_summary_fields_max in Model.GetSection("group_summary_fields_max", this)){
+			foreach (string _group_field_flag_3 in Model.GetSection("group_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMax"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMax"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMax"))" fieldname="@(Model.displayVar("iteration"))">Max</td>
+			}
+			foreach (string _max_field_flag in Model.GetSection("max_field_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMax"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMax"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMax"))" fieldname="@(Model.displayVar("iteration"))">@(Model.displayVar("group_total_max_value"))</td>
+			}
+			foreach (string _border_flag_3 in Model.GetSection("border_flag", this)){
+			<TD class="group_@(Model.displayVar("iteration")) class@(Model.displayVar("groupIdMax"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMax"))g@(Model.displayVar("iteration"))f@(Model.displayVar("group_in_uniq"))u" groupname="@(Model.displayVar("groupIdMax"))" fieldname="@(Model.displayVar("iteration"))" uniqe="@(Model.displayVar("group_in_uniq"))" style="border-style:none;">&nbsp;</td>
+			}
+			foreach (string _default_flag_3 in Model.GetSection("default_flag", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMax"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMax"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMax"))" fieldname="@(Model.displayVar("iteration"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--end group summary-->
+		}
+	<!--end grid row-->
+	}
+
+		@foreach (string _summary_footer in Model.GetSection("summary_footer", this)){
+		<tr class="page-summary">
+		@foreach (string _page_order_fields in Model.GetSection("page_order_fields", this)){
+			foreach (string _show in Model.GetSection("show", this)){
+			<TD class="blackshade class40g class@(Model.displayVar("fieldId"))f class40g@(Model.displayVar("fieldId"))f0u" fieldname="@(Model.displayVar("fieldId"))" groupname="40">@(Model.displayVar("label"))</td>
+			}
+		}
+		</tr>
+		}
+
+		@foreach (string _page_summary_block in Model.GetSection("page_summary_block", this)){
+		<!--------------------------------------page summary-------------------------------------------->
+		<tr>
+			<TD style="font-weight: bold" groupname="26" class="pagesummary class26g class26g0f0u" colspan=@(Model.displayVar("testAgr"))>Page summary @(Model.displayVar("page_total_cnt")) - records total</td>
+		</tr>
+		<!--  sum -->
+		foreach (string _sum_aggregation_block_1 in Model.GetSection("sum_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_sum in Model.GetSection("page_summary_fields_sum", this)){
+			foreach (string _first_field_flag in Model.GetSection("first_field_flag", this)){
+			<td class="pagesummary class29g class1f class29g1f0u" groupname="29" fieldname="1">Sum</td>
+			}
+			foreach (string _sum_field_flag_1 in Model.GetSection("sum_field_flag", this)){
+			<TD class="pagesummary class29g class@(Model.displayVar("fieldId"))f class29g@(Model.displayVar("fieldId"))f0u" groupname="29" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("page_total_sum"))</td>
+			}
+			foreach (string _default_flag_4 in Model.GetSection("default_flag", this)){
+			<TD class="pagesummary class29g class@(Model.displayVar("fieldId"))f class29g@(Model.displayVar("fieldId"))f0u" groupname="29" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--  avg -->
+		foreach (string _avg_aggregation_block_1 in Model.GetSection("avg_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_avg in Model.GetSection("page_summary_fields_avg", this)){
+			foreach (string _first_field_flag_1 in Model.GetSection("first_field_flag", this)){
+			<td class="pagesummary class30g class1f class30g1f0u" groupname="30" fieldname="1">Average</td>
+			}
+			foreach (string _avg_field_flag_1 in Model.GetSection("avg_field_flag", this)){
+			<TD class="pagesummary class30g class@(Model.displayVar("fieldId"))f class30g@(Model.displayVar("fieldId"))f0u" groupname="30" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("page_total_avg"))</td>
+			}
+			foreach (string _default_flag_5 in Model.GetSection("default_flag", this)){
+			<TD class="pagesummary class30g class@(Model.displayVar("fieldId"))f class30g@(Model.displayVar("fieldId"))f0u" groupname="30" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--  min -->
+		foreach (string _min_aggregation_block_1 in Model.GetSection("min_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_min in Model.GetSection("page_summary_fields_min", this)){
+			foreach (string _first_field_flag_2 in Model.GetSection("first_field_flag", this)){
+			<td class="pagesummary class27g class1f class27g1f0u" groupname="27" fieldname="1">Min</td>
+			}
+			foreach (string _min_field_flag_1 in Model.GetSection("min_field_flag", this)){
+			<TD class="pagesummary class27g class@(Model.displayVar("fieldId"))f class27g@(Model.displayVar("fieldId"))f0u" groupname="27" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("page_total_min"))</td>
+			}
+			foreach (string _default_flag_6 in Model.GetSection("default_flag", this)){
+			<TD class="pagesummary class27g class@(Model.displayVar("fieldId"))f class27g@(Model.displayVar("fieldId"))f0u" groupname="27" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--  max -->
+		foreach (string _max_aggregation_block_1 in Model.GetSection("max_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_max in Model.GetSection("page_summary_fields_max", this)){
+			foreach (string _first_field_flag_3 in Model.GetSection("first_field_flag", this)){
+			<td class="pagesummary class28g class1f class28g1f0u" groupname="28" fieldname="1">Max</td>
+			}
+			foreach (string _max_field_flag_1 in Model.GetSection("max_field_flag", this)){
+			<TD class="pagesummary class28g class@(Model.displayVar("fieldId"))f class28g@(Model.displayVar("fieldId"))f0u" groupname="28" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("page_total_max"))</td>
+			}
+			foreach (string _default_flag_7 in Model.GetSection("default_flag", this)){
+			<TD class="pagesummary class28g class@(Model.displayVar("fieldId"))f class28g@(Model.displayVar("fieldId"))f0u" groupname="28" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--end page summary-->
+		}
+
+		@foreach (string _global_summary_block in Model.GetSection("global_summary_block", this)){
+		<!--------------------------------------global summary-------------------------------------------->
+		<tr>
+			<TD style="font-weight: bold" groupname="31" class="globalsummary class31g class31g1f0u" colspan=@(Model.displayVar("testAgr"))>Global summary	@(Model.displayVar("global_total_cnt")) - records total</td>
+		</tr>
+		<!-- sum -->
+		foreach (string _sum_aggregation_block_2 in Model.GetSection("sum_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_sum_1 in Model.GetSection("page_summary_fields_sum", this)){
+			foreach (string _first_field_flag_4 in Model.GetSection("first_field_flag", this)){
+			<td class="globalsummary class34g class1f class34g1f0u" groupname="34" fieldname="1">Sum</td>
+			}
+			foreach (string _sum_field_flag_2 in Model.GetSection("sum_field_flag", this)){
+			<TD class="globalsummary class34g class@(Model.displayVar("fieldId"))f class34g@(Model.displayVar("fieldId"))f0u" groupname="34" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("global_total_sum"))</td>
+			}
+			foreach (string _default_flag_8 in Model.GetSection("default_flag", this)){
+			<TD class="globalsummary class34g class@(Model.displayVar("fieldId"))f class34g@(Model.displayVar("fieldId"))f0u" groupname="34" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!-- avg -->
+		foreach (string _avg_aggregation_block_2 in Model.GetSection("avg_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_avg_1 in Model.GetSection("page_summary_fields_avg", this)){
+			foreach (string _first_field_flag_5 in Model.GetSection("first_field_flag", this)){
+			<td class="globalsummary class35g class1f class35g1f0u" groupname="35" fieldname="1">Average</td>
+			}
+			foreach (string _avg_field_flag_2 in Model.GetSection("avg_field_flag", this)){
+			<TD class="globalsummary class35g class@(Model.displayVar("fieldId"))f class35g@(Model.displayVar("fieldId"))f0u" groupname="35" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("global_total_avg"))</td>
+			}
+			foreach (string _default_flag_9 in Model.GetSection("default_flag", this)){
+			<TD class="globalsummary class35g class@(Model.displayVar("fieldId"))f class35g@(Model.displayVar("fieldId"))f0u" groupname="35" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!-- min -->
+		foreach (string _min_aggregation_block_2 in Model.GetSection("min_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_min_1 in Model.GetSection("page_summary_fields_min", this)){
+			foreach (string _first_field_flag_6 in Model.GetSection("first_field_flag", this)){
+			<td class="globalsummary class32g class1f class32g1f0u" groupname="32" fieldname="1">Min</td>
+			}
+			foreach (string _min_field_flag_2 in Model.GetSection("min_field_flag", this)){
+			<TD class="globalsummary class32g class@(Model.displayVar("fieldId"))f class32g@(Model.displayVar("fieldId"))f0u" groupname="32" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("global_total_min"))</td>
+			}
+			foreach (string _default_flag_10 in Model.GetSection("default_flag", this)){
+			<TD class="globalsummary class32g class@(Model.displayVar("fieldId"))f class32g@(Model.displayVar("fieldId"))f0u" groupname="32" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!-- max -->
+		foreach (string _max_aggregation_block_2 in Model.GetSection("max_aggregation_block", this)){
+		<tr>
+		@foreach (string _page_summary_fields_max_1 in Model.GetSection("page_summary_fields_max", this)){
+			foreach (string _first_field_flag_7 in Model.GetSection("first_field_flag", this)){
+			<td class="globalsummary class33g class1f class33g1f0u" groupname="33" fieldname="1">Max</td>
+			}
+			foreach (string _max_field_flag_2 in Model.GetSection("max_field_flag", this)){
+			<TD class="globalsummary class33g class@(Model.displayVar("fieldId"))f class33g@(Model.displayVar("fieldId"))f0u" groupname="33" fieldname="@(Model.displayVar("fieldId"))">@(Model.displayVar("page_total_max"))</td>
+			}
+			foreach (string _default_flag_11 in Model.GetSection("default_flag", this)){
+			<TD class="globalsummary class33g class@(Model.displayVar("fieldId"))f class33g@(Model.displayVar("fieldId"))f0u" groupname="33" fieldname="@(Model.displayVar("fieldId"))">&nbsp;</td>
+			}
+		}
+		</tr>
+		}
+		<!--end global summary-->
+		}
+		
+			 </table>
+	</div>
+    }
+@{Html.RenderSharedView("footer");}
+</div>
+</div>
+</body>
+</html>

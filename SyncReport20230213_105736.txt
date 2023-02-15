@@ -1,0 +1,13 @@
+Modified tables ("-" means deleted field, "+" means new field):
+	● dbo.rspdHeader:
+		 + bc
+		 + fa
+		 + fb
+		 + fc
+		 + fx
+		 + ma
+		 + ml
+		 + other_ClassSS
+		 + p
+		 + rt
+		 + tc

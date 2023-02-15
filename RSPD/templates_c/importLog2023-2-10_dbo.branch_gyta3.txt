@@ -1,0 +1,6 @@
+Import into dbo.branch
+10/02/2023 2:13:38 pm
+
+18 out of 18 records processed successfully.
+18 records added.
+0 records updated.

@@ -1,0 +1,1577 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel applicationUnderAssessment view}","hidden":"{$item_hide_view_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"5.5%", 
+							{END col_grid_0}
+												{BEGIN col_grid_1}
+						"5.5%", 
+							{END col_grid_1}
+												{BEGIN col_grid_2}
+						"5.5%", 
+							{END col_grid_2}
+												{BEGIN col_grid_3}
+						"5.5%", 
+							{END col_grid_3}
+												{BEGIN col_grid_4}
+						"5.5%", 
+							{END col_grid_4}
+												{BEGIN col_grid_5}
+						"33%", 
+							{END col_grid_5}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
+			 
+								{BEGIN row_grid_5}
+						
+			"%",
+						{END row_grid_5}
+			 
+								{BEGIN row_grid_6}
+						
+			"%",
+						{END row_grid_6}
+			 
+								{BEGIN row_grid_7}
+						
+			"%",
+						{END row_grid_7}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c17}
+{
+	cellId: 'c17',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c17}
+			colSpan: {$colspan_grid_c17},
+			{END colspan_grid_c17}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment referenceID }","bold":true}," ",{$referenceID_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field62}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment applicationType }","bold":true}," ",{$applicationType_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field29}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment applicationCategory }","bold":true}," ",{$applicationCategory_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field51}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment companyNameA }","bold":true}," ",{$companyNameA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c17}
+																		{ 
+				cellId: 'c17',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c17',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c18}
+{
+	cellId: 'c18',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c18}
+			colSpan: {$colspan_grid_c18},
+			{END colspan_grid_c18}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment externalReferenceNo }","bold":true}," ",{$externalReferenceNo_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field44}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment modeOfOperation }","bold":true}," ",{$modeOfOperation_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field46}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment natureOfService }","bold":true}," ",{$natureOfService_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field49}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c18}
+																		{ 
+				cellId: 'c18',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c18',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+				{END row_grid_0}
+						{BEGIN row_grid_1}
+				[
+																{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c8}
+			colSpan: {$colspan_grid_c8},
+			{END colspan_grid_c8}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"<h2><u>Class of Station or Service</u></h2>","hidden":"{$item_hide_text}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+																		{ 
+				cellId: 'c8',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c8',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c11}
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c11}
+			colSpan: {$colspan_grid_c11},
+			{END colspan_grid_c11}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c11}
+																		{ 
+				cellId: 'c11',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c11',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+				{END row_grid_1}
+						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment rt }","bold":true}," ",{$rt_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field45}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment ml }","bold":true}," ",{$ml_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field54}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment fc }","bold":true}," ",{$fc_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field57}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+																							{BEGIN cellblock_grid_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment tc }","bold":true}," ",{$tc_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field60}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment fx }","bold":true}," ",{$fx_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field52}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment p }","bold":true}," ",{$p_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field55}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c12}
+																							{BEGIN cellblock_grid_c4}
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment fa }","bold":true}," ",{$fa_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field58}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment fb }","bold":true}," ",{$fb_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field53}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment bc }","bold":true}," ",{$bc_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field56}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c4}
+																							{BEGIN cellblock_grid_c7}
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment ma }","bold":true}," ",{$ma_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field59}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment other_ClassSS }","bold":true}," ",{$other_ClassSS_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field61}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c7}
+																							{BEGIN cellblock_grid_c33}
+{
+	cellId: 'c33',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c33}
+																							{BEGIN cellblock_grid_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c2}
+											],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_c10}
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c10}
+			colSpan: {$colspan_grid_c10},
+			{END colspan_grid_c10}
+		
+		
+	
+			
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section2',
+			widths: ['*'],
+			body: [
+				[{text: '<h2><b><u>STATION LOCATIONS</u></b></h2>', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section2_0}
+									"*", 
+								{END col_section2_0}
+															{BEGIN col_section2_1}
+									"*", 
+								{END col_section2_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section2_0}
+				[
+																{BEGIN cellblock_section2_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment siteNameA }","bold":true}," ",{$siteNameA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field2}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment siteIDA }","bold":true}," ",{$siteIDA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field30}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment province_a }","bold":true}," ",{$province_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field36}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment city_a }","bold":true}," ",{$city_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field35}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment zipcode_a }","bold":true}," ",{$zipcode_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field37}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment barangay_a }","bold":true}," ",{$barangay_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field34}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment street_a }","bold":true}," ",{$street_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field33}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment unit_a }","bold":true}," ",{$unit_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field32}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section2_c1}
+																							{BEGIN cellblock_section2_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment siteNameB }","bold":true}," ",{$siteNameB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field3}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment siteIDB }","bold":true}," ",{$siteIDB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field31}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment province_b }","bold":true}," ",{$province_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field42}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment city_b }","bold":true}," ",{$city_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field41}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment zipcode_b }","bold":true}," ",{$zipcode_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field43}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment barangay_b }","bold":true}," ",{$barangay_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field40}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment street_b }","bold":true}," ",{$street_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field39}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment unit_b }","bold":true}," ",{$unit_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field38}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section2_c}
+											],
+				{END row_section2_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+																		{ 
+				cellId: 'c10',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c10',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c10',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+														{ 
+				cellId: 'c10',
+				row:  0,
+				col:  4,
+				text: ''
+			},
+														{ 
+				cellId: 'c10',
+				row:  0,
+				col:  5,
+				text: ''
+			},
+							],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
+				[
+																{BEGIN cellblock_grid_c19}
+{
+	cellId: 'c19',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c19}
+			colSpan: {$colspan_grid_c19},
+			{END colspan_grid_c19}
+		
+		
+	
+			
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section3',
+			widths: ['*'],
+			body: [
+				[{text: '<h2><b><u>COORDINATES</u></b></h2>', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section3_0}
+									"*", 
+								{END col_section3_0}
+															{BEGIN col_section3_1}
+									"*", 
+								{END col_section3_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section3_0}
+				[
+																{BEGIN cellblock_section3_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment longtitudeA }","bold":true}," ",{$longtitudeA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field25}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment latitudeA }","bold":true}," ",{$latitudeA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field27}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment elevationA }","bold":true}," ",{$elevationA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field5}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section3_c1}
+																							{BEGIN cellblock_section3_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment longtitudeB }","bold":true}," ",{$longtitudeB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field26}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment latitudeB }","bold":true}," ",{$latitudeB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field28}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment elevationB }","bold":true}," ",{$elevationB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field6}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section3_c}
+											],
+				{END row_section3_0}
+						{BEGIN row_section3_1}
+				[
+																{BEGIN cellblock_section3_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section3_c3}
+			colSpan: {$colspan_section3_c3},
+			{END colspan_section3_c3}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_radioequipment}
+			{$displayDetailTable_radioequipment }
+		{END details_radioequipment},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section3_c3}
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_section3_1}
+						{BEGIN row_section3_2}
+				[
+																{BEGIN cellblock_section3_c4}
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment callSignA }","bold":true}," ",{$callSignA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field1}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section3_c4}
+																							{BEGIN cellblock_section3_c5}
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment callSignB }","bold":true}," ",{$callSignB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field4}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section3_c5}
+											],
+				{END row_section3_2}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c19}
+																		{ 
+				cellId: 'c19',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c19',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c19',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+														{ 
+				cellId: 'c19',
+				row:  0,
+				col:  4,
+				text: ''
+			},
+														{ 
+				cellId: 'c19',
+				row:  0,
+				col:  5,
+				text: ''
+			},
+							],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
+				[
+																{BEGIN cellblock_grid_c28}
+{
+	cellId: 'c28',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c28}
+			colSpan: {$colspan_grid_c28},
+			{END colspan_grid_c28}
+		
+		
+	
+			
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section4',
+			widths: ['*'],
+			body: [
+				[{text: '<h2><b><u>ANTENNA SYSTEM</u></b></h2>', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section4_0}
+									"*", 
+								{END col_section4_0}
+															{BEGIN col_section4_1}
+									"*", 
+								{END col_section4_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section4_0}
+				[
+																{BEGIN cellblock_section4_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment makeTypeModelA }","bold":true}," ",{$makeTypeModelA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field7}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment gainA }","bold":true}," ",{$gainA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field8}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment diameterA }","bold":true}," ",{$diameterA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field9}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment beamwidthA }","bold":true}," ",{$beamwidthA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field10}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment polarizationA }","bold":true}," ",{$polarizationA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field11}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment azimuthA }","bold":true}," ",{$azimuthA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field12}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment elevAngleA }","bold":true}," ",{$elevAngleA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field13}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment heightAGLA }","bold":true}," ",{$heightAGLA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field14}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment feederLengthA }","bold":true}," ",{$feederLengthA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field15}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section4_c1}
+																							{BEGIN cellblock_section4_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment makeTypeModelB }","bold":true}," ",{$makeTypeModelB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field16}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment gainB }","bold":true}," ",{$gainB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field17}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment diameterB }","bold":true}," ",{$diameterB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field18}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment beamwidthB }","bold":true}," ",{$beamwidthB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field19}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment polarizationB }","bold":true}," ",{$polarizationB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field20}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment azimuthB }","bold":true}," ",{$azimuthB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field21}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment elevAngleB }","bold":true}," ",{$elevAngleB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field22}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment heightAGLB }","bold":true}," ",{$heightAGLB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field23}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment feederLengthB }","bold":true}," ",{$feederLengthB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field24}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section4_c}
+											],
+				{END row_section4_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c28}
+																		{ 
+				cellId: 'c28',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c28',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c28',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+														{ 
+				cellId: 'c28',
+				row:  0,
+				col:  4,
+				text: ''
+			},
+														{ 
+				cellId: 'c28',
+				row:  0,
+				col:  5,
+				text: ''
+			},
+							],
+				{END row_grid_5}
+						{BEGIN row_grid_6}
+				[
+																{BEGIN cellblock_grid_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c}
+			colSpan: {$colspan_grid_c},
+			{END colspan_grid_c}
+		
+		
+	
+			
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section5',
+			widths: ['*'],
+			body: [
+				[{text: '<h2><b><u>OTHERS</u></b></h2>', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section5_0}
+									"*", 
+								{END col_section5_0}
+															{BEGIN col_section5_1}
+									"*", 
+								{END col_section5_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section5_0}
+				[
+																{BEGIN cellblock_section5_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment naturoOfRequest }","bold":true}," ",{$naturoOfRequest_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field63}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment dateOfApprovedBrief }","bold":true}," ",{$dateOfApprovedBrief_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field48}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment recommendations }","bold":true}," ",{$recommendations_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field50}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section5_c1}
+																							{BEGIN cellblock_section5_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment Remarks }","bold":true}," ",{$Remarks_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field47}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section5_c}
+											],
+				{END row_section5_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c}
+																		{ 
+				cellId: 'c',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  0,
+				col:  4,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  0,
+				col:  5,
+				text: ''
+			},
+							],
+				{END row_grid_6}
+						{BEGIN row_grid_7}
+				[
+																{BEGIN cellblock_grid_c5}
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c5}
+			colSpan: {$colspan_grid_c5},
+			{END colspan_grid_c5}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment caseNo }","bold":true}," ",{$caseNo_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field65}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment frequencyRange }","bold":true}," ",{$frequencyRange_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field66}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment encoder }","bold":true}," ",{$encoder_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field68}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment position }","bold":true}," ",{$position_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field70}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c5}
+																		{ 
+				cellId: 'c5',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c5',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c6}
+			colSpan: {$colspan_grid_c6},
+			{END colspan_grid_c6}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment directivity }","bold":true}," ",{$directivity_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field67}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment serviceArea }","bold":true}," ",{$serviceArea_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field64}"},
+				
+				
+			{"text":[{"text":"{$jslabel applicationUnderAssessment evaluator }","bold":true}," ",{$evaluator_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field69}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c6}
+																		{ 
+				cellId: 'c6',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c6',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+				{END row_grid_7}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_view_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_view_close}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+};
+
+pdfFonts = {$pdfFonts};
+  

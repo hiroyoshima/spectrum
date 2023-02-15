@@ -1,0 +1,91 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html lang="en">
+        <head>
+        <title>@(Model.displayVar("reportTitle"))</title>
+		<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+        @foreach (string _style_block in Model.GetSection("style_block", this)){
+		<LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+        <style>@MvcHtmlString.Create(@"
+			.report	{font-size:12px}
+            .report-title		{font:bold 12px arial, verdana, sans serif, helvetica;}
+            table.report		{border-collapse: collapse; border: solid 2px #000;}
+			table.report td	{padding: 3px; border: solid 1px #ccc;}
+            .groupsummary		{border-bottom: solid 1px #000;}
+            td.pagesummary		{background: #ffffbb;}
+            td.globalsummary	{background: #ffefb0;}
+			.page-summary		{border-top: 4px double #333;}
+			select.apply-style	{line-height: 1.4em; width: 90%;}
+			.buttonborder 		{margin-right: 10px;}
+			#wnd_header			{cursor: move;}")@foreach (string _group_field_colors in Model.GetSection("group_field_colors", this)){@MvcHtmlString.Create(@"
+            td.group")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@"		{background: #")@(Model.displayVar("color1"))@MvcHtmlString.Create(@";}
+            td.summary")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@"		{background: #")@(Model.displayVar("color2"))@MvcHtmlString.Create(@";}")}@MvcHtmlString.Create(@"")@(Model.displayVar("styleStr"))@MvcHtmlString.Create(@"")</style>
+
+		@(Model.displayVar("includes"))
+        }
+		<style>@MvcHtmlString.Create(@"
+		.rnr-cv{ overflow-y:visible !important; }")</style>
+    </head>
+<BODY @(Model.displayVar("onload")) class="@(Model.displayVar("wr_pagestylepath"))">
+<div class="rnr-page dreport">
+	<div class="rnr-top ">
+        @foreach (string _grid_block in Model.GetSection("grid_block", this)){
+			foreach (string _data_block in Model.GetSection("data_block", this)){
+				<DIV class="rnr-s-grid @(Model.displayVar("wr_pagestylepath"))">
+    <table class="report runner-b-report" width="100%" cellpadding="1" cellspacing="2" align="center" id="legend">
+	<tr>
+		<td class="group40 class40g class7f class40g7f0u">&nbsp;</td>
+		@foreach (string _group_header in Model.GetSection("group_header", this)){
+			<td class="group40 class40g class1f class40g1f0u">@(Model.displayVar("gr_value"))</td>
+		}
+		@foreach (string _td_row_summary in Model.GetSection("td_row_summary", this)){
+		<td class="globalsummary class40g class8f class40g8f0u" id=totals1>@(Model.displayVar("totals"))</td>
+		}
+	</tr>
+	@foreach (string _grid_row in Model.GetSection("grid_row", this)){
+		<tr>
+			<td class="group40 class40g class2f class40g2f0u">@(Model.displayVar("group_y"))</td>
+			@foreach (string _row_record in Model.GetSection("row_record", this)){
+				<TD class="data class0g class0f class0g0f0u" id=@(Model.displayVar("id_data"))>@(Model.displayVar("row_value"))</td>
+			}
+			@foreach (string _td_row_summary_1 in Model.GetSection("td_row_summary", this)){
+			<TD class="pagesummary class40g class4f class40g4f0u" id=@(Model.displayVar("id_row_summary"))>@(Model.displayVar("row_summary"))</td>
+			}
+		</tr>
+	}
+	<tr>
+		@foreach (string _td_col_summary in Model.GetSection("td_col_summary", this)){
+		<td class="globalsummary class40g class5f class40g5f0u" id=totals2>@(Model.displayVar("totals"))</td>
+		foreach (string _col_summary in Model.GetSection("col_summary", this)){
+			<TD class="pagesummary class40g class3f class40g3f0u" id=@(Model.displayVar("id_col_summary"))>@(Model.displayVar("col_summary"))</td>
+		}
+		foreach (string _td_total_summary in Model.GetSection("td_total_summary", this)){
+		<td class="pagesummary class40g class6f class40g6f0u" id="id_total_summary"}>@(Model.displayVar("total_summary"))</td>
+		}
+		}
+	</tr>
+	 </table>
+			</div>
+			}
+	}
+	</div>
+</div>
+
+@(Model.displayVar("bodyend"))
+
+</body>
+</html>

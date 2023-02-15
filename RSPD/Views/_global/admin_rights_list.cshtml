@@ -1,0 +1,643 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-admin_rights_list">
+	@foreach (string _body in Model.GetSection("body", this)){
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+		<div class="r-vbar-page">
+			<DIV data-width="250px" data-fixed class="r-left clearfix @(Model.displayVar("leftbar_class"))">
+								<DIV data-location="left" id="form_left_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_left")) data-pageid="@(Model.displayVar("pageid"))">
+@foreach (string _left_block in Model.GetSection("left_block", this)){
+ 
+     
+         
+
+			<DIV data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell class="clearfix " data-itemid="logo" @(Model.displayVar("item_logo"))>
+				@foreach (string _logo_block in Model.GetSection("logo_block", this)){
+	<A data-itemtype="logo" data-itemid="logo" @(Model.displayVar("item_logo")) data-pageid="@(Model.displayVar("pageid"))" class="navbar-brand" href="@(Model.displayVar("home_link"))" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("logo_hiddenattr"))>
+		@(Model.displayVar("logo"))
+	</A>
+}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<DIV class="clearfix " data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-topcell-item-type="expand_button">
+				<SPAN data-itemtype="expand_button" data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Expand" class="btn btn-link   
+	" href="#">
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<DIV data-cellId="left_c1" data-pageid="@(Model.displayVar("pageid"))" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))">
+				@foreach (string _menuitems_adminarea in Model.GetSection("menuitems_adminarea", this)){
+<UL data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))" class="r-menu nav navbar-nav" data-menulevel="1">
+
+@foreach (string _item_children1 in Model.GetSection("item_children1", this)){
+<LI class="
+	@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}} 
+	@(Model.displayVar("item_current"))">
+<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v data-menu-top>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link r-menu-expanded "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+		<span class="r-menu-collapsed">@(Model.displayVar("item_collicon"))@(Model.displayVar("item_firstcap"))</span>
+	</a>
+@foreach (string _item_showchildren2 in Model.GetSection("item_showchildren2", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="2">
+	@foreach (string _item_children2 in Model.GetSection("item_children2", this)){
+		foreach (string _item_menulink2 in Model.GetSection("item_menulink2", this)){
+		<LI class="
+						@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2_1 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon_1 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren3 in Model.GetSection("item_showchildren3", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="3">
+	@foreach (string _item_children3 in Model.GetSection("item_children3", this)){
+		foreach (string _item_menulink3 in Model.GetSection("item_menulink3", this)){
+		<LI class="
+						@{foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){
+		foreach (string _item_expand_icon_2 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren4 in Model.GetSection("item_showchildren4", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="4">
+	@foreach (string _item_children4 in Model.GetSection("item_children4", this)){
+		foreach (string _item_menulink4 in Model.GetSection("item_menulink4", this)){
+		<LI class="
+						@{foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){
+		foreach (string _item_expand_icon_3 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren5 in Model.GetSection("item_showchildren5", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="5">
+	@foreach (string _item_children5 in Model.GetSection("item_children5", this)){
+		foreach (string _item_menulink5 in Model.GetSection("item_menulink5", this)){
+		<LI class="
+						@{foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){
+		foreach (string _item_expand_icon_4 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+					</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+</li>
+}
+</ul>
+}
+			</div>
+		
+    }
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									@foreach (string _supertop_block in Model.GetSection("supertop_block", this)){
+<NAV class="navbar navbar-default" data-location="supertop" id="form_supertop_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_supertop")) data-pageid="@(Model.displayVar("pageid"))">
+			 
+							 
+				<SPAN class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-topcell-item-type="expand_menu_button">
+				<SPAN data-itemtype="expand_menu_button" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#">		
+				
+								</a>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-topcell-item-type="collapse_button">
+				<SPAN data-itemtype="collapse_button" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#">		
+				
+								</a>
+</span>
+			</span>
+							 
+							 
+				<SPAN class="navbar-form r-align-right r-ori-vert navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-topcell-item-type="username_button">
+				@foreach (string _loggedas_message in Model.GetSection("loggedas_message", this)){
+<SPAN data-itemtype="username_button" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			@foreach (string _userbutton_icon in Model.GetSection("userbutton_icon", this)){							<span class="glyphicon glyphicon-user"></span>
+						}@(Model.displayVar("userbutton_image"))			@(Model.displayVar("username"))			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							@foreach (string _userinfo_link in Model.GetSection("userinfo_link", this)){
+	<LI data-itemtype="userinfo_link" data-itemid="userinfo_link" @(Model.displayVar("item_userinfo_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="userinfo" title>
+				
+		User Profile		
+		</a>
+	</li>
+}
+							@foreach (string _logoutbutton in Model.GetSection("logoutbutton", this)){
+	<LI data-itemtype="logout_link" data-itemid="logout_link" @(Model.displayVar("item_logout_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("logoutlink_attrs")) title>
+				
+		Log out		
+		</a>
+	</li>
+}
+							@foreach (string _exitadminarea_link in Model.GetSection("exitadminarea_link", this)){
+	<LI data-itemtype="exit_adminarea_link" data-itemid="exit_adminarea_link" @(Model.displayVar("item_exit_adminarea_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("exitaalink_attrs")) title>
+				
+		Exit Admin Area		
+		</a>
+	</li>
+}
+					</ul>
+	</span>
+</span>
+}
+			</span>
+								</nav>
+}
+						@(Model.displayVar("locking"))
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					@{Html.RenderSharedView("header");}
+					<div class="r-top">
+									@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="r-form" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	</div>		
+}
+						</div>
+											<div class="r-above">
+					@foreach (string _above_grid_block in Model.GetSection("above-grid_block", this)){
+<DIV class="r-form" data-location="above-grid" id="form_above-grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_above-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c1")) class="			col-md-6
+	
+">
+		@foreach (string _firstAboveGridCell in Model.GetSection("firstAboveGridCell", this)){
+		 
+		<SPAN data-itemtype="rights_save" data-itemid="rights_save" @(Model.displayVar("item_rights_save")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" @(Model.displayVar("savebutton_attrs"))>
+							Save			</a>
+</span>
+	 
+		<SPAN data-itemtype="rights_reset" data-itemid="rights_reset" @(Model.displayVar("item_rights_reset")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" @(Model.displayVar("resetbutton_attrs"))>
+							Reset			</a>
+</span>
+			}	
+	</div>			 
+				<DIV data-cellId="above-grid_c2" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c2")) class="r-align-right			col-md-6
+	
+">
+		 
+		<SPAN data-itemtype="rights_displaying_tables" data-itemid="rights_displaying_tables" @(Model.displayVar("item_rights_displaying_tables")) data-pageid="@(Model.displayVar("pageid"))">
+Show tables:	<span id=linkselectFilter class="">
+		<span class="btn-link dropdown-toggle inline-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">all</span>
+		<ul class="dropdown-menu">
+			<li data-value="all" ><A href="#">all</a></li>
+			<li data-value="modified" ><A href="#">modified only</a></li>
+		</ul>
+	</span>
+</span>
+	 
+		<SPAN data-itemtype="rights_ordering_tables" data-itemid="rights_ordering_tables" @(Model.displayVar("item_rights_ordering_tables")) data-pageid="@(Model.displayVar("pageid"))">
+Order tables	<span id=linkselectOrder >
+		<span class="btn-link dropdown-toggle inline-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">as in menu</span>
+		<ul class="dropdown-menu">
+			<li data-value="menu" ><A href="#">as in menu</a></li>
+			<li data-value="alpha" ><A href="#">alphabetically</a></li>
+		</ul>
+	</span>
+</span>
+		</div>					</div>
+			 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c4" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c4")) class="r-align-right			col-md-12
+	
+">
+		 
+		<SPAN data-itemtype="rights_add_group" data-itemid="rights_add_group" @(Model.displayVar("item_rights_add_group")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" data-add-group data-type="%db" data-provider="00" >
+							@(Model.displayVar("mlp_push"))@(Model.mlang_message("AA_ADDGROUP"))@(Model.displayVar("mlp_pop"))			</a>
+</span>
+	 
+		<SPAN data-itemtype="rights_del_group" data-itemid="rights_del_group" @(Model.displayVar("item_rights_del_group")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" @(Model.displayVar("delgroup_attrs"))>
+							Del group			</a>
+</span>
+	 
+		<SPAN data-itemtype="rights_rename_group" data-itemid="rights_rename_group" @(Model.displayVar("item_rights_rename_group")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" @(Model.displayVar("rengroup_attrs"))>
+							Rename			</a>
+</span>
+	 
+		<SPAN data-itemtype="rights_copy_permissions" data-itemid="rights_copy_permissions" @(Model.displayVar("item_rights_copy_permissions")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<a type="button" title="" class="btn btn-info   
+	" id="copyPermissions" >
+							Copy permissions from ...			</a>
+</span>
+		</div>					</div>
+			</div>		
+}
+	</div>
+<div class="r-grid">
+	@foreach (string _grid_tabs in Model.GetSection("grid_tabs", this)){
+  <ul class="nav nav-tabs bsgrid_tabs">
+	@(Model.displayVar("grid_tabs_content"))
+  </ul>
+}
+					<ul data-groups class="nav nav-tabs" >
+@foreach (string _groups in Model.GetSection("groups", this)){
+  <LI role="presentation" class="@(Model.displayVar("group_class"))"> <A href="#" @(Model.displayVar("group_attrs"))>@(Model.displayVar("groupname"))</a> </li>
+}
+</ul>
+@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+	<TABLE class="r-fluid table table-bordered rightsTable menuordered" cellpadding="0" data-location="grid" id="form_grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_grid")) data-pageid="@(Model.displayVar("pageid"))">
+										<thead>
+											<tr >
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_search" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<DIV data-itemtype="rights_search" data-itemid="rights_search" @(Model.displayVar("item_rights_search")) data-pageid="@(Model.displayVar("pageid"))">
+	<INPUT class="form-control" type=search id="tableRightsSearch" placeholder="search" />			
+</div>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_a" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_name_a" data-itemid="rights_name_a" @(Model.displayVar("item_rights_name_a")) data-pageid="@(Model.displayVar("pageid"))"> 
+	Add</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_e" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_name_e" data-itemid="rights_name_e" @(Model.displayVar("item_rights_name_e")) data-pageid="@(Model.displayVar("pageid"))"> 
+	Edit</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_d" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_name_d" data-itemid="rights_name_d" @(Model.displayVar("item_rights_name_d")) data-pageid="@(Model.displayVar("pageid"))"> 
+	Delete</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_s" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_name_s" data-itemid="rights_name_s" @(Model.displayVar("item_rights_name_s")) data-pageid="@(Model.displayVar("pageid"))"> 
+	List/View</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_p" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_name_p" data-itemid="rights_name_p" @(Model.displayVar("item_rights_name_p")) data-pageid="@(Model.displayVar("pageid"))"> 
+	Print/Export</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_i" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_name_i" data-itemid="rights_name_i" @(Model.displayVar("item_rights_name_i")) data-pageid="@(Model.displayVar("pageid"))"> 
+	Import</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_m" data-pageid="@(Model.displayVar("pageid"))" data-page="_global_admin_rights_list">
+ 
+<SPAN data-itemtype="rights_name_m" data-itemid="rights_name_m" @(Model.displayVar("item_rights_name_m")) data-pageid="@(Model.displayVar("pageid"))"> 
+	Admin mode</span>
+ 
+<SPAN data-itemtype="rights_name_m1" data-itemid="rights_name_m1" @(Model.displayVar("item_rights_name_m1")) data-pageid="@(Model.displayVar("pageid"))"> 
+	access to all records</span>
+</td>
+							</tr>
+											<tr >
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_expand" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_expand_all" data-itemid="rights_expand_all" @(Model.displayVar("item_rights_expand_all")) data-pageid="@(Model.displayVar("pageid"))"> 
+	<A href="#" id="expandAll">expand all</a>
+</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_a" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_a" data-itemid="rights_checkbox_all_a" @(Model.displayVar("item_rights_checkbox_all_a")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("A_headcheckbox"))></span>
+	</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_e" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_e" data-itemid="rights_checkbox_all_e" @(Model.displayVar("item_rights_checkbox_all_e")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("E_headcheckbox"))></span>
+	</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_d" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_d" data-itemid="rights_checkbox_all_d" @(Model.displayVar("item_rights_checkbox_all_d")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("D_headcheckbox"))></span>
+	</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_s" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_s" data-itemid="rights_checkbox_all_s" @(Model.displayVar("item_rights_checkbox_all_s")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("S_headcheckbox"))></span>
+	</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_p" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_p" data-itemid="rights_checkbox_all_p" @(Model.displayVar("item_rights_checkbox_all_p")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("P_headcheckbox"))></span>
+	</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_i" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_i" data-itemid="rights_checkbox_all_i" @(Model.displayVar("item_rights_checkbox_all_i")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("I_headcheckbox"))></span>
+	</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_headcell_all_m" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_all_m" data-itemid="rights_checkbox_all_m" @(Model.displayVar("item_rights_checkbox_all_m")) data-pageid="@(Model.displayVar("pageid"))">
+		<SPAN class="r-admin-checkbox columnheader" @(Model.displayVar("M_headcheckbox"))></span>
+	</span>
+</td>
+							</tr>
+															
+					</thead>
+													<tbody>
+			@foreach (string _grid_row in Model.GetSection("grid_row", this)){
+																									<TR @(Model.displayVar("table_row_attrs"))>
+									<TD class="			" data-cellId="grid_cell_table" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_table" data-itemid="rights_checkbox_table" @(Model.displayVar("item_rights_checkbox_table")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _tablecheckbox in Model.GetSection("tablecheckbox", this)){ 	<SPAN class="r-admin-checkbox rowheader" @(Model.displayVar("tablecheckbox_attrs"))></span>
+	} </span>
+ 
+<SPAN data-itemtype="rights_table" data-itemid="rights_table" @(Model.displayVar("item_rights_table")) data-pageid="@(Model.displayVar("pageid"))"> 
+@(Model.displayVar("tablename"))
+</span>
+ 
+<SPAN data-itemtype="rights_show_pages" data-itemid="rights_show_pages" @(Model.displayVar("item_rights_show_pages")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn-link   
+	 " href="javascript:void(0)" @(Model.displayVar("show_pages_attrs"))>		
+				
+					show pages			</a>
+</span>
+ 
+<SPAN data-itemtype="rights_hide_pages" data-itemid="rights_hide_pages" @(Model.displayVar("item_rights_hide_pages")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn-link   
+	 " href="javascript:void(0)" @(Model.displayVar("hide_pages_attrs"))>		
+				
+					hide pages			</a>
+</span>
+ 
+<SPAN data-itemtype="rights_group_expander" data-itemid="rights_group_expander" @(Model.displayVar("item_rights_group_expander")) data-pageid="@(Model.displayVar("pageid"))"> 
+@foreach (string _groupControl in Model.GetSection("groupControl", this)){
+	<span data-group-expander class="menu-triangle glyphicon glyphicon-triangle-right"></span>
+}
+</span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_a" data-pageid="@(Model.displayVar("pageid"))" data-col="A" @(Model.displayVar("A_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_a" data-itemid="rights_checkbox_a" @(Model.displayVar("item_rights_checkbox_a")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _A_group in Model.GetSection("A_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("A_checkbox")) data-permission="A"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_e" data-pageid="@(Model.displayVar("pageid"))" data-col="E" @(Model.displayVar("E_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_e" data-itemid="rights_checkbox_e" @(Model.displayVar("item_rights_checkbox_e")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _E_group in Model.GetSection("E_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("E_checkbox")) data-permission="E"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_d" data-pageid="@(Model.displayVar("pageid"))" data-col="D" @(Model.displayVar("D_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_d" data-itemid="rights_checkbox_d" @(Model.displayVar("item_rights_checkbox_d")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _D_group in Model.GetSection("D_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("D_checkbox")) data-permission="D"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_s" data-pageid="@(Model.displayVar("pageid"))" data-col="S" @(Model.displayVar("S_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_s" data-itemid="rights_checkbox_s" @(Model.displayVar("item_rights_checkbox_s")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _S_group in Model.GetSection("S_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("S_checkbox")) data-permission="S"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_p" data-pageid="@(Model.displayVar("pageid"))" data-col="P" @(Model.displayVar("P_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_p" data-itemid="rights_checkbox_p" @(Model.displayVar("item_rights_checkbox_p")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _P_group in Model.GetSection("P_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("P_checkbox")) data-permission="P"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_i" data-pageid="@(Model.displayVar("pageid"))" data-col="I" @(Model.displayVar("I_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_i" data-itemid="rights_checkbox_i" @(Model.displayVar("item_rights_checkbox_i")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _I_group in Model.GetSection("I_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("I_checkbox")) data-permission="I"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_m" data-pageid="@(Model.displayVar("pageid"))" data-col="M" @(Model.displayVar("M_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_m" data-itemid="rights_checkbox_m" @(Model.displayVar("item_rights_checkbox_m")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _M_group in Model.GetSection("M_group", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("M_checkbox")) data-permission="M"></span>
+	} </span>
+</td>
+							</tr>
+										
+												foreach (string _page_row in Model.GetSection("page_row", this)){
+																														<TR @(Model.displayVar("page_row_attrs"))>
+									<TD class="			" data-cellId="grid_cell_page" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<SPAN data-itemtype="rights_checkbox_page" data-itemid="rights_checkbox_page" @(Model.displayVar("item_rights_checkbox_page")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _pagebox in Model.GetSection("pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("pagecheckbox")) data-permission="undefined"></span>
+	} </span>
+ 
+<SPAN data-itemtype="rights_page" data-itemid="rights_page" @(Model.displayVar("item_rights_page")) data-pageid="@(Model.displayVar("pageid"))">
+@(Model.displayVar("rights_page"))
+</span></td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_a" data-pageid="@(Model.displayVar("pageid"))" data-col="A" @(Model.displayVar("A_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_page_a" data-itemid="rights_checkbox_page_a" @(Model.displayVar("item_rights_checkbox_page_a")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _A_pagebox in Model.GetSection("A_pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("A_pagecheckbox")) data-permission="A"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_e" data-pageid="@(Model.displayVar("pageid"))" data-col="E" @(Model.displayVar("E_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_page_e" data-itemid="rights_checkbox_page_e" @(Model.displayVar("item_rights_checkbox_page_e")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _E_pagebox in Model.GetSection("E_pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("E_pagecheckbox")) data-permission="E"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_d" data-pageid="@(Model.displayVar("pageid"))" data-col="D" @(Model.displayVar("D_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_page_d" data-itemid="rights_checkbox_page_d" @(Model.displayVar("item_rights_checkbox_page_d")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _D_pagebox in Model.GetSection("D_pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("D_pagecheckbox")) data-permission="D"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_s" data-pageid="@(Model.displayVar("pageid"))" data-col="S" @(Model.displayVar("S_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_page_s" data-itemid="rights_checkbox_page_s" @(Model.displayVar("item_rights_checkbox_page_s")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _S_pagebox in Model.GetSection("S_pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("S_pagecheckbox")) data-permission="S"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_p" data-pageid="@(Model.displayVar("pageid"))" data-col="P" @(Model.displayVar("P_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_page_p" data-itemid="rights_checkbox_page_p" @(Model.displayVar("item_rights_checkbox_page_p")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _P_pagebox in Model.GetSection("P_pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("P_pagecheckbox")) data-permission="P"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_i" data-pageid="@(Model.displayVar("pageid"))" data-col="I" @(Model.displayVar("I_cell"))>
+ 
+<SPAN data-itemtype="rights_checkbox_page_i" data-itemid="rights_checkbox_page_i" @(Model.displayVar("item_rights_checkbox_page_i")) data-pageid="@(Model.displayVar("pageid"))">
+	@foreach (string _I_pagebox in Model.GetSection("I_pagebox", this)){ 	<SPAN class="r-admin-checkbox " @(Model.displayVar("I_pagecheckbox")) data-permission="I"></span>
+	} </span>
+</td>
+									<TD class=" r-ori-vert			" data-cellId="grid_cell_page_m" data-pageid="@(Model.displayVar("pageid"))">
+</td>
+							</tr>
+					
+						}
+			}
+			</tbody>
+	</table>
+}
+
+	</div>
+<div class="r-below">
+					@foreach (string _below_grid_block in Model.GetSection("below-grid_block", this)){
+<DIV class="r-form" data-location="below-grid" id="form_below-grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_below-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="below-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_below-grid_c1")) class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+}
+	</div>
+
+
+
+
+										@{Html.RenderSharedView("footer");}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	}
+	</body>
+</html>

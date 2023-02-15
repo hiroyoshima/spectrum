@@ -1,0 +1,1764 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-list">
+	@foreach (string _body in Model.GetSection("body", this)){
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+		<div class="r-vbar-page">
+			<DIV data-width="250px" data-fixed class="r-left clearfix @(Model.displayVar("leftbar_class"))">
+								<DIV data-location="left" id="form_left_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_left")) data-pageid="@(Model.displayVar("pageid"))">
+@foreach (string _left_block in Model.GetSection("left_block", this)){
+ 
+     
+         
+
+			<DIV data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell class="clearfix " data-itemid="logo" @(Model.displayVar("item_logo"))>
+				@foreach (string _logo_block in Model.GetSection("logo_block", this)){
+	<A data-itemtype="logo" data-itemid="logo" @(Model.displayVar("item_logo")) data-pageid="@(Model.displayVar("pageid"))" class="navbar-brand" href="@(Model.displayVar("home_link"))" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("logo_hiddenattr"))>
+		@(Model.displayVar("logo"))
+	</A>
+}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<DIV class="clearfix " data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-topcell-item-type="expand_button">
+				<SPAN data-itemtype="expand_button" data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Expand" class="btn btn-link   
+	" href="#">
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<DIV data-cellId="left_c1" data-pageid="@(Model.displayVar("pageid"))" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))">
+				@foreach (string _menuitems_main in Model.GetSection("menuitems_main", this)){
+<UL data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))" class="r-menu nav navbar-nav" data-menulevel="1">
+
+@foreach (string _item_children1 in Model.GetSection("item_children1", this)){
+<LI class="
+	@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}} 
+	@(Model.displayVar("item_current"))">
+<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v data-menu-top>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link r-menu-expanded "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+		<span class="r-menu-collapsed">@(Model.displayVar("item_collicon"))@(Model.displayVar("item_firstcap"))</span>
+	</a>
+@foreach (string _item_showchildren2 in Model.GetSection("item_showchildren2", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="2">
+	@foreach (string _item_children2 in Model.GetSection("item_children2", this)){
+		foreach (string _item_menulink2 in Model.GetSection("item_menulink2", this)){
+		<LI class="
+						@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2_1 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon_1 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren3 in Model.GetSection("item_showchildren3", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="3">
+	@foreach (string _item_children3 in Model.GetSection("item_children3", this)){
+		foreach (string _item_menulink3 in Model.GetSection("item_menulink3", this)){
+		<LI class="
+						@{foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){
+		foreach (string _item_expand_icon_2 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren4 in Model.GetSection("item_showchildren4", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="4">
+	@foreach (string _item_children4 in Model.GetSection("item_children4", this)){
+		foreach (string _item_menulink4 in Model.GetSection("item_menulink4", this)){
+		<LI class="
+						@{foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){
+		foreach (string _item_expand_icon_3 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren5 in Model.GetSection("item_showchildren5", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="5">
+	@foreach (string _item_children5 in Model.GetSection("item_children5", this)){
+		foreach (string _item_menulink5 in Model.GetSection("item_menulink5", this)){
+		<LI class="
+						@{foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){
+		foreach (string _item_expand_icon_4 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+					</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+</li>
+}
+</ul>
+}
+			</div>
+		
+ 
+
+			<DIV class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="search_panel" @(Model.displayVar("item_search_panel")) data-topcell-item-type="search_panel">
+				<!-- Begin Search panel content -->
+<DIV class="searchOptions panel panel-primary searchPanelContainer " @(Model.displayVar("srchOpt_attrs")) data-itemtype="search_panel" data-itemid="search_panel" @(Model.displayVar("item_search_panel")) data-pageid="@(Model.displayVar("pageid"))">
+
+	<div class="panel-heading">
+		<DIV class="btn-group r-sp-addfield" id="addSearchFieldButton@(Model.displayVar("id"))">
+			<BUTTON id="showHideControlChooseMenu@(Model.displayVar("id"))" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<DIV class="btn-group r-sp-options" id="searchPanelOptions@(Model.displayVar("id"))">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<LI id="showHideSearchType@(Model.displayVar("id"))" @(Model.displayVar("showHideCtrlsOpt_attrs"))><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><INPUT type="radio" name="srchType@(Model.displayVar("id"))" id="radioAll" @(Model.displayVar("all_checkbox")) /><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><INPUT type="radio" name="srchType@(Model.displayVar("id"))" id="radioAny" @(Model.displayVar("any_checkbox")) /><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<DIV class="panel-body controlsBlock" @(Model.displayVar("bottomSearchButt_attrs"))>
+
+
+		
+		@foreach (string _searchCtrlBlock in Model.GetSection("searchCtrlBlock", this)){
+		<DIV class="srchPanelRow form-group" @(Model.displayVar("filterRow_attrs"))>
+			<label>@(Model.displayVar("fLabel"))</label>	@(Model.displayVar("delCtrlButt"))
+				<span class="rnr-searchtype">@(Model.displayVar("searchtype"))</span>
+				<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol"))</span>
+				<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1"))</span>
+		</div>
+		}
+																		@foreach (string _searchCtrlBlock_BWEA in Model.GetSection("searchCtrlBlock_BWEA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_BWEA"))" @(Model.displayVar("filterRow_attrs_BWEA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment BWEA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_BWEA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_BWEA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_BWEA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_frequencyRangeB in Model.GetSection("searchCtrlBlock_frequencyRangeB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_frequencyRangeB"))" @(Model.displayVar("filterRow_attrs_frequencyRangeB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment frequencyRangeB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_frequencyRangeB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_frequencyRangeB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_frequencyRangeB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_frequencyRange in Model.GetSection("searchCtrlBlock_frequencyRange", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_frequencyRange"))" @(Model.displayVar("filterRow_attrs_frequencyRange"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment frequencyRange"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_frequencyRange"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_frequencyRange"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_frequencyRange"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_rxB in Model.GetSection("searchCtrlBlock_rxB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_rxB"))" @(Model.displayVar("filterRow_attrs_rxB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment rxB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_rxB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_rxB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_rxB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_rxA in Model.GetSection("searchCtrlBlock_rxA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_rxA"))" @(Model.displayVar("filterRow_attrs_rxA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment rxA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_rxA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_rxA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_rxA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_txB in Model.GetSection("searchCtrlBlock_txB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_txB"))" @(Model.displayVar("filterRow_attrs_txB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment txB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_txB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_txB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_txB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_txA in Model.GetSection("searchCtrlBlock_txA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_txA"))" @(Model.displayVar("filterRow_attrs_txA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment txA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_txA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_txA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_txA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_serialNoB in Model.GetSection("searchCtrlBlock_serialNoB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_serialNoB"))" @(Model.displayVar("filterRow_attrs_serialNoB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment serialNoB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_serialNoB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_serialNoB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_serialNoB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_serialNoA in Model.GetSection("searchCtrlBlock_serialNoA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_serialNoA"))" @(Model.displayVar("filterRow_attrs_serialNoA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment serialNoA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_serialNoA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_serialNoA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_serialNoA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_powerB in Model.GetSection("searchCtrlBlock_powerB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_powerB"))" @(Model.displayVar("filterRow_attrs_powerB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment powerB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_powerB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_powerB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_powerB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_powerA in Model.GetSection("searchCtrlBlock_powerA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_powerA"))" @(Model.displayVar("filterRow_attrs_powerA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment powerA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_powerA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_powerA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_powerA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_modB in Model.GetSection("searchCtrlBlock_modB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_modB"))" @(Model.displayVar("filterRow_attrs_modB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment modB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_modB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_modB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_modB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_modA in Model.GetSection("searchCtrlBlock_modA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_modA"))" @(Model.displayVar("filterRow_attrs_modA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment modA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_modA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_modA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_modA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_makeModelB in Model.GetSection("searchCtrlBlock_makeModelB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_makeModelB"))" @(Model.displayVar("filterRow_attrs_makeModelB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment makeModelB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_makeModelB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_makeModelB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_makeModelB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_makeModelA in Model.GetSection("searchCtrlBlock_makeModelA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_makeModelA"))" @(Model.displayVar("filterRow_attrs_makeModelA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment makeModelA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_makeModelA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_makeModelA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_makeModelA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_id in Model.GetSection("searchCtrlBlock_id", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_id"))" @(Model.displayVar("filterRow_attrs_id"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment id"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_id"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_id"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_id"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_capacityB in Model.GetSection("searchCtrlBlock_capacityB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_capacityB"))" @(Model.displayVar("filterRow_attrs_capacityB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment capacityB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_capacityB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_capacityB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_capacityB"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_capacityA in Model.GetSection("searchCtrlBlock_capacityA", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_capacityA"))" @(Model.displayVar("filterRow_attrs_capacityA"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment capacityA"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_capacityA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_capacityA"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_capacityA"))</span>
+						</div>
+		}
+																@foreach (string _searchCtrlBlock_BWEB in Model.GetSection("searchCtrlBlock_BWEB", this)){
+
+
+		<DIV class="form-group srchPanelRow @(Model.displayVar("filterRow_class_BWEB"))" @(Model.displayVar("filterRow_attrs_BWEB"))>
+			<label>@(Model.displayVar("label dbo_radioEquipment BWEB"))</label>
+
+							@(Model.displayVar("delCtrlButt"))
+			
+								<span class="rnr-searchtype">@(Model.displayVar("searchtype_BWEB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol_BWEB"))</span>
+								<span class="rnr-searchcontrol">@(Model.displayVar("searchcontrol1_BWEB"))</span>
+						</div>
+		}
+		
+
+	</div>
+
+	<DIV class="panel-footer bottomSearchButt" @(Model.displayVar("bottomSearchButt_attrs"))>
+		<BUTTON class="btn btn-primary btn-sm" id="searchButton@(Model.displayVar("id"))" @(Model.displayVar("searchbutton_attrs"))>Search</button>
+
+				<BUTTON class="btn btn-default btn-sm" @(Model.displayVar("showAllCont_attrs")) @(Model.displayVar("showallbutton_attrs"))>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			</div>
+		
+    }
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									@foreach (string _supertop_block in Model.GetSection("supertop_block", this)){
+<NAV class="navbar navbar-default" data-location="supertop" id="form_supertop_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_supertop")) data-pageid="@(Model.displayVar("pageid"))">
+			 
+							 
+				<SPAN class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-topcell-item-type="expand_menu_button">
+				<SPAN data-itemtype="expand_menu_button" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#">		
+				
+								</a>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-topcell-item-type="collapse_button">
+				<SPAN data-itemtype="collapse_button" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#">		
+				
+								</a>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="breadcrumb" @(Model.displayVar("item_breadcrumb")) data-topcell-item-type="breadcrumb">
+				@foreach (string _breadcrumb in Model.GetSection("breadcrumb", this)){
+<OL class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" @(Model.displayVar("item_breadcrumb")) data-pageid="@(Model.displayVar("pageid"))">
+<li ><A href="@(Model.displayVar("crumb_home_link"))"><span class="glyphicon glyphicon-home"></span></a>@(Model.displayVar("crumb_dropdown"))</li>
+@foreach (string _crumb in Model.GetSection("crumb", this)){
+  <LI class="@(Model.displayVar("crumb_item_class"))">
+@foreach (string _crumb_title_link in Model.GetSection("crumb_title_link", this)){
+	<A @(Model.displayVar("crumb_attrs"))>@(Model.displayVar("crumb_title"))</a>
+}
+@foreach (string _crumb_title_span in Model.GetSection("crumb_title_span", this)){
+	<SPAN @(Model.displayVar("crumb_attrs"))>@(Model.displayVar("crumb_title"))</span>
+}	
+	@(Model.displayVar("crumb_dropdown"))
+  </li>
+}
+</ol>
+}			</span>
+							 
+							 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="simple_search" @(Model.displayVar("item_simple_search")) data-topcell-item-type="simple_search">
+				<SPAN data-itemtype="simple_search" data-itemid="simple_search" @(Model.displayVar("item_simple_search")) data-pageid="@(Model.displayVar("pageid"))" class="form-group">
+
+<div  class="input-group">
+@foreach (string _searchform_text in Model.GetSection("searchform_text", this)){
+	<INPUT type="search" class="form-control" @(Model.displayVar("searchfor_attrs")) size="25" />
+}
+	<span class="input-group-btn">
+	@foreach (string _searchform_showall in Model.GetSection("searchform_showall", this)){
+				<BUTTON class="btn btn-default" @(Model.displayVar("showAllCont_attrs")) @(Model.displayVar("showallbutton_attrs")) title="Show all">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	}
+
+	@foreach (string _searchform_search in Model.GetSection("searchform_search", this)){
+	<BUTTON @(Model.displayVar("searchbutton_attrs")) class="btn btn-primary">
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+	}
+	</span>
+</div>
+		
+</span>			</span>
+		 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="list_options" @(Model.displayVar("item_list_options")) data-topcell-item-type="list_options">
+				<SPAN data-itemtype="list_options" data-itemid="list_options" @(Model.displayVar("item_list_options")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							@foreach (string _editselected_link in Model.GetSection("editselected_link", this)){
+	<LI data-itemtype="edit_selected" data-itemid="edit_selected" @(Model.displayVar("item_edit_selected")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("editselectedlink_attrs")) @(Model.displayVar("editselectedlink_span")) title>
+				
+		Edit selected		
+		</a>
+	</li>
+}
+							@foreach (string _exportselected_link in Model.GetSection("exportselected_link", this)){
+	<LI data-itemtype="export_selected" data-itemid="export_selected" @(Model.displayVar("item_export_selected")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("exportselectedlink_attrs")) @(Model.displayVar("exportselectedlink_span")) title>
+				
+		Export selected		
+		</a>
+	</li>
+}
+							@foreach (string _deleteselected_link in Model.GetSection("deleteselected_link", this)){
+	<LI data-itemtype="delete_selected" data-itemid="delete_selected" @(Model.displayVar("item_delete_selected")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("deleteselectedlink_attrs")) @(Model.displayVar("deleteselectedlink_span")) title>
+				
+		Delete selected		
+		</a>
+	</li>
+}
+							<li role="separator" class="divider"></li>								<LI data-itemtype="advsearch_link" data-itemid="advsearch_link" @(Model.displayVar("item_advsearch_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="radioequipment/search@(Model.displayVar("stateLink_full"))" @(Model.displayVar("advsearchlink_attrs")) title>
+				
+		Advanced search		
+		</a>
+	</li>
+							@foreach (string _searchPanelTopButtons in Model.GetSection("searchPanelTopButtons", this)){
+	<LI data-itemtype="show_search_panel" data-itemid="show_search_panel" @(Model.displayVar("item_show_search_panel")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A id="showOptPanel@(Model.displayVar("id"))" title>
+				
+		Show search panel		
+		</a>
+	</li>
+}
+							@foreach (string _searchPanelTopButtons_1 in Model.GetSection("searchPanelTopButtons", this)){
+	<LI data-itemtype="hide_search_panel" data-itemid="hide_search_panel" @(Model.displayVar("item_hide_search_panel")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A id="hideOptPanel@(Model.displayVar("id"))" title>
+				
+		Hide search panel		
+		</a>
+	</li>
+}
+							<li role="separator" class="divider"></li>							@foreach (string _export_link in Model.GetSection("export_link", this)){
+	<LI data-itemtype="export" data-itemid="export" @(Model.displayVar("item_export")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("exportlink_attrs")) title>
+				
+		Export results		
+		</a>
+	</li>
+}
+							<li role="separator" class="divider"></li>							@foreach (string _import_link in Model.GetSection("import_link", this)){
+	<LI data-itemtype="import" data-itemid="import" @(Model.displayVar("item_import")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A @(Model.displayVar("importlink_attrs")) href="radioequipment/import@(Model.displayVar("stateLink_full"))" title>
+				
+		Import		
+		</a>
+	</li>
+}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="loginform_login" @(Model.displayVar("item_loginform_login")) data-topcell-item-type="loginform_login">
+				@foreach (string _guestloginbutton in Model.GetSection("guestloginbutton", this)){
+<SPAN data-itemtype="loginform_login" data-itemid="loginform_login" @(Model.displayVar("item_loginform_login")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" href="#" @(Model.displayVar("guestloginlink_attrs"))>
+							Login			</a>
+</span>
+}
+			</span>
+		 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-topcell-item-type="username_button">
+				@foreach (string _loggedas_message in Model.GetSection("loggedas_message", this)){
+<SPAN data-itemtype="username_button" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			@foreach (string _userbutton_icon in Model.GetSection("userbutton_icon", this)){							<span class="glyphicon glyphicon-user"></span>
+						}@(Model.displayVar("userbutton_image"))			@(Model.displayVar("username"))			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							@foreach (string _userinfo_link in Model.GetSection("userinfo_link", this)){
+	<LI data-itemtype="userinfo_link" data-itemid="userinfo_link" @(Model.displayVar("item_userinfo_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="userinfo" title>
+				
+		User Profile		
+		</a>
+	</li>
+}
+							@foreach (string _logoutbutton in Model.GetSection("logoutbutton", this)){
+	<LI data-itemtype="logout_link" data-itemid="logout_link" @(Model.displayVar("item_logout_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("logoutlink_attrs")) title>
+				
+		Log out		
+		</a>
+	</li>
+}
+							@foreach (string _adminarea_link in Model.GetSection("adminarea_link", this)){
+	<LI data-itemtype="adminarea_link" data-itemid="adminarea_link" @(Model.displayVar("item_adminarea_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="admin_rights/list" title>
+				
+		Admin Area		
+		</a>
+	</li>
+}
+					</ul>
+	</span>
+</span>
+}
+			</span>
+								</nav>
+}
+						@(Model.displayVar("locking"))
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					@{Html.RenderSharedView("header");}
+					<div class="r-top">
+									@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="r-form" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="top_c2" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c2")) class=" r-ori-vert			col-md-12
+	
+">
+		 
+		@foreach (string _mastertable_block in Model.GetSection("mastertable_block", this)){
+<DIV data-itemtype="master_info" data-itemid="master_info" @(Model.displayVar("item_master_info")) data-pageid="@(Model.displayVar("pageid"))">
+	@(Model.displayVar("showmasterfile"))
+</div>
+}		</div>					</div>
+			</div>		
+}
+						</div>
+											<div class="r-above">
+					@foreach (string _above_grid_block in Model.GetSection("above-grid_block", this)){
+<DIV class="r-form" data-location="above-grid" id="form_above-grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_above-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c1")) class="			col-md-6
+	
+">
+		@foreach (string _firstAboveGridCell in Model.GetSection("firstAboveGridCell", this)){
+		 
+		foreach (string _add_link in Model.GetSection("add_link", this)){
+<SPAN data-itemtype="add" data-itemid="add" @(Model.displayVar("item_add")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" @(Model.displayVar("addlink_attrs")) href="radioequipment/add@(Model.displayVar("stateLink_full"))">
+							Add new			</a>
+</span>
+}
+	 
+		foreach (string _inlineadd_link in Model.GetSection("inlineadd_link", this)){
+<SPAN data-itemtype="inline_add" data-itemid="inline_add" @(Model.displayVar("item_inline_add")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" @(Model.displayVar("inlineaddlink_attrs"))>
+							Inline Add			</a>
+</span>
+}
+	 
+		foreach (string _saveall_link in Model.GetSection("saveall_link", this)){
+<SPAN data-itemtype="inline_save_all" data-itemid="inline_save_all" @(Model.displayVar("item_inline_save_all")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" @(Model.displayVar("savealllink_attrs")) @(Model.displayVar("savealllink_span"))>
+							Save all			</a>
+</span>
+}
+	 
+		foreach (string _cancelall_link in Model.GetSection("cancelall_link", this)){
+<SPAN data-itemtype="inline_cancel_all" data-itemid="inline_cancel_all" @(Model.displayVar("item_inline_cancel_all")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" @(Model.displayVar("cancelalllink_attrs")) @(Model.displayVar("cancelalllink_span"))>
+							Cancel			</a>
+</span>
+}
+	 
+		foreach (string _deleteselected_link_1 in Model.GetSection("deleteselected_link", this)){
+<SPAN data-itemtype="delete" data-itemid="delete" @(Model.displayVar("item_delete")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" @(Model.displayVar("deleteselectedlink_attrs")) @(Model.displayVar("deleteselectedlink_span")) disabled>
+							Delete			</a>
+</span>
+}
+			}	
+	</div>			 
+				<DIV data-cellId="above-grid_c2" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c2")) class="r-align-right			col-md-6
+	
+">
+		 
+		<SPAN data-itemtype="details_found" data-itemid="details_found" @(Model.displayVar("item_details_found")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+@(Model.displayVar("mlp_push"))@(Model.displayVar("mlparam first var first_shown"))@(Model.displayVar("mlparam last var last_shown"))@(Model.displayVar("mlparam total var records_found"))@(Model.mlang_message("DISPLAYING"))@(Model.displayVar("mlp_pop"))</span>	 
+		<SPAN data-itemtype="page_size" data-itemid="page_size" @(Model.displayVar("item_page_size")) data-pageid="@(Model.displayVar("pageid"))">
+		@(Model.displayVar("recsPerPage"))
+</span>	 
+		@foreach (string _print_friendly in Model.GetSection("print_friendly", this)){
+<SPAN id="printpanelblock@(Model.displayVar("id"))" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("printpanel_hiddenattr")) data-itemtype="print_panel" data-itemid="print_panel" @(Model.displayVar("item_print_panel")) data-pageid="@(Model.displayVar("pageid"))">
+	<button title="Print-friendly page" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-print"></span>
+				<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu pull-right">
+										 
+				 
+					<li class="container-fluid 
+										">
+									<DIV id="print_friendly_scope@(Model.displayVar("id"))">
+	<div class="row">
+		<div class="col-md-4">
+			Scope:		</div>
+
+			 
+		@foreach (string _print_friendly_all in Model.GetSection("print_friendly_all", this)){
+		<div class="col-md-8">
+			<LABEL for="printAll@(Model.displayVar("id"))">
+				<INPUT type="radio" id="printAll@(Model.displayVar("id"))" data-href="radioequipment_print.aspx?all=1&amp;@(Model.displayVar("crosstable_attrs"))" name="printScope" />
+									Print all pages							</label>
+		</div>
+		}
+		</div>
+		<div class="row">
+		<div class="col-md-4">&nbsp;</div>
+		<div class="col-md-8">
+			<LABEL for="printPage@(Model.displayVar("id"))">
+				<INPUT name="printScope" id="printPage@(Model.displayVar("id"))" type="radio" checked data-href="radioequipment_print.aspx?@(Model.displayVar("crosstable_attrs"))" />
+				Print this page			</label>
+		</div>
+	</div>
+		
+		 
+	<div class="row">
+		<div class="col-md-4">
+			&nbsp;
+		</div>
+		<div class="col-md-8">
+			<LABEL style="color: gray;" for="printSelection@(Model.displayVar("id"))">
+			<INPUT name="printScope" disabled="disabled" id="printSelection@(Model.displayVar("id"))" type="radio" />
+			Print selected			</label>
+		</div>
+	</div>
+	</div>
+				 
+					</li>
+											<li class="divider" role="separator"></li>
+																				 
+				 
+					<li class="container-fluid 
+										">
+									<div>
+	<LABEL for="printPerPage@(Model.displayVar("id"))">
+					Records Per Page							
+	</label>
+	<INPUT type="number" id="printPerPage@(Model.displayVar("id"))" value="@(Model.displayVar("print_recspp"))" class="rnr-printrecspp" />		
+</div>
+				 
+					</li>
+											<li class="divider" role="separator"></li>
+																				 
+				 
+					<li class="container-fluid 
+					 text-center 					">
+									<SPAN data-itemtype="print_button" data-itemid="print_button" @(Model.displayVar("item_print_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" id="print_friendly_button@(Model.displayVar("id"))">
+							Print			</a>
+</span>
+				 
+					</li>
+															</ul>
+</span>
+}
+		</div>					</div>
+			 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c3" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c3")) class=" r-ori-vert			col-md-6
+	
+">
+			</div>			 
+				<DIV data-cellId="above-grid_c4" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c4")) class="r-align-right r-ori-vert			col-md-6
+	
+">
+			</div>					</div>
+			</div>		
+}
+	</div>
+<div class="r-grid">
+	@foreach (string _grid_tabs in Model.GetSection("grid_tabs", this)){
+  <ul class="nav nav-tabs bsgrid_tabs">
+	@(Model.displayVar("grid_tabs_content"))
+  </ul>
+}
+					@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+foreach (string _message_block in Model.GetSection("message_block", this)){
+<DIV data-grid-message data-pageid="@(Model.displayVar("pageid"))" class="alert @(Model.displayVar("message_class"))" role="alert" @(Model.displayVar("grid_message_attrs"))>@(Model.displayVar("message"))</div>
+}<DIV data-location="grid" id="form_grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_grid")) data-pageid="@(Model.displayVar("pageid"))">
+@foreach (string _grid_row in Model.GetSection("grid_row", this)){
+	<DIV class="r-grid-columns @(Model.displayVar("rowclass"))" @(Model.displayVar("rowattrs")) @(Model.displayVar("rowstyle"))>
+	@foreach (string _grid_record in Model.GetSection("grid_record", this)){
+		foreach (string _grid_vrecord in Model.GetSection("grid_vrecord", this)){
+		<DIV class="panel panel-default" @(Model.displayVar("recordattrs"))>
+									
+			@foreach (string _grid_recordheader in Model.GetSection("grid_recordheader", this)){
+			<div class="panel-heading">
+						
+				<table data-location="grid" class="header-table">
+					<tbody>
+				 
+												
+						<tr >
+						 
+							@foreach (string _cellblock_grid_cell_top in Model.GetSection("cellblock_grid_cell_top", this)){
+	<TH @(Model.displayVar("cell_grid_cell_top")) @(Model.displayVar("recordattrs")) class="
+					" data-cellId="grid_cell_top" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _checkbox_column in Model.GetSection("checkbox_column", this)){
+<SPAN data-itemtype="grid_checkbox" data-itemid="grid_checkbox" @(Model.displayVar("item_grid_checkbox")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+	<INPUT type="checkbox" @(Model.displayVar("checkbox_attrs")) />
+</span>	
+}
+	 
+		@foreach (string _edit_column in Model.GetSection("edit_column", this)){
+foreach (string _edit_link in Model.GetSection("edit_link", this)){
+<SPAN data-itemtype="grid_edit" data-itemid="grid_edit" @(Model.displayVar("item_grid_edit")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-small data-button-item>
+	<A type="button" title="Edit" class="btn-link   
+	 glyphicon glyphicon-pencil" href="radioequipment/edit?@(Model.displayVar("editlink"))" @(Model.displayVar("editlink_attrs")) title="Edit">		
+				
+								</a>
+</span>
+}
+}
+	 
+		@foreach (string _inlineedit_column in Model.GetSection("inlineedit_column", this)){
+foreach (string _inlineedit_link in Model.GetSection("inlineedit_link", this)){
+<SPAN data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" @(Model.displayVar("item_grid_inline_edit")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-small data-button-item>
+	<A type="button" title="Inline Edit" class="btn-link   
+	 glyphicon glyphicon-edit" @(Model.displayVar("inlineeditlink_attrs")) title="Inline Edit">		
+				
+								</a>
+</span>
+}
+}
+	 
+		@foreach (string _inline_save in Model.GetSection("inline_save", this)){
+<SPAN data-itemtype="grid_inline_save" data-itemid="grid_inline_save" @(Model.displayVar("item_grid_inline_save")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-small data-button-item>
+	<A type="button" title="Save" class="btn-link   
+	 glyphicon glyphicon-ok" @(Model.displayVar("inlinesavelink_attrs")) title="Save">		
+				
+								</a>
+</span>
+}
+	 
+		@foreach (string _inline_cancel in Model.GetSection("inline_cancel", this)){
+<SPAN data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" @(Model.displayVar("item_grid_inline_cancel")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-small data-button-item>
+	<A type="button" title="Cancel" class="btn-link   
+	 glyphicon glyphicon-remove" @(Model.displayVar("inlinerevertlink_attrs")) title="Cancel">		
+				
+								</a>
+</span>
+}
+	 
+		@foreach (string _view_column in Model.GetSection("view_column", this)){
+foreach (string _view_link in Model.GetSection("view_link", this)){
+<SPAN data-itemtype="grid_view" data-itemid="grid_view" @(Model.displayVar("item_grid_view")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-small data-button-item>
+	<A type="button" title="View record" class="btn-link   
+	 glyphicon glyphicon-search" href="radioequipment/view?@(Model.displayVar("editlink"))" @(Model.displayVar("viewlink_attrs")) title="View">		
+				
+								</a>
+</span>
+}
+}
+	
+	</th>
+	}
+												</tr>
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+											
+					</tbody>
+				</table>
+
+					</div>
+		}
+												
+			<div class="panel-body">					
+						
+				<table data-location="grid" class="bs-fieldsgrid table">
+					<tbody>
+				 
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_label13 in Model.GetSection("cellblock_grid_cell_label13", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label13")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_label13" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="text" data-itemid="text4" @(Model.displayVar("item_text4")) data-pageid="@(Model.displayVar("pageid"))" data-page="radioequipment_list" data-record-id="@(Model.displayVar("recId"))" data-small> 
+	<h2><u>Station A</u></h2></span>
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label14 in Model.GetSection("cellblock_grid_cell_label14", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label14")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_label14" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label15 in Model.GetSection("cellblock_grid_cell_label15", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label15")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_label15" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label17 in Model.GetSection("cellblock_grid_cell_label17", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label17")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_label17" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="text" data-itemid="text5" @(Model.displayVar("item_text5")) data-pageid="@(Model.displayVar("pageid"))" data-page="radioequipment_list" data-record-id="@(Model.displayVar("recId"))" data-small> 
+	<h2><u>Station B</u></h2></span>
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label18 in Model.GetSection("cellblock_grid_cell_label18", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label18")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_label18" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label19 in Model.GetSection("cellblock_grid_cell_label19", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label19")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_label19" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+												</tr>
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_field20 in Model.GetSection("cellblock_grid_cell_field20", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field20")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("frequencyRange_class"))	" data-field="frequencyRange" data-cellId="grid_cell_field20" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _frequencyRange_fieldheadercolumn in Model.GetSection("frequencyRange_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="grid_field_label4" @(Model.displayVar("item_grid_field_label4")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="frequencyRange" data-fieldname="frequencyRange">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment frequencyRange"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field21 in Model.GetSection("cellblock_grid_cell_field21", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field21")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("frequencyRange_class"))	" data-field="frequencyRange" data-cellId="grid_cell_field21" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _frequencyRange_fieldcolumn in Model.GetSection("frequencyRange_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="grid_field4" @(Model.displayVar("item_grid_field4")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="frequencyRange" data-fieldname="frequencyRange" data-default-width>
+@(Model.displayVar("frequencyRange_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field22 in Model.GetSection("cellblock_grid_cell_field22", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field22")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_field22" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field23 in Model.GetSection("cellblock_grid_cell_field23", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field23")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_field23" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field24 in Model.GetSection("cellblock_grid_cell_field24", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field24")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("frequencyRangeB_class"))	" data-field="frequencyRangeB" data-cellId="grid_cell_field24" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _frequencyRangeB_fieldheadercolumn in Model.GetSection("frequencyRangeB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="grid_field_label5" @(Model.displayVar("item_grid_field_label5")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="frequencyRangeB" data-fieldname="frequencyRangeB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment frequencyRangeB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field25 in Model.GetSection("cellblock_grid_cell_field25", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field25")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("frequencyRangeB_class"))	" data-field="frequencyRangeB" data-cellId="grid_cell_field25" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _frequencyRangeB_fieldcolumn in Model.GetSection("frequencyRangeB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="grid_field5" @(Model.displayVar("item_grid_field5")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="frequencyRangeB" data-fieldname="frequencyRangeB" data-default-width>
+@(Model.displayVar("frequencyRangeB_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field26 in Model.GetSection("cellblock_grid_cell_field26", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field26")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_field26" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field27 in Model.GetSection("cellblock_grid_cell_field27", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field27")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_field27" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+												</tr>
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_label in Model.GetSection("cellblock_grid_cell_label", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("makeModelA_class"))	" data-field="makeModelA" data-cellId="grid_cell_label" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _makeModelA_fieldheadercolumn in Model.GetSection("makeModelA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field12" @(Model.displayVar("item_simple_grid_field12")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelA" data-fieldname="makeModelA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment makeModelA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field in Model.GetSection("cellblock_grid_cell_field", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("makeModelA_class"))	" data-field="makeModelA" data-cellId="grid_cell_field" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _makeModelA_fieldcolumn in Model.GetSection("makeModelA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field1" @(Model.displayVar("item_simple_grid_field1")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelA" data-fieldname="makeModelA" data-default-width>
+@(Model.displayVar("makeModelA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label1 in Model.GetSection("cellblock_grid_cell_label1", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label1")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("modA_class"))	" data-field="modA" data-cellId="grid_cell_label1" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _modA_fieldheadercolumn in Model.GetSection("modA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field15" @(Model.displayVar("item_simple_grid_field15")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modA" data-fieldname="modA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment modA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field1 in Model.GetSection("cellblock_grid_cell_field1", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field1")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("modA_class"))	" data-field="modA" data-cellId="grid_cell_field1" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _modA_fieldcolumn in Model.GetSection("modA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field4" @(Model.displayVar("item_simple_grid_field4")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modA" data-fieldname="modA" data-default-width>
+@(Model.displayVar("modA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label2 in Model.GetSection("cellblock_grid_cell_label2", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label2")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("makeModelB_class"))	" data-field="makeModelB" data-cellId="grid_cell_label2" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _makeModelB_fieldheadercolumn in Model.GetSection("makeModelB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field18" @(Model.displayVar("item_simple_grid_field18")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelB" data-fieldname="makeModelB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment makeModelB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field2 in Model.GetSection("cellblock_grid_cell_field2", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field2")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("makeModelB_class"))	" data-field="makeModelB" data-cellId="grid_cell_field2" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _makeModelB_fieldcolumn in Model.GetSection("makeModelB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field7" @(Model.displayVar("item_simple_grid_field7")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelB" data-fieldname="makeModelB" data-default-width>
+@(Model.displayVar("makeModelB_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label3 in Model.GetSection("cellblock_grid_cell_label3", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label3")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("modB_class"))	" data-field="modB" data-cellId="grid_cell_label3" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _modB_fieldheadercolumn in Model.GetSection("modB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field21" @(Model.displayVar("item_simple_grid_field21")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modB" data-fieldname="modB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment modB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field3 in Model.GetSection("cellblock_grid_cell_field3", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field3")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("modB_class"))	" data-field="modB" data-cellId="grid_cell_field3" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _modB_fieldcolumn in Model.GetSection("modB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field10" @(Model.displayVar("item_simple_grid_field10")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modB" data-fieldname="modB" data-default-width>
+@(Model.displayVar("modB_value"))
+</span>
+}	
+	</td>
+	}
+												</tr>
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_label4 in Model.GetSection("cellblock_grid_cell_label4", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label4")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("capacityA_class"))	" data-field="capacityA" data-cellId="grid_cell_label4" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _capacityA_fieldheadercolumn in Model.GetSection("capacityA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field13" @(Model.displayVar("item_simple_grid_field13")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityA" data-fieldname="capacityA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment capacityA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field4 in Model.GetSection("cellblock_grid_cell_field4", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field4")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("capacityA_class"))	" data-field="capacityA" data-cellId="grid_cell_field4" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _capacityA_fieldcolumn in Model.GetSection("capacityA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field2" @(Model.displayVar("item_simple_grid_field2")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityA" data-fieldname="capacityA" data-default-width>
+@(Model.displayVar("capacityA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label5 in Model.GetSection("cellblock_grid_cell_label5", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label5")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("BWEA_class"))	" data-field="BWEA" data-cellId="grid_cell_label5" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _BWEA_fieldheadercolumn in Model.GetSection("BWEA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field16" @(Model.displayVar("item_simple_grid_field16")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEA" data-fieldname="BWEA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment BWEA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field5 in Model.GetSection("cellblock_grid_cell_field5", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field5")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("BWEA_class"))	" data-field="BWEA" data-cellId="grid_cell_field5" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _BWEA_fieldcolumn in Model.GetSection("BWEA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field5" @(Model.displayVar("item_simple_grid_field5")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEA" data-fieldname="BWEA" data-default-width>
+@(Model.displayVar("BWEA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label6 in Model.GetSection("cellblock_grid_cell_label6", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label6")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("capacityB_class"))	" data-field="capacityB" data-cellId="grid_cell_label6" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _capacityB_fieldheadercolumn in Model.GetSection("capacityB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field19" @(Model.displayVar("item_simple_grid_field19")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityB" data-fieldname="capacityB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment capacityB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field6 in Model.GetSection("cellblock_grid_cell_field6", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field6")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("capacityB_class"))	" data-field="capacityB" data-cellId="grid_cell_field6" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _capacityB_fieldcolumn in Model.GetSection("capacityB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field8" @(Model.displayVar("item_simple_grid_field8")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityB" data-fieldname="capacityB" data-default-width>
+@(Model.displayVar("capacityB_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label7 in Model.GetSection("cellblock_grid_cell_label7", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label7")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("BWEB_class"))	" data-field="BWEB" data-cellId="grid_cell_label7" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _BWEB_fieldheadercolumn in Model.GetSection("BWEB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field22" @(Model.displayVar("item_simple_grid_field22")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEB" data-fieldname="BWEB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment BWEB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field7 in Model.GetSection("cellblock_grid_cell_field7", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field7")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("BWEB_class"))	" data-field="BWEB" data-cellId="grid_cell_field7" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _BWEB_fieldcolumn in Model.GetSection("BWEB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field11" @(Model.displayVar("item_simple_grid_field11")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEB" data-fieldname="BWEB" data-default-width>
+@(Model.displayVar("BWEB_value"))
+</span>
+}	
+	</td>
+	}
+												</tr>
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_label8 in Model.GetSection("cellblock_grid_cell_label8", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label8")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("powerA_class"))	" data-field="powerA" data-cellId="grid_cell_label8" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _powerA_fieldheadercolumn in Model.GetSection("powerA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field14" @(Model.displayVar("item_simple_grid_field14")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerA" data-fieldname="powerA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment powerA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field8 in Model.GetSection("cellblock_grid_cell_field8", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field8")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("powerA_class"))	" data-field="powerA" data-cellId="grid_cell_field8" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _powerA_fieldcolumn in Model.GetSection("powerA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field3" @(Model.displayVar("item_simple_grid_field3")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerA" data-fieldname="powerA" data-default-width>
+@(Model.displayVar("powerA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label9 in Model.GetSection("cellblock_grid_cell_label9", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label9")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("serialNoA_class"))	" data-field="serialNoA" data-cellId="grid_cell_label9" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _serialNoA_fieldheadercolumn in Model.GetSection("serialNoA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field17" @(Model.displayVar("item_simple_grid_field17")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoA" data-fieldname="serialNoA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment serialNoA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field9 in Model.GetSection("cellblock_grid_cell_field9", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field9")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("serialNoA_class"))	" data-field="serialNoA" data-cellId="grid_cell_field9" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _serialNoA_fieldcolumn in Model.GetSection("serialNoA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field6" @(Model.displayVar("item_simple_grid_field6")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoA" data-fieldname="serialNoA" data-default-width>
+@(Model.displayVar("serialNoA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label10 in Model.GetSection("cellblock_grid_cell_label10", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label10")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("powerB_class"))	" data-field="powerB" data-cellId="grid_cell_label10" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _powerB_fieldheadercolumn in Model.GetSection("powerB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field20" @(Model.displayVar("item_simple_grid_field20")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerB" data-fieldname="powerB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment powerB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field10 in Model.GetSection("cellblock_grid_cell_field10", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field10")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("powerB_class"))	" data-field="powerB" data-cellId="grid_cell_field10" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _powerB_fieldcolumn in Model.GetSection("powerB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field9" @(Model.displayVar("item_simple_grid_field9")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerB" data-fieldname="powerB" data-default-width>
+@(Model.displayVar("powerB_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label11 in Model.GetSection("cellblock_grid_cell_label11", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label11")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("serialNoB_class"))	" data-field="serialNoB" data-cellId="grid_cell_label11" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _serialNoB_fieldheadercolumn in Model.GetSection("serialNoB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="simple_grid_field23" @(Model.displayVar("item_simple_grid_field23")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoB" data-fieldname="serialNoB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment serialNoB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field11 in Model.GetSection("cellblock_grid_cell_field11", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field11")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("serialNoB_class"))	" data-field="serialNoB" data-cellId="grid_cell_field11" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _serialNoB_fieldcolumn in Model.GetSection("serialNoB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="simple_grid_field" @(Model.displayVar("item_simple_grid_field")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoB" data-fieldname="serialNoB" data-default-width>
+@(Model.displayVar("serialNoB_value"))
+</span>
+}	
+	</td>
+	}
+												</tr>
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_label12 in Model.GetSection("cellblock_grid_cell_label12", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label12")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("txA_class"))	" data-field="txA" data-cellId="grid_cell_label12" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _txA_fieldheadercolumn in Model.GetSection("txA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="grid_field_label" @(Model.displayVar("item_grid_field_label")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txA" data-fieldname="txA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment txA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field12 in Model.GetSection("cellblock_grid_cell_field12", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field12")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("txA_class"))	" data-field="txA" data-cellId="grid_cell_field12" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _txA_fieldcolumn in Model.GetSection("txA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="grid_field" @(Model.displayVar("item_grid_field")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txA" data-fieldname="txA" data-default-width>
+@(Model.displayVar("txA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label16 in Model.GetSection("cellblock_grid_cell_label16", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label16")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("rxA_class"))	" data-field="rxA" data-cellId="grid_cell_label16" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _rxA_fieldheadercolumn in Model.GetSection("rxA_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="grid_field_label2" @(Model.displayVar("item_grid_field_label2")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxA" data-fieldname="rxA">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment rxA"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field13 in Model.GetSection("cellblock_grid_cell_field13", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field13")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("rxA_class"))	" data-field="rxA" data-cellId="grid_cell_field13" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _rxA_fieldcolumn in Model.GetSection("rxA_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="grid_field2" @(Model.displayVar("item_grid_field2")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxA" data-fieldname="rxA" data-default-width>
+@(Model.displayVar("rxA_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label20 in Model.GetSection("cellblock_grid_cell_label20", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label20")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("txB_class"))	" data-field="txB" data-cellId="grid_cell_label20" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _txB_fieldheadercolumn in Model.GetSection("txB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="grid_field_label1" @(Model.displayVar("item_grid_field_label1")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txB" data-fieldname="txB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment txB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field14 in Model.GetSection("cellblock_grid_cell_field14", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field14")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("txB_class"))	" data-field="txB" data-cellId="grid_cell_field14" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _txB_fieldcolumn in Model.GetSection("txB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="grid_field1" @(Model.displayVar("item_grid_field1")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txB" data-fieldname="txB" data-default-width>
+@(Model.displayVar("txB_value"))
+</span>
+}	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label21 in Model.GetSection("cellblock_grid_cell_label21", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label21")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert		 @(Model.displayVar("rxB_class"))	" data-field="rxB" data-cellId="grid_cell_label21" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _rxB_fieldheadercolumn in Model.GetSection("rxB_fieldheadercolumn", this)){
+<SPAN data-itemtype="grid_field_label" data-itemid="grid_field_label3" @(Model.displayVar("item_grid_field_label3")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxB" data-fieldname="rxB">
+	<span class="text-label">
+		<span>@(Model.displayVar("label dbo_radioEquipment rxB"))</span>
+			</span>
+	</span>
+}
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field15 in Model.GetSection("cellblock_grid_cell_field15", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field15")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert		 @(Model.displayVar("rxB_class"))	" data-field="rxB" data-cellId="grid_cell_field15" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		@foreach (string _rxB_fieldcolumn in Model.GetSection("rxB_fieldcolumn", this)){
+<SPAN data-itemtype="grid_field" data-itemid="grid_field3" @(Model.displayVar("item_grid_field3")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxB" data-fieldname="rxB" data-default-width>
+@(Model.displayVar("rxB_value"))
+</span>
+}	
+	</td>
+	}
+												</tr>
+									 
+												
+						<TR class="@(Model.displayVar("rowclass"))">
+						 
+							@foreach (string _cellblock_grid_cell_label22 in Model.GetSection("cellblock_grid_cell_label22", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label22")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_label22" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field16 in Model.GetSection("cellblock_grid_cell_field16", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field16")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_field16" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label23 in Model.GetSection("cellblock_grid_cell_label23", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label23")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_label23" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field17 in Model.GetSection("cellblock_grid_cell_field17", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field17")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_field17" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label24 in Model.GetSection("cellblock_grid_cell_label24", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label24")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_label24" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field18 in Model.GetSection("cellblock_grid_cell_field18", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field18")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_field18" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_label25 in Model.GetSection("cellblock_grid_cell_label25", this)){
+	<TD @(Model.displayVar("cell_grid_cell_label25")) @(Model.displayVar("recordattrs")) class="
+		r-align-right r-ori-vert			" data-cellId="grid_cell_label25" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+						 
+							@foreach (string _cellblock_grid_cell_field19 in Model.GetSection("cellblock_grid_cell_field19", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field19")) @(Model.displayVar("recordattrs")) class="
+		 r-ori-vert			" data-cellId="grid_cell_field19" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	
+	</td>
+	}
+												</tr>
+									 
+											
+					</tbody>
+				</table>
+
+				
+			</div>				
+									
+		</div>
+		}
+	}
+	</div>
+
+<div style="clear: both;"></div>
+ 
+	foreach (string _grid_record_1 in Model.GetSection("grid_record", this)){
+			}
+
+
+}
+</div>			
+}
+	</div>
+<div class="r-below">
+					@foreach (string _below_grid_block in Model.GetSection("below-grid_block", this)){
+<DIV class="r-form" data-location="below-grid" id="form_below-grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_below-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="below-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_below-grid_c1")) class="r-align-center r-ori-vert			col-md-12
+	
+">
+		 
+		@foreach (string _pagination_block in Model.GetSection("pagination_block", this)){
+<SPAN data-itemtype="pagination" data-itemid="pagination" @(Model.displayVar("item_pagination")) data-pageid="@(Model.displayVar("pageid"))">
+@(Model.displayVar("pagination"))
+</span>
+}
+		</div>					</div>
+			</div>		
+}
+	</div>
+
+
+
+
+										@{Html.RenderSharedView("footer");}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	}
+	</body>
+</html>

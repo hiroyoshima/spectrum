@@ -1,0 +1,335 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel dbo_rspdLineA view}","hidden":"{$item_hide_view_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel dbo_rspdLineA ID }","bold":true},{"text":{$ID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel dbo_rspdLineA HdrID }","bold":true},{"text":{$HdrID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel dbo_rspdLineA LOC_UNIT_STA_A }","bold":true},{"text":{$LOC_UNIT_STA_A_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel dbo_rspdLineA LOC_STREET_STA_A }","bold":true},{"text":{$LOC_STREET_STA_A_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel dbo_rspdLineA LOC_BRGY_STA_A }","bold":true},{"text":{$LOC_BRGY_STA_A_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel dbo_rspdLineA CITY_MUNICIPALITY_STA_A }","bold":true},{"text":{$CITY_MUNICIPALITY_STA_A_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel dbo_rspdLineA PROVINCE_STA_A }","bold":true},{"text":{$PROVINCE_STA_A_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel dbo_rspdLineA ZIPCODE_STA_A }","bold":true},{"text":{$ZIPCODE_STA_A_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel dbo_rspdLineA eDegA }","bold":true},{"text":{$eDegA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel dbo_rspdLineA eMinA }","bold":true},{"text":{$eMinA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel dbo_rspdLineA eSecA }","bold":true},{"text":{$eSecA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel dbo_rspdLineA nDegA }","bold":true},{"text":{$nDegA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel dbo_rspdLineA nMinA }","bold":true},{"text":{$nMinA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel dbo_rspdLineA nSecA }","bold":true},{"text":{$nSecA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel dbo_rspdLineA elevationA }","bold":true},{"text":{$elevationA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel dbo_rspdLineA aMakeTypeModelA }","bold":true},{"text":{$aMakeTypeModelA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel dbo_rspdLineA gainA }","bold":true},{"text":{$gainA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel dbo_rspdLineA diameterA }","bold":true},{"text":{$diameterA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel dbo_rspdLineA beamwidthA }","bold":true},{"text":{$beamwidthA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel dbo_rspdLineA polarizationA }","bold":true},{"text":{$polarizationA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field20}","stack":[{"text":"{$jslabel dbo_rspdLineA azimuthA }","bold":true},{"text":{$azimuthA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel dbo_rspdLineA elevAngleA }","bold":true},{"text":{$elevAngleA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field22}","stack":[{"text":"{$jslabel dbo_rspdLineA heightAGLA }","bold":true},{"text":{$heightAGLA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field23}","stack":[{"text":"{$jslabel dbo_rspdLineA feederLengthA }","bold":true},{"text":{$feederLengthA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field24}","stack":[{"text":"{$jslabel dbo_rspdLineA callSignA }","bold":true},{"text":{$callSignA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+											],
+				{END row_grid_0}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_view_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_view_close}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+};
+
+pdfFonts = {$pdfFonts};
+  

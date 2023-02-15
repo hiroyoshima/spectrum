@@ -1,0 +1,11 @@
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\runnerDotNet.dll
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\runnerDotNet.pdb
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\mscorlib.dll
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\normidna.nlp
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\normnfc.nlp
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\normnfd.nlp
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\normnfkc.nlp
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\bin\normnfkd.nlp
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\obj\Release\Spectrum.csprojResolveAssemblyReference.cache
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\obj\Release\runnerDotNet.dll
+C:\ASP.NET Projects\Spectrum\Spectrum\RSPD\obj\Release\runnerDotNet.pdb

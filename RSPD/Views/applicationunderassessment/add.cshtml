@@ -1,0 +1,2095 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-add">
+	@foreach (string _body in Model.GetSection("body", this)){
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+		<div class="r-vbar-page">
+			<DIV data-width="250px" data-fixed class="r-left clearfix @(Model.displayVar("leftbar_class"))">
+								<DIV data-location="left" id="form_left_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_left")) data-pageid="@(Model.displayVar("pageid"))">
+@foreach (string _left_block in Model.GetSection("left_block", this)){
+ 
+     
+         
+
+			<DIV data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell class="clearfix " data-itemid="logo" @(Model.displayVar("item_logo"))>
+				@foreach (string _logo_block in Model.GetSection("logo_block", this)){
+	<A data-itemtype="logo" data-itemid="logo" @(Model.displayVar("item_logo")) data-pageid="@(Model.displayVar("pageid"))" class="navbar-brand" href="@(Model.displayVar("home_link"))" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("logo_hiddenattr"))>
+		@(Model.displayVar("logo"))
+	</A>
+}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<DIV class="clearfix " data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-topcell-item-type="expand_button">
+				<SPAN data-itemtype="expand_button" data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Expand" class="btn btn-link   
+	" href="#">
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<DIV data-cellId="left_c1" data-pageid="@(Model.displayVar("pageid"))" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))">
+				@foreach (string _menuitems_main in Model.GetSection("menuitems_main", this)){
+<UL data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))" class="r-menu nav navbar-nav" data-menulevel="1">
+
+@foreach (string _item_children1 in Model.GetSection("item_children1", this)){
+<LI class="
+	@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}} 
+	@(Model.displayVar("item_current"))">
+<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v data-menu-top>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link r-menu-expanded "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+		<span class="r-menu-collapsed">@(Model.displayVar("item_collicon"))@(Model.displayVar("item_firstcap"))</span>
+	</a>
+@foreach (string _item_showchildren2 in Model.GetSection("item_showchildren2", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="2">
+	@foreach (string _item_children2 in Model.GetSection("item_children2", this)){
+		foreach (string _item_menulink2 in Model.GetSection("item_menulink2", this)){
+		<LI class="
+						@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2_1 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon_1 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren3 in Model.GetSection("item_showchildren3", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="3">
+	@foreach (string _item_children3 in Model.GetSection("item_children3", this)){
+		foreach (string _item_menulink3 in Model.GetSection("item_menulink3", this)){
+		<LI class="
+						@{foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){
+		foreach (string _item_expand_icon_2 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren4 in Model.GetSection("item_showchildren4", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="4">
+	@foreach (string _item_children4 in Model.GetSection("item_children4", this)){
+		foreach (string _item_menulink4 in Model.GetSection("item_menulink4", this)){
+		<LI class="
+						@{foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){
+		foreach (string _item_expand_icon_3 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren5 in Model.GetSection("item_showchildren5", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="5">
+	@foreach (string _item_children5 in Model.GetSection("item_children5", this)){
+		foreach (string _item_menulink5 in Model.GetSection("item_menulink5", this)){
+		<LI class="
+						@{foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){
+		foreach (string _item_expand_icon_4 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+					</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+</li>
+}
+</ul>
+}
+			</div>
+		
+    }
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									@foreach (string _supertop_block in Model.GetSection("supertop_block", this)){
+<NAV class="navbar navbar-default" data-location="supertop" id="form_supertop_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_supertop")) data-pageid="@(Model.displayVar("pageid"))">
+			 
+							 
+				<SPAN class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-topcell-item-type="expand_menu_button">
+				<SPAN data-itemtype="expand_menu_button" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#">		
+				
+								</a>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-topcell-item-type="collapse_button">
+				<SPAN data-itemtype="collapse_button" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#">		
+				
+								</a>
+</span>
+			</span>
+							 
+							 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="loginform_login" @(Model.displayVar("item_loginform_login")) data-topcell-item-type="loginform_login">
+				@foreach (string _guestloginbutton in Model.GetSection("guestloginbutton", this)){
+<SPAN data-itemtype="loginform_login" data-itemid="loginform_login" @(Model.displayVar("item_loginform_login")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" href="#" @(Model.displayVar("guestloginlink_attrs"))>
+							Login			</a>
+</span>
+}
+			</span>
+		 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-topcell-item-type="username_button">
+				@foreach (string _loggedas_message in Model.GetSection("loggedas_message", this)){
+<SPAN data-itemtype="username_button" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			@foreach (string _userbutton_icon in Model.GetSection("userbutton_icon", this)){							<span class="glyphicon glyphicon-user"></span>
+						}@(Model.displayVar("userbutton_image"))			@(Model.displayVar("username"))			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							@foreach (string _userinfo_link in Model.GetSection("userinfo_link", this)){
+	<LI data-itemtype="userinfo_link" data-itemid="userinfo_link" @(Model.displayVar("item_userinfo_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="userinfo" title>
+				
+		User Profile		
+		</a>
+	</li>
+}
+							@foreach (string _logoutbutton in Model.GetSection("logoutbutton", this)){
+	<LI data-itemtype="logout_link" data-itemid="logout_link" @(Model.displayVar("item_logout_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("logoutlink_attrs")) title>
+				
+		Log out		
+		</a>
+	</li>
+}
+							@foreach (string _adminarea_link in Model.GetSection("adminarea_link", this)){
+	<LI data-itemtype="adminarea_link" data-itemid="adminarea_link" @(Model.displayVar("item_adminarea_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="admin_rights/list" title>
+				
+		Admin Area		
+		</a>
+	</li>
+}
+					</ul>
+	</span>
+</span>
+}
+			</span>
+								</nav>
+}
+						@(Model.displayVar("locking"))
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					@{Html.RenderSharedView("header");}
+					<div class="r-top">
+									@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="r-form" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="top_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c1")) class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<H2 data-itemtype="add_header" data-itemid="add_header" @(Model.displayVar("item_add_header")) data-pageid="@(Model.displayVar("pageid"))">@(Model.displayVar("pagetitlelabel applicationUnderAssessment add"))</h2>
+		</div>					</div>
+			</div>		
+}
+						</div>
+											<div class="r-above">
+					@foreach (string _above_grid_block in Model.GetSection("above-grid_block", this)){
+<DIV class="r-form" data-location="above-grid" id="form_above-grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_above-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c1")) class=" r-ori-vert			col-md-12
+	
+">
+		@foreach (string _firstAboveGridCell in Model.GetSection("firstAboveGridCell", this)){
+		 
+		foreach (string _message_block in Model.GetSection("message_block", this)){
+<DIV data-itemtype="add_message" data-itemid="add_message" @(Model.displayVar("item_add_message")) data-pageid="@(Model.displayVar("pageid"))" class="alert @(Model.displayVar("message_class"))" role="alert">
+<h5>@(Model.displayVar("message"))</h5>
+<div>
+@foreach (string _message_back_button in Model.GetSection("message_back_button", this)){
+		
+	<BUTTON class="btn btn-sm btn-default" @(Model.displayVar("backbutton_attrs"))>Back to list</button>
+	}
+@foreach (string _view_page_button in Model.GetSection("view_page_button", this)){
+	<BUTTON class="btn btn-sm btn-default" @(Model.displayVar("view_page_button_attrs"))>View</button>
+}
+@foreach (string _edit_page_button in Model.GetSection("edit_page_button", this)){
+	<BUTTON class="btn btn-sm btn-default" @(Model.displayVar("edit_page_button_attrs"))>Edit</button>
+}
+</div>
+</div>
+}			}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c2" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c2")) class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+}
+	</div>
+<div class="r-grid">
+	@foreach (string _grid_tabs in Model.GetSection("grid_tabs", this)){
+  <ul class="nav nav-tabs bsgrid_tabs">
+	@(Model.displayVar("grid_tabs_content"))
+  </ul>
+}
+					@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+
+
+
+
+ 
+	 
+												<TABLE data-body-align="left" data-location="grid" id="form_grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_grid")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="6" data-v-width="14">
+	<tbody>
+										<TR @(Model.displayVar("row_grid_0"))>
+										
+
+@foreach (string _cellblock_grid_c17 in Model.GetSection("cellblock_grid_c17", this)){
+<TD @(Model.displayVar("cell_grid_c17")) class=" r-ori-vert" ocolspan="3" data-cellId="grid_c17" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="9">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _referenceID_fieldblock in Model.GetSection("referenceID_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_referenceID"))  r-horizontal-field form-horizontal" data-signal-error-for="referenceID@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field62" @(Model.displayVar("item_integrated_edit_field62")) data-pageid="@(Model.displayVar("pageid"))" data-field="referenceID" data-fieldname="referenceID">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_referenceID"))">
+		@foreach (string _referenceID_label in Model.GetSection("referenceID_label", this)){@(Model.displayVar("label applicationUnderAssessment referenceID"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("referenceID_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="referenceID" {$tooltipAttr applicationUnderAssessment referenceID }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment referenceID"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _applicationType_fieldblock in Model.GetSection("applicationType_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_applicationType"))  r-horizontal-field form-horizontal" data-signal-error-for="applicationType@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" @(Model.displayVar("item_integrated_edit_field29")) data-pageid="@(Model.displayVar("pageid"))" data-field="applicationType" data-fieldname="applicationType">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_applicationType"))">
+		@foreach (string _applicationType_label in Model.GetSection("applicationType_label", this)){@(Model.displayVar("label applicationUnderAssessment applicationType"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("applicationType_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="applicationType" {$tooltipAttr applicationUnderAssessment applicationType }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment applicationType"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _applicationCategory_fieldblock in Model.GetSection("applicationCategory_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_applicationCategory"))  r-horizontal-field form-horizontal" data-signal-error-for="applicationCategory@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field51" @(Model.displayVar("item_integrated_edit_field51")) data-pageid="@(Model.displayVar("pageid"))" data-field="applicationCategory" data-fieldname="applicationCategory">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_applicationCategory"))">
+		@foreach (string _applicationCategory_label in Model.GetSection("applicationCategory_label", this)){@(Model.displayVar("label applicationUnderAssessment applicationCategory"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("applicationCategory_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="applicationCategory" {$tooltipAttr applicationUnderAssessment applicationCategory }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment applicationCategory"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _companyNameA_fieldblock in Model.GetSection("companyNameA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_companyNameA"))  r-horizontal-field form-horizontal" data-signal-error-for="companyNameA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" @(Model.displayVar("item_integrated_edit_field")) data-pageid="@(Model.displayVar("pageid"))" data-field="companyNameA" data-fieldname="companyNameA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_companyNameA"))">
+		@foreach (string _companyNameA_label in Model.GetSection("companyNameA_label", this)){@(Model.displayVar("label applicationUnderAssessment companyNameA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("companyNameA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="companyNameA" {$tooltipAttr applicationUnderAssessment companyNameA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment companyNameA"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_grid_c18 in Model.GetSection("cellblock_grid_c18", this)){
+<TD @(Model.displayVar("cell_grid_c18")) class=" r-ori-vert" ocolspan="3" data-cellId="grid_c18" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="5">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _externalReferenceNo_fieldblock in Model.GetSection("externalReferenceNo_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_externalReferenceNo"))  r-horizontal-field form-horizontal" data-signal-error-for="externalReferenceNo@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field44" @(Model.displayVar("item_integrated_edit_field44")) data-pageid="@(Model.displayVar("pageid"))" data-field="externalReferenceNo" data-fieldname="externalReferenceNo">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_externalReferenceNo"))">
+		@foreach (string _externalReferenceNo_label in Model.GetSection("externalReferenceNo_label", this)){@(Model.displayVar("label applicationUnderAssessment externalReferenceNo"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("externalReferenceNo_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="externalReferenceNo" {$tooltipAttr applicationUnderAssessment externalReferenceNo }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment externalReferenceNo"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _modeOfOperation_fieldblock in Model.GetSection("modeOfOperation_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_modeOfOperation"))  r-horizontal-field form-horizontal" data-signal-error-for="modeOfOperation@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field46" @(Model.displayVar("item_integrated_edit_field46")) data-pageid="@(Model.displayVar("pageid"))" data-field="modeOfOperation" data-fieldname="modeOfOperation">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_modeOfOperation"))">
+		@foreach (string _modeOfOperation_label in Model.GetSection("modeOfOperation_label", this)){@(Model.displayVar("label applicationUnderAssessment modeOfOperation"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("modeOfOperation_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="modeOfOperation" {$tooltipAttr applicationUnderAssessment modeOfOperation }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment modeOfOperation"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _natureOfService_fieldblock in Model.GetSection("natureOfService_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_natureOfService"))  r-horizontal-field form-horizontal" data-signal-error-for="natureOfService@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field49" @(Model.displayVar("item_integrated_edit_field49")) data-pageid="@(Model.displayVar("pageid"))" data-field="natureOfService" data-fieldname="natureOfService">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_natureOfService"))">
+		@foreach (string _natureOfService_label in Model.GetSection("natureOfService_label", this)){@(Model.displayVar("label applicationUnderAssessment natureOfService"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("natureOfService_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="natureOfService" {$tooltipAttr applicationUnderAssessment natureOfService }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment natureOfService"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+	 
+	 
+														<TR @(Model.displayVar("row_grid_1"))>
+										
+
+@foreach (string _cellblock_grid_c8 in Model.GetSection("cellblock_grid_c8", this)){
+<TD @(Model.displayVar("cell_grid_c8")) class="r-align-left r-ori-vert" data-single ocolspan="3" data-cellId="grid_c8" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="9">
+	<div edit-form-cell class="clearfix">
+				<SPAN data-itemtype="text" data-itemid="text" @(Model.displayVar("item_text")) data-pageid="@(Model.displayVar("pageid"))" data-small> 
+	<h2><u>Class of Station or Service</u></h2></span>
+	
+								</td>
+			}
+			 
+		
+							
+
+@foreach (string _cellblock_grid_c11 in Model.GetSection("cellblock_grid_c11", this)){
+<TD @(Model.displayVar("cell_grid_c11")) class="r-align-left r-ori-vert" data-single ocolspan="3" data-cellId="grid_c11" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="5">
+	<div edit-form-cell class="clearfix">
+									</td>
+			}
+								</tr>
+	 
+	 
+														<TR @(Model.displayVar("row_grid_2"))>
+										
+
+@foreach (string _cellblock_grid_c3 in Model.GetSection("cellblock_grid_c3", this)){
+<TD @(Model.displayVar("cell_grid_c3")) class="r-align-left r-ori-vert" data-cellId="grid_c3" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _rt_fieldblock in Model.GetSection("rt_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_rt"))  r-horizontal-field form-horizontal" data-signal-error-for="rt@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field45" @(Model.displayVar("item_integrated_edit_field45")) data-pageid="@(Model.displayVar("pageid"))" data-field="rt" data-fieldname="rt">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_rt"))">
+		@foreach (string _rt_label in Model.GetSection("rt_label", this)){@(Model.displayVar("label applicationUnderAssessment rt"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("rt_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="rt" {$tooltipAttr applicationUnderAssessment rt }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment rt"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _ml_fieldblock in Model.GetSection("ml_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_ml"))  r-horizontal-field form-horizontal" data-signal-error-for="ml@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field54" @(Model.displayVar("item_integrated_edit_field54")) data-pageid="@(Model.displayVar("pageid"))" data-field="ml" data-fieldname="ml">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_ml"))">
+		@foreach (string _ml_label in Model.GetSection("ml_label", this)){@(Model.displayVar("label applicationUnderAssessment ml"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("ml_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="ml" {$tooltipAttr applicationUnderAssessment ml }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment ml"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _fc_fieldblock in Model.GetSection("fc_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_fc"))  r-horizontal-field form-horizontal" data-signal-error-for="fc@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field57" @(Model.displayVar("item_integrated_edit_field57")) data-pageid="@(Model.displayVar("pageid"))" data-field="fc" data-fieldname="fc">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_fc"))">
+		@foreach (string _fc_label in Model.GetSection("fc_label", this)){@(Model.displayVar("label applicationUnderAssessment fc"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("fc_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="fc" {$tooltipAttr applicationUnderAssessment fc }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment fc"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_grid_c12 in Model.GetSection("cellblock_grid_c12", this)){
+<TD @(Model.displayVar("cell_grid_c12")) class="r-align-left r-ori-vert" data-cellId="grid_c12" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _tc_fieldblock in Model.GetSection("tc_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_tc"))  r-horizontal-field form-horizontal" data-signal-error-for="tc@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field60" @(Model.displayVar("item_integrated_edit_field60")) data-pageid="@(Model.displayVar("pageid"))" data-field="tc" data-fieldname="tc">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_tc"))">
+		@foreach (string _tc_label in Model.GetSection("tc_label", this)){@(Model.displayVar("label applicationUnderAssessment tc"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("tc_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="tc" {$tooltipAttr applicationUnderAssessment tc }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment tc"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _fx_fieldblock in Model.GetSection("fx_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_fx"))  r-horizontal-field form-horizontal" data-signal-error-for="fx@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field52" @(Model.displayVar("item_integrated_edit_field52")) data-pageid="@(Model.displayVar("pageid"))" data-field="fx" data-fieldname="fx">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_fx"))">
+		@foreach (string _fx_label in Model.GetSection("fx_label", this)){@(Model.displayVar("label applicationUnderAssessment fx"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("fx_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="fx" {$tooltipAttr applicationUnderAssessment fx }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment fx"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _p_fieldblock in Model.GetSection("p_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_p"))  r-horizontal-field form-horizontal" data-signal-error-for="p@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field55" @(Model.displayVar("item_integrated_edit_field55")) data-pageid="@(Model.displayVar("pageid"))" data-field="p" data-fieldname="p">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_p"))">
+		@foreach (string _p_label in Model.GetSection("p_label", this)){@(Model.displayVar("label applicationUnderAssessment p"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("p_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="p" {$tooltipAttr applicationUnderAssessment p }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment p"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_grid_c4 in Model.GetSection("cellblock_grid_c4", this)){
+<TD @(Model.displayVar("cell_grid_c4")) class="r-align-left r-ori-vert" data-cellId="grid_c4" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _fa_fieldblock in Model.GetSection("fa_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_fa"))  r-horizontal-field form-horizontal" data-signal-error-for="fa@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field58" @(Model.displayVar("item_integrated_edit_field58")) data-pageid="@(Model.displayVar("pageid"))" data-field="fa" data-fieldname="fa">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_fa"))">
+		@foreach (string _fa_label in Model.GetSection("fa_label", this)){@(Model.displayVar("label applicationUnderAssessment fa"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("fa_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="fa" {$tooltipAttr applicationUnderAssessment fa }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment fa"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _fb_fieldblock in Model.GetSection("fb_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_fb"))  r-horizontal-field form-horizontal" data-signal-error-for="fb@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field53" @(Model.displayVar("item_integrated_edit_field53")) data-pageid="@(Model.displayVar("pageid"))" data-field="fb" data-fieldname="fb">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_fb"))">
+		@foreach (string _fb_label in Model.GetSection("fb_label", this)){@(Model.displayVar("label applicationUnderAssessment fb"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("fb_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="fb" {$tooltipAttr applicationUnderAssessment fb }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment fb"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _bc_fieldblock in Model.GetSection("bc_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_bc"))  r-horizontal-field form-horizontal" data-signal-error-for="bc@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field56" @(Model.displayVar("item_integrated_edit_field56")) data-pageid="@(Model.displayVar("pageid"))" data-field="bc" data-fieldname="bc">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_bc"))">
+		@foreach (string _bc_label in Model.GetSection("bc_label", this)){@(Model.displayVar("label applicationUnderAssessment bc"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("bc_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="bc" {$tooltipAttr applicationUnderAssessment bc }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment bc"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_grid_c7 in Model.GetSection("cellblock_grid_c7", this)){
+<TD @(Model.displayVar("cell_grid_c7")) class="r-align-left r-ori-vert" data-cellId="grid_c7" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _ma_fieldblock in Model.GetSection("ma_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_ma"))  r-horizontal-field form-horizontal" data-signal-error-for="ma@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field59" @(Model.displayVar("item_integrated_edit_field59")) data-pageid="@(Model.displayVar("pageid"))" data-field="ma" data-fieldname="ma">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_ma"))">
+		@foreach (string _ma_label in Model.GetSection("ma_label", this)){@(Model.displayVar("label applicationUnderAssessment ma"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("ma_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="ma" {$tooltipAttr applicationUnderAssessment ma }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment ma"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _other_ClassSS_fieldblock in Model.GetSection("other_ClassSS_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_other_ClassSS"))  r-horizontal-field form-horizontal" data-signal-error-for="other_ClassSS@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field61" @(Model.displayVar("item_integrated_edit_field61")) data-pageid="@(Model.displayVar("pageid"))" data-field="other_ClassSS" data-fieldname="other_ClassSS">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_other_ClassSS"))">
+		@foreach (string _other_ClassSS_label in Model.GetSection("other_ClassSS_label", this)){@(Model.displayVar("label applicationUnderAssessment other_ClassSS"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("other_ClassSS_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="other_ClassSS" {$tooltipAttr applicationUnderAssessment other_ClassSS }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment other_ClassSS"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+		
+							
+
+@foreach (string _cellblock_grid_c33 in Model.GetSection("cellblock_grid_c33", this)){
+<TD @(Model.displayVar("cell_grid_c33")) class=" r-ori-vert" data-single data-cellId="grid_c33" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="1">
+	<div edit-form-cell class="clearfix">
+									</td>
+			}
+			 
+		
+							
+
+@foreach (string _cellblock_grid_c2 in Model.GetSection("cellblock_grid_c2", this)){
+<TD @(Model.displayVar("cell_grid_c2")) class=" r-ori-vert" data-single data-cellId="grid_c2" data-pageid="@(Model.displayVar("pageid"))" data-page="applicationunderassessment_add" data-v-cell="1">
+	<div edit-form-cell class="clearfix">
+									</td>
+			}
+								</tr>
+	 
+	 
+																</tbody></table>
+				 
+	<DIV class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" @(Model.displayVar("item_section2")) data-pageid="@(Model.displayVar("pageid"))" data-page="applicationunderassessment_add">
+		<DIV class="panel-heading" role="tab" @(Model.displayVar("section_section1_headattrs")) data-toggle="collapse" href="#section1@(Model.displayVar("pageid"))" aria-expanded="true" aria-controls="section1">
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				<h2><b><u>STATION LOCATIONS</u></b></h2>			</a>
+					  </h4>
+		</div>
+		<DIV class="panel-collapse collapse in @(Model.displayVar("section_section1_xtrclass"))" role="tabpanel" @(Model.displayVar("section_section1_attrs")) id="section1@(Model.displayVar("pageid"))">
+		  <div class="panel-body">
+			@foreach (string _section2_block in Model.GetSection("section2_block", this)){
+
+
+
+
+ 
+	 
+												<TABLE data-body-align="left" data-location="section2" id="form_section2_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_section2")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="2" data-v-width="6">
+	<tbody>
+										<TR @(Model.displayVar("row_section2_0"))>
+										
+
+@foreach (string _cellblock_section2_c1 in Model.GetSection("cellblock_section2_c1", this)){
+<TD @(Model.displayVar("cell_section2_c1")) class=" r-ori-vert" data-cellId="section2_c1" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _siteNameA_fieldblock in Model.GetSection("siteNameA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_siteNameA"))  r-horizontal-field form-horizontal" data-signal-error-for="siteNameA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" @(Model.displayVar("item_integrated_edit_field2")) data-pageid="@(Model.displayVar("pageid"))" data-field="siteNameA" data-fieldname="siteNameA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_siteNameA"))">
+		@foreach (string _siteNameA_label in Model.GetSection("siteNameA_label", this)){@(Model.displayVar("label applicationUnderAssessment siteNameA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("siteNameA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="siteNameA" {$tooltipAttr applicationUnderAssessment siteNameA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment siteNameA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _siteIDA_fieldblock in Model.GetSection("siteIDA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_siteIDA"))  r-horizontal-field form-horizontal" data-signal-error-for="siteIDA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field30" @(Model.displayVar("item_integrated_edit_field30")) data-pageid="@(Model.displayVar("pageid"))" data-field="siteIDA" data-fieldname="siteIDA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_siteIDA"))">
+		@foreach (string _siteIDA_label in Model.GetSection("siteIDA_label", this)){@(Model.displayVar("label applicationUnderAssessment siteIDA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("siteIDA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="siteIDA" {$tooltipAttr applicationUnderAssessment siteIDA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment siteIDA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _province_a_fieldblock in Model.GetSection("province_a_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_province_a"))  r-horizontal-field form-horizontal" data-signal-error-for="province_a@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field36" @(Model.displayVar("item_integrated_edit_field36")) data-pageid="@(Model.displayVar("pageid"))" data-field="province_a" data-fieldname="province_a">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_province_a"))">
+		@foreach (string _province_a_label in Model.GetSection("province_a_label", this)){@(Model.displayVar("label applicationUnderAssessment province_a"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("province_a_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="province_a" {$tooltipAttr applicationUnderAssessment province_a }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment province_a"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _city_a_fieldblock in Model.GetSection("city_a_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_city_a"))  r-horizontal-field form-horizontal" data-signal-error-for="city_a@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field35" @(Model.displayVar("item_integrated_edit_field35")) data-pageid="@(Model.displayVar("pageid"))" data-field="city_a" data-fieldname="city_a">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_city_a"))">
+		@foreach (string _city_a_label in Model.GetSection("city_a_label", this)){@(Model.displayVar("label applicationUnderAssessment city_a"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("city_a_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="city_a" {$tooltipAttr applicationUnderAssessment city_a }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment city_a"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _zipcode_a_fieldblock in Model.GetSection("zipcode_a_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_zipcode_a"))  r-horizontal-field form-horizontal" data-signal-error-for="zipcode_a@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field37" @(Model.displayVar("item_integrated_edit_field37")) data-pageid="@(Model.displayVar("pageid"))" data-field="zipcode_a" data-fieldname="zipcode_a">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_zipcode_a"))">
+		@foreach (string _zipcode_a_label in Model.GetSection("zipcode_a_label", this)){@(Model.displayVar("label applicationUnderAssessment zipcode_a"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("zipcode_a_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="zipcode_a" {$tooltipAttr applicationUnderAssessment zipcode_a }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment zipcode_a"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _barangay_a_fieldblock in Model.GetSection("barangay_a_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_barangay_a"))  r-horizontal-field form-horizontal" data-signal-error-for="barangay_a@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field34" @(Model.displayVar("item_integrated_edit_field34")) data-pageid="@(Model.displayVar("pageid"))" data-field="barangay_a" data-fieldname="barangay_a">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_barangay_a"))">
+		@foreach (string _barangay_a_label in Model.GetSection("barangay_a_label", this)){@(Model.displayVar("label applicationUnderAssessment barangay_a"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("barangay_a_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="barangay_a" {$tooltipAttr applicationUnderAssessment barangay_a }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment barangay_a"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _street_a_fieldblock in Model.GetSection("street_a_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_street_a"))  r-horizontal-field form-horizontal" data-signal-error-for="street_a@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field33" @(Model.displayVar("item_integrated_edit_field33")) data-pageid="@(Model.displayVar("pageid"))" data-field="street_a" data-fieldname="street_a">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_street_a"))">
+		@foreach (string _street_a_label in Model.GetSection("street_a_label", this)){@(Model.displayVar("label applicationUnderAssessment street_a"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("street_a_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="street_a" {$tooltipAttr applicationUnderAssessment street_a }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment street_a"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _unit_a_fieldblock in Model.GetSection("unit_a_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_unit_a"))  r-horizontal-field form-horizontal" data-signal-error-for="unit_a@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field32" @(Model.displayVar("item_integrated_edit_field32")) data-pageid="@(Model.displayVar("pageid"))" data-field="unit_a" data-fieldname="unit_a">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_unit_a"))">
+		@foreach (string _unit_a_label in Model.GetSection("unit_a_label", this)){@(Model.displayVar("label applicationUnderAssessment unit_a"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("unit_a_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="unit_a" {$tooltipAttr applicationUnderAssessment unit_a }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment unit_a"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_section2_c in Model.GetSection("cellblock_section2_c", this)){
+<TD @(Model.displayVar("cell_section2_c")) class=" r-ori-vert" data-cellId="section2_c" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _siteNameB_fieldblock in Model.GetSection("siteNameB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_siteNameB"))  r-horizontal-field form-horizontal" data-signal-error-for="siteNameB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" @(Model.displayVar("item_integrated_edit_field3")) data-pageid="@(Model.displayVar("pageid"))" data-field="siteNameB" data-fieldname="siteNameB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_siteNameB"))">
+		@foreach (string _siteNameB_label in Model.GetSection("siteNameB_label", this)){@(Model.displayVar("label applicationUnderAssessment siteNameB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("siteNameB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="siteNameB" {$tooltipAttr applicationUnderAssessment siteNameB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment siteNameB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _siteIDB_fieldblock in Model.GetSection("siteIDB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_siteIDB"))  r-horizontal-field form-horizontal" data-signal-error-for="siteIDB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" @(Model.displayVar("item_integrated_edit_field31")) data-pageid="@(Model.displayVar("pageid"))" data-field="siteIDB" data-fieldname="siteIDB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_siteIDB"))">
+		@foreach (string _siteIDB_label in Model.GetSection("siteIDB_label", this)){@(Model.displayVar("label applicationUnderAssessment siteIDB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("siteIDB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="siteIDB" {$tooltipAttr applicationUnderAssessment siteIDB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment siteIDB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _province_b_fieldblock in Model.GetSection("province_b_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_province_b"))  r-horizontal-field form-horizontal" data-signal-error-for="province_b@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field42" @(Model.displayVar("item_integrated_edit_field42")) data-pageid="@(Model.displayVar("pageid"))" data-field="province_b" data-fieldname="province_b">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_province_b"))">
+		@foreach (string _province_b_label in Model.GetSection("province_b_label", this)){@(Model.displayVar("label applicationUnderAssessment province_b"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("province_b_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="province_b" {$tooltipAttr applicationUnderAssessment province_b }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment province_b"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _city_b_fieldblock in Model.GetSection("city_b_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_city_b"))  r-horizontal-field form-horizontal" data-signal-error-for="city_b@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field41" @(Model.displayVar("item_integrated_edit_field41")) data-pageid="@(Model.displayVar("pageid"))" data-field="city_b" data-fieldname="city_b">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_city_b"))">
+		@foreach (string _city_b_label in Model.GetSection("city_b_label", this)){@(Model.displayVar("label applicationUnderAssessment city_b"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("city_b_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="city_b" {$tooltipAttr applicationUnderAssessment city_b }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment city_b"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _zipcode_b_fieldblock in Model.GetSection("zipcode_b_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_zipcode_b"))  r-horizontal-field form-horizontal" data-signal-error-for="zipcode_b@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field43" @(Model.displayVar("item_integrated_edit_field43")) data-pageid="@(Model.displayVar("pageid"))" data-field="zipcode_b" data-fieldname="zipcode_b">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_zipcode_b"))">
+		@foreach (string _zipcode_b_label in Model.GetSection("zipcode_b_label", this)){@(Model.displayVar("label applicationUnderAssessment zipcode_b"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("zipcode_b_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="zipcode_b" {$tooltipAttr applicationUnderAssessment zipcode_b }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment zipcode_b"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _barangay_b_fieldblock in Model.GetSection("barangay_b_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_barangay_b"))  r-horizontal-field form-horizontal" data-signal-error-for="barangay_b@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field40" @(Model.displayVar("item_integrated_edit_field40")) data-pageid="@(Model.displayVar("pageid"))" data-field="barangay_b" data-fieldname="barangay_b">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_barangay_b"))">
+		@foreach (string _barangay_b_label in Model.GetSection("barangay_b_label", this)){@(Model.displayVar("label applicationUnderAssessment barangay_b"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("barangay_b_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="barangay_b" {$tooltipAttr applicationUnderAssessment barangay_b }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment barangay_b"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _street_b_fieldblock in Model.GetSection("street_b_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_street_b"))  r-horizontal-field form-horizontal" data-signal-error-for="street_b@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field39" @(Model.displayVar("item_integrated_edit_field39")) data-pageid="@(Model.displayVar("pageid"))" data-field="street_b" data-fieldname="street_b">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_street_b"))">
+		@foreach (string _street_b_label in Model.GetSection("street_b_label", this)){@(Model.displayVar("label applicationUnderAssessment street_b"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("street_b_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="street_b" {$tooltipAttr applicationUnderAssessment street_b }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment street_b"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _unit_b_fieldblock in Model.GetSection("unit_b_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_unit_b"))  r-horizontal-field form-horizontal" data-signal-error-for="unit_b@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field38" @(Model.displayVar("item_integrated_edit_field38")) data-pageid="@(Model.displayVar("pageid"))" data-field="unit_b" data-fieldname="unit_b">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_unit_b"))">
+		@foreach (string _unit_b_label in Model.GetSection("unit_b_label", this)){@(Model.displayVar("label applicationUnderAssessment unit_b"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("unit_b_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="unit_b" {$tooltipAttr applicationUnderAssessment unit_b }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment unit_b"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+			</tbody></table>
+}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<DIV class="panel panel-default form-section" data-itemtype="section" data-itemid="section3" @(Model.displayVar("item_section3")) data-pageid="@(Model.displayVar("pageid"))" data-page="applicationunderassessment_add">
+		<DIV class="panel-heading" role="tab" @(Model.displayVar("section_section2_headattrs")) data-toggle="collapse" href="#section2@(Model.displayVar("pageid"))" aria-expanded="true" aria-controls="section2">
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				<h2><b><u>COORDINATES</u></b></h2>			</a>
+					  </h4>
+		</div>
+		<DIV class="panel-collapse collapse in @(Model.displayVar("section_section2_xtrclass"))" role="tabpanel" @(Model.displayVar("section_section2_attrs")) id="section2@(Model.displayVar("pageid"))">
+		  <div class="panel-body">
+			@foreach (string _section3_block in Model.GetSection("section3_block", this)){
+
+
+
+
+ 
+	 
+												<TABLE data-body-align="left" data-location="section3" id="form_section3_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_section3")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="2" data-v-width="6">
+	<tbody>
+										<TR @(Model.displayVar("row_section3_0"))>
+										
+
+@foreach (string _cellblock_section3_c1 in Model.GetSection("cellblock_section3_c1", this)){
+<TD @(Model.displayVar("cell_section3_c1")) class=" r-ori-vert" data-cellId="section3_c1" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _longtitudeA_fieldblock in Model.GetSection("longtitudeA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_longtitudeA"))  r-horizontal-field form-horizontal" data-signal-error-for="longtitudeA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" @(Model.displayVar("item_integrated_edit_field25")) data-pageid="@(Model.displayVar("pageid"))" data-field="longtitudeA" data-fieldname="longtitudeA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_longtitudeA"))">
+		@foreach (string _longtitudeA_label in Model.GetSection("longtitudeA_label", this)){@(Model.displayVar("label applicationUnderAssessment longtitudeA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("longtitudeA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="longtitudeA" {$tooltipAttr applicationUnderAssessment longtitudeA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment longtitudeA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _latitudeA_fieldblock in Model.GetSection("latitudeA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_latitudeA"))  r-horizontal-field form-horizontal" data-signal-error-for="latitudeA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field27" @(Model.displayVar("item_integrated_edit_field27")) data-pageid="@(Model.displayVar("pageid"))" data-field="latitudeA" data-fieldname="latitudeA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_latitudeA"))">
+		@foreach (string _latitudeA_label in Model.GetSection("latitudeA_label", this)){@(Model.displayVar("label applicationUnderAssessment latitudeA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("latitudeA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="latitudeA" {$tooltipAttr applicationUnderAssessment latitudeA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment latitudeA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _elevationA_fieldblock in Model.GetSection("elevationA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_elevationA"))  r-horizontal-field form-horizontal" data-signal-error-for="elevationA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" @(Model.displayVar("item_integrated_edit_field5")) data-pageid="@(Model.displayVar("pageid"))" data-field="elevationA" data-fieldname="elevationA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_elevationA"))">
+		@foreach (string _elevationA_label in Model.GetSection("elevationA_label", this)){@(Model.displayVar("label applicationUnderAssessment elevationA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("elevationA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="elevationA" {$tooltipAttr applicationUnderAssessment elevationA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment elevationA"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_section3_c in Model.GetSection("cellblock_section3_c", this)){
+<TD @(Model.displayVar("cell_section3_c")) class=" r-ori-vert" data-cellId="section3_c" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _longtitudeB_fieldblock in Model.GetSection("longtitudeB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_longtitudeB"))  r-horizontal-field form-horizontal" data-signal-error-for="longtitudeB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" @(Model.displayVar("item_integrated_edit_field26")) data-pageid="@(Model.displayVar("pageid"))" data-field="longtitudeB" data-fieldname="longtitudeB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_longtitudeB"))">
+		@foreach (string _longtitudeB_label in Model.GetSection("longtitudeB_label", this)){@(Model.displayVar("label applicationUnderAssessment longtitudeB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("longtitudeB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="longtitudeB" {$tooltipAttr applicationUnderAssessment longtitudeB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment longtitudeB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _latitudeB_fieldblock in Model.GetSection("latitudeB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_latitudeB"))  r-horizontal-field form-horizontal" data-signal-error-for="latitudeB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field28" @(Model.displayVar("item_integrated_edit_field28")) data-pageid="@(Model.displayVar("pageid"))" data-field="latitudeB" data-fieldname="latitudeB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_latitudeB"))">
+		@foreach (string _latitudeB_label in Model.GetSection("latitudeB_label", this)){@(Model.displayVar("label applicationUnderAssessment latitudeB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("latitudeB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="latitudeB" {$tooltipAttr applicationUnderAssessment latitudeB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment latitudeB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _elevationB_fieldblock in Model.GetSection("elevationB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_elevationB"))  r-horizontal-field form-horizontal" data-signal-error-for="elevationB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" @(Model.displayVar("item_integrated_edit_field6")) data-pageid="@(Model.displayVar("pageid"))" data-field="elevationB" data-fieldname="elevationB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_elevationB"))">
+		@foreach (string _elevationB_label in Model.GetSection("elevationB_label", this)){@(Model.displayVar("label applicationUnderAssessment elevationB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("elevationB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="elevationB" {$tooltipAttr applicationUnderAssessment elevationB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment elevationB"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+	 
+	 
+																</tbody></table>
+				
+foreach (string _details_radioequipment in Model.GetSection("details_radioequipment", this)){
+<DIV data-itemtype="details_preview" data-itemid="details_preview4" @(Model.displayVar("item_details_preview4")) data-pageid="@(Model.displayVar("pageid"))" data-page="applicationunderassessment_add" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							@(Model.displayVar("details_pagetitle_radioequipment"))			
+							<span>
+					@(Model.displayVar("detailslButtons_radioequipment"))
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			@(Model.displayVar("displayDetailTable_radioequipment"))
+		</div>
+	</div>
+</div>
+}
+	
+				 
+	 
+												<TABLE data-body-align="left" data-location="section3" id="form_section3_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_section3")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="2" data-v-width="6">
+	<tbody>
+										<TR @(Model.displayVar("row_section3_2"))>
+										
+
+@foreach (string _cellblock_section3_c4 in Model.GetSection("cellblock_section3_c4", this)){
+<TD @(Model.displayVar("cell_section3_c4")) class=" r-ori-vert" data-single data-cellId="section3_c4" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _callSignA_fieldblock in Model.GetSection("callSignA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_callSignA"))  r-horizontal-field form-horizontal" data-signal-error-for="callSignA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" @(Model.displayVar("item_integrated_edit_field1")) data-pageid="@(Model.displayVar("pageid"))" data-field="callSignA" data-fieldname="callSignA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_callSignA"))">
+		@foreach (string _callSignA_label in Model.GetSection("callSignA_label", this)){@(Model.displayVar("label applicationUnderAssessment callSignA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("callSignA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="callSignA" {$tooltipAttr applicationUnderAssessment callSignA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment callSignA"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_section3_c5 in Model.GetSection("cellblock_section3_c5", this)){
+<TD @(Model.displayVar("cell_section3_c5")) class=" r-ori-vert" data-single data-cellId="section3_c5" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _callSignB_fieldblock in Model.GetSection("callSignB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_callSignB"))  r-horizontal-field form-horizontal" data-signal-error-for="callSignB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" @(Model.displayVar("item_integrated_edit_field4")) data-pageid="@(Model.displayVar("pageid"))" data-field="callSignB" data-fieldname="callSignB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_callSignB"))">
+		@foreach (string _callSignB_label in Model.GetSection("callSignB_label", this)){@(Model.displayVar("label applicationUnderAssessment callSignB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("callSignB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="callSignB" {$tooltipAttr applicationUnderAssessment callSignB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment callSignB"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+			</tbody></table>
+}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<DIV class="panel panel-default form-section" data-itemtype="section" data-itemid="section4" @(Model.displayVar("item_section4")) data-pageid="@(Model.displayVar("pageid"))" data-page="applicationunderassessment_add">
+		<DIV class="panel-heading" role="tab" @(Model.displayVar("section_section3_headattrs")) data-toggle="collapse" href="#section3@(Model.displayVar("pageid"))" aria-expanded="true" aria-controls="section3">
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				<h2><b><u>ANTENNA SYSTEM</u></b></h2>			</a>
+					  </h4>
+		</div>
+		<DIV class="panel-collapse collapse in @(Model.displayVar("section_section3_xtrclass"))" role="tabpanel" @(Model.displayVar("section_section3_attrs")) id="section3@(Model.displayVar("pageid"))">
+		  <div class="panel-body">
+			@foreach (string _section4_block in Model.GetSection("section4_block", this)){
+
+
+
+
+ 
+	 
+												<TABLE data-body-align="left" data-location="section4" id="form_section4_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_section4")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="2" data-v-width="6">
+	<tbody>
+										<TR @(Model.displayVar("row_section4_0"))>
+										
+
+@foreach (string _cellblock_section4_c1 in Model.GetSection("cellblock_section4_c1", this)){
+<TD @(Model.displayVar("cell_section4_c1")) class=" r-ori-vert" data-cellId="section4_c1" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _makeTypeModelA_fieldblock in Model.GetSection("makeTypeModelA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_makeTypeModelA"))  r-horizontal-field form-horizontal" data-signal-error-for="makeTypeModelA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" @(Model.displayVar("item_integrated_edit_field7")) data-pageid="@(Model.displayVar("pageid"))" data-field="makeTypeModelA" data-fieldname="makeTypeModelA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_makeTypeModelA"))">
+		@foreach (string _makeTypeModelA_label in Model.GetSection("makeTypeModelA_label", this)){@(Model.displayVar("label applicationUnderAssessment makeTypeModelA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("makeTypeModelA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="makeTypeModelA" {$tooltipAttr applicationUnderAssessment makeTypeModelA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment makeTypeModelA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _gainA_fieldblock in Model.GetSection("gainA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_gainA"))  r-horizontal-field form-horizontal" data-signal-error-for="gainA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" @(Model.displayVar("item_integrated_edit_field8")) data-pageid="@(Model.displayVar("pageid"))" data-field="gainA" data-fieldname="gainA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_gainA"))">
+		@foreach (string _gainA_label in Model.GetSection("gainA_label", this)){@(Model.displayVar("label applicationUnderAssessment gainA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("gainA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="gainA" {$tooltipAttr applicationUnderAssessment gainA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment gainA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _diameterA_fieldblock in Model.GetSection("diameterA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_diameterA"))  r-horizontal-field form-horizontal" data-signal-error-for="diameterA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" @(Model.displayVar("item_integrated_edit_field9")) data-pageid="@(Model.displayVar("pageid"))" data-field="diameterA" data-fieldname="diameterA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_diameterA"))">
+		@foreach (string _diameterA_label in Model.GetSection("diameterA_label", this)){@(Model.displayVar("label applicationUnderAssessment diameterA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("diameterA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="diameterA" {$tooltipAttr applicationUnderAssessment diameterA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment diameterA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _beamwidthA_fieldblock in Model.GetSection("beamwidthA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_beamwidthA"))  r-horizontal-field form-horizontal" data-signal-error-for="beamwidthA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" @(Model.displayVar("item_integrated_edit_field10")) data-pageid="@(Model.displayVar("pageid"))" data-field="beamwidthA" data-fieldname="beamwidthA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_beamwidthA"))">
+		@foreach (string _beamwidthA_label in Model.GetSection("beamwidthA_label", this)){@(Model.displayVar("label applicationUnderAssessment beamwidthA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("beamwidthA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="beamwidthA" {$tooltipAttr applicationUnderAssessment beamwidthA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment beamwidthA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _polarizationA_fieldblock in Model.GetSection("polarizationA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_polarizationA"))  r-horizontal-field form-horizontal" data-signal-error-for="polarizationA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" @(Model.displayVar("item_integrated_edit_field11")) data-pageid="@(Model.displayVar("pageid"))" data-field="polarizationA" data-fieldname="polarizationA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_polarizationA"))">
+		@foreach (string _polarizationA_label in Model.GetSection("polarizationA_label", this)){@(Model.displayVar("label applicationUnderAssessment polarizationA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("polarizationA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="polarizationA" {$tooltipAttr applicationUnderAssessment polarizationA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment polarizationA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _azimuthA_fieldblock in Model.GetSection("azimuthA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_azimuthA"))  r-horizontal-field form-horizontal" data-signal-error-for="azimuthA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" @(Model.displayVar("item_integrated_edit_field12")) data-pageid="@(Model.displayVar("pageid"))" data-field="azimuthA" data-fieldname="azimuthA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_azimuthA"))">
+		@foreach (string _azimuthA_label in Model.GetSection("azimuthA_label", this)){@(Model.displayVar("label applicationUnderAssessment azimuthA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("azimuthA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="azimuthA" {$tooltipAttr applicationUnderAssessment azimuthA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment azimuthA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _elevAngleA_fieldblock in Model.GetSection("elevAngleA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_elevAngleA"))  r-horizontal-field form-horizontal" data-signal-error-for="elevAngleA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" @(Model.displayVar("item_integrated_edit_field13")) data-pageid="@(Model.displayVar("pageid"))" data-field="elevAngleA" data-fieldname="elevAngleA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_elevAngleA"))">
+		@foreach (string _elevAngleA_label in Model.GetSection("elevAngleA_label", this)){@(Model.displayVar("label applicationUnderAssessment elevAngleA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("elevAngleA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="elevAngleA" {$tooltipAttr applicationUnderAssessment elevAngleA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment elevAngleA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _heightAGLA_fieldblock in Model.GetSection("heightAGLA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_heightAGLA"))  r-horizontal-field form-horizontal" data-signal-error-for="heightAGLA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" @(Model.displayVar("item_integrated_edit_field14")) data-pageid="@(Model.displayVar("pageid"))" data-field="heightAGLA" data-fieldname="heightAGLA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_heightAGLA"))">
+		@foreach (string _heightAGLA_label in Model.GetSection("heightAGLA_label", this)){@(Model.displayVar("label applicationUnderAssessment heightAGLA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("heightAGLA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="heightAGLA" {$tooltipAttr applicationUnderAssessment heightAGLA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment heightAGLA"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _feederLengthA_fieldblock in Model.GetSection("feederLengthA_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_feederLengthA"))  r-horizontal-field form-horizontal" data-signal-error-for="feederLengthA@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" @(Model.displayVar("item_integrated_edit_field15")) data-pageid="@(Model.displayVar("pageid"))" data-field="feederLengthA" data-fieldname="feederLengthA">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_feederLengthA"))">
+		@foreach (string _feederLengthA_label in Model.GetSection("feederLengthA_label", this)){@(Model.displayVar("label applicationUnderAssessment feederLengthA"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("feederLengthA_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="feederLengthA" {$tooltipAttr applicationUnderAssessment feederLengthA }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment feederLengthA"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_section4_c in Model.GetSection("cellblock_section4_c", this)){
+<TD @(Model.displayVar("cell_section4_c")) class=" r-ori-vert" data-cellId="section4_c" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _makeTypeModelB_fieldblock in Model.GetSection("makeTypeModelB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_makeTypeModelB"))  r-horizontal-field form-horizontal" data-signal-error-for="makeTypeModelB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" @(Model.displayVar("item_integrated_edit_field16")) data-pageid="@(Model.displayVar("pageid"))" data-field="makeTypeModelB" data-fieldname="makeTypeModelB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_makeTypeModelB"))">
+		@foreach (string _makeTypeModelB_label in Model.GetSection("makeTypeModelB_label", this)){@(Model.displayVar("label applicationUnderAssessment makeTypeModelB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("makeTypeModelB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="makeTypeModelB" {$tooltipAttr applicationUnderAssessment makeTypeModelB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment makeTypeModelB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _gainB_fieldblock in Model.GetSection("gainB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_gainB"))  r-horizontal-field form-horizontal" data-signal-error-for="gainB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" @(Model.displayVar("item_integrated_edit_field17")) data-pageid="@(Model.displayVar("pageid"))" data-field="gainB" data-fieldname="gainB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_gainB"))">
+		@foreach (string _gainB_label in Model.GetSection("gainB_label", this)){@(Model.displayVar("label applicationUnderAssessment gainB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("gainB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="gainB" {$tooltipAttr applicationUnderAssessment gainB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment gainB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _diameterB_fieldblock in Model.GetSection("diameterB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_diameterB"))  r-horizontal-field form-horizontal" data-signal-error-for="diameterB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" @(Model.displayVar("item_integrated_edit_field18")) data-pageid="@(Model.displayVar("pageid"))" data-field="diameterB" data-fieldname="diameterB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_diameterB"))">
+		@foreach (string _diameterB_label in Model.GetSection("diameterB_label", this)){@(Model.displayVar("label applicationUnderAssessment diameterB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("diameterB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="diameterB" {$tooltipAttr applicationUnderAssessment diameterB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment diameterB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _beamwidthB_fieldblock in Model.GetSection("beamwidthB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_beamwidthB"))  r-horizontal-field form-horizontal" data-signal-error-for="beamwidthB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" @(Model.displayVar("item_integrated_edit_field19")) data-pageid="@(Model.displayVar("pageid"))" data-field="beamwidthB" data-fieldname="beamwidthB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_beamwidthB"))">
+		@foreach (string _beamwidthB_label in Model.GetSection("beamwidthB_label", this)){@(Model.displayVar("label applicationUnderAssessment beamwidthB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("beamwidthB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="beamwidthB" {$tooltipAttr applicationUnderAssessment beamwidthB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment beamwidthB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _polarizationB_fieldblock in Model.GetSection("polarizationB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_polarizationB"))  r-horizontal-field form-horizontal" data-signal-error-for="polarizationB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" @(Model.displayVar("item_integrated_edit_field20")) data-pageid="@(Model.displayVar("pageid"))" data-field="polarizationB" data-fieldname="polarizationB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_polarizationB"))">
+		@foreach (string _polarizationB_label in Model.GetSection("polarizationB_label", this)){@(Model.displayVar("label applicationUnderAssessment polarizationB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("polarizationB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="polarizationB" {$tooltipAttr applicationUnderAssessment polarizationB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment polarizationB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _azimuthB_fieldblock in Model.GetSection("azimuthB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_azimuthB"))  r-horizontal-field form-horizontal" data-signal-error-for="azimuthB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" @(Model.displayVar("item_integrated_edit_field21")) data-pageid="@(Model.displayVar("pageid"))" data-field="azimuthB" data-fieldname="azimuthB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_azimuthB"))">
+		@foreach (string _azimuthB_label in Model.GetSection("azimuthB_label", this)){@(Model.displayVar("label applicationUnderAssessment azimuthB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("azimuthB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="azimuthB" {$tooltipAttr applicationUnderAssessment azimuthB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment azimuthB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _elevAngleB_fieldblock in Model.GetSection("elevAngleB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_elevAngleB"))  r-horizontal-field form-horizontal" data-signal-error-for="elevAngleB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" @(Model.displayVar("item_integrated_edit_field22")) data-pageid="@(Model.displayVar("pageid"))" data-field="elevAngleB" data-fieldname="elevAngleB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_elevAngleB"))">
+		@foreach (string _elevAngleB_label in Model.GetSection("elevAngleB_label", this)){@(Model.displayVar("label applicationUnderAssessment elevAngleB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("elevAngleB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="elevAngleB" {$tooltipAttr applicationUnderAssessment elevAngleB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment elevAngleB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _heightAGLB_fieldblock in Model.GetSection("heightAGLB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_heightAGLB"))  r-horizontal-field form-horizontal" data-signal-error-for="heightAGLB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" @(Model.displayVar("item_integrated_edit_field23")) data-pageid="@(Model.displayVar("pageid"))" data-field="heightAGLB" data-fieldname="heightAGLB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_heightAGLB"))">
+		@foreach (string _heightAGLB_label in Model.GetSection("heightAGLB_label", this)){@(Model.displayVar("label applicationUnderAssessment heightAGLB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("heightAGLB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="heightAGLB" {$tooltipAttr applicationUnderAssessment heightAGLB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment heightAGLB"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _feederLengthB_fieldblock in Model.GetSection("feederLengthB_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_feederLengthB"))  r-horizontal-field form-horizontal" data-signal-error-for="feederLengthB@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" @(Model.displayVar("item_integrated_edit_field24")) data-pageid="@(Model.displayVar("pageid"))" data-field="feederLengthB" data-fieldname="feederLengthB">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_feederLengthB"))">
+		@foreach (string _feederLengthB_label in Model.GetSection("feederLengthB_label", this)){@(Model.displayVar("label applicationUnderAssessment feederLengthB"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("feederLengthB_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="feederLengthB" {$tooltipAttr applicationUnderAssessment feederLengthB }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment feederLengthB"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+			</tbody></table>
+}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<DIV class="panel panel-default form-section" data-itemtype="section" data-itemid="section5" @(Model.displayVar("item_section5")) data-pageid="@(Model.displayVar("pageid"))" data-page="applicationunderassessment_add">
+		<DIV class="panel-heading" role="tab" @(Model.displayVar("section_section4_headattrs")) data-toggle="collapse" href="#section4@(Model.displayVar("pageid"))" aria-expanded="true" aria-controls="section4">
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				<h2><b><u>OTHERS</u></b></h2>			</a>
+					  </h4>
+		</div>
+		<DIV class="panel-collapse collapse in @(Model.displayVar("section_section4_xtrclass"))" role="tabpanel" @(Model.displayVar("section_section4_attrs")) id="section4@(Model.displayVar("pageid"))">
+		  <div class="panel-body">
+			@foreach (string _section5_block in Model.GetSection("section5_block", this)){
+
+
+
+
+ 
+	 
+												<TABLE data-body-align="left" data-location="section5" id="form_section5_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_section5")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="2" data-v-width="6">
+	<tbody>
+										<TR @(Model.displayVar("row_section5_0"))>
+										
+
+@foreach (string _cellblock_section5_c1 in Model.GetSection("cellblock_section5_c1", this)){
+<TD @(Model.displayVar("cell_section5_c1")) class=" r-ori-vert" data-cellId="section5_c1" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _naturoOfRequest_fieldblock in Model.GetSection("naturoOfRequest_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_naturoOfRequest"))  r-horizontal-field form-horizontal" data-signal-error-for="naturoOfRequest@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field63" @(Model.displayVar("item_integrated_edit_field63")) data-pageid="@(Model.displayVar("pageid"))" data-field="naturoOfRequest" data-fieldname="naturoOfRequest">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_naturoOfRequest"))">
+		@foreach (string _naturoOfRequest_label in Model.GetSection("naturoOfRequest_label", this)){@(Model.displayVar("label applicationUnderAssessment naturoOfRequest"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("naturoOfRequest_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="naturoOfRequest" {$tooltipAttr applicationUnderAssessment naturoOfRequest }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment naturoOfRequest"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _dateOfApprovedBrief_fieldblock in Model.GetSection("dateOfApprovedBrief_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_dateOfApprovedBrief"))  r-horizontal-field form-horizontal" data-signal-error-for="dateOfApprovedBrief@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field48" @(Model.displayVar("item_integrated_edit_field48")) data-pageid="@(Model.displayVar("pageid"))" data-field="dateOfApprovedBrief" data-fieldname="dateOfApprovedBrief">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_dateOfApprovedBrief"))">
+		@foreach (string _dateOfApprovedBrief_label in Model.GetSection("dateOfApprovedBrief_label", this)){@(Model.displayVar("label applicationUnderAssessment dateOfApprovedBrief"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("dateOfApprovedBrief_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="dateOfApprovedBrief" {$tooltipAttr applicationUnderAssessment dateOfApprovedBrief }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment dateOfApprovedBrief"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _recommendations_fieldblock in Model.GetSection("recommendations_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_recommendations"))  r-horizontal-field form-horizontal" data-signal-error-for="recommendations@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field50" @(Model.displayVar("item_integrated_edit_field50")) data-pageid="@(Model.displayVar("pageid"))" data-field="recommendations" data-fieldname="recommendations">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_recommendations"))">
+		@foreach (string _recommendations_label in Model.GetSection("recommendations_label", this)){@(Model.displayVar("label applicationUnderAssessment recommendations"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("recommendations_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="recommendations" {$tooltipAttr applicationUnderAssessment recommendations }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment recommendations"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _caseNo_fieldblock in Model.GetSection("caseNo_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_caseNo"))  r-horizontal-field form-horizontal" data-signal-error-for="caseNo@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field65" @(Model.displayVar("item_integrated_edit_field65")) data-pageid="@(Model.displayVar("pageid"))" data-field="caseNo" data-fieldname="caseNo">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_caseNo"))">
+		@foreach (string _caseNo_label in Model.GetSection("caseNo_label", this)){@(Model.displayVar("label applicationUnderAssessment caseNo"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("caseNo_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="caseNo" {$tooltipAttr applicationUnderAssessment caseNo }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment caseNo"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _frequencyRange_fieldblock in Model.GetSection("frequencyRange_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_frequencyRange"))  r-horizontal-field form-horizontal" data-signal-error-for="frequencyRange@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field66" @(Model.displayVar("item_integrated_edit_field66")) data-pageid="@(Model.displayVar("pageid"))" data-field="frequencyRange" data-fieldname="frequencyRange">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_frequencyRange"))">
+		@foreach (string _frequencyRange_label in Model.GetSection("frequencyRange_label", this)){@(Model.displayVar("label applicationUnderAssessment frequencyRange"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("frequencyRange_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="frequencyRange" {$tooltipAttr applicationUnderAssessment frequencyRange }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment frequencyRange"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _directivity_fieldblock in Model.GetSection("directivity_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_directivity"))  r-horizontal-field form-horizontal" data-signal-error-for="directivity@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field67" @(Model.displayVar("item_integrated_edit_field67")) data-pageid="@(Model.displayVar("pageid"))" data-field="directivity" data-fieldname="directivity">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_directivity"))">
+		@foreach (string _directivity_label in Model.GetSection("directivity_label", this)){@(Model.displayVar("label applicationUnderAssessment directivity"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("directivity_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="directivity" {$tooltipAttr applicationUnderAssessment directivity }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment directivity"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+			 
+																
+
+@foreach (string _cellblock_section5_c in Model.GetSection("cellblock_section5_c", this)){
+<TD @(Model.displayVar("cell_section5_c")) class=" r-ori-vert" data-cellId="section5_c" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="3">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _serviceArea_fieldblock in Model.GetSection("serviceArea_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_serviceArea"))  r-horizontal-field form-horizontal" data-signal-error-for="serviceArea@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field64" @(Model.displayVar("item_integrated_edit_field64")) data-pageid="@(Model.displayVar("pageid"))" data-field="serviceArea" data-fieldname="serviceArea">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_serviceArea"))">
+		@foreach (string _serviceArea_label in Model.GetSection("serviceArea_label", this)){@(Model.displayVar("label applicationUnderAssessment serviceArea"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("serviceArea_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="serviceArea" {$tooltipAttr applicationUnderAssessment serviceArea }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment serviceArea"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _evaluator_fieldblock in Model.GetSection("evaluator_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_evaluator"))  r-horizontal-field form-horizontal" data-signal-error-for="evaluator@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field69" @(Model.displayVar("item_integrated_edit_field69")) data-pageid="@(Model.displayVar("pageid"))" data-field="evaluator" data-fieldname="evaluator">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_evaluator"))">
+		@foreach (string _evaluator_label in Model.GetSection("evaluator_label", this)){@(Model.displayVar("label applicationUnderAssessment evaluator"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("evaluator_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="evaluator" {$tooltipAttr applicationUnderAssessment evaluator }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment evaluator"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _encoder_fieldblock in Model.GetSection("encoder_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_encoder"))  r-horizontal-field form-horizontal" data-signal-error-for="encoder@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field68" @(Model.displayVar("item_integrated_edit_field68")) data-pageid="@(Model.displayVar("pageid"))" data-field="encoder" data-fieldname="encoder">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_encoder"))">
+		@foreach (string _encoder_label in Model.GetSection("encoder_label", this)){@(Model.displayVar("label applicationUnderAssessment encoder"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("encoder_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="encoder" {$tooltipAttr applicationUnderAssessment encoder }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment encoder"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _position_fieldblock in Model.GetSection("position_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_position"))  r-horizontal-field form-horizontal" data-signal-error-for="position@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field70" @(Model.displayVar("item_integrated_edit_field70")) data-pageid="@(Model.displayVar("pageid"))" data-field="position" data-fieldname="position">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_position"))">
+		@foreach (string _position_label in Model.GetSection("position_label", this)){@(Model.displayVar("label applicationUnderAssessment position"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("position_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="position" {$tooltipAttr applicationUnderAssessment position }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment position"))		</div>
+	</div>
+</div>
+
+
+}
+											
+@foreach (string _Remarks_fieldblock in Model.GetSection("Remarks_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_Remarks"))  r-horizontal-field form-horizontal" data-signal-error-for="Remarks@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field47" @(Model.displayVar("item_integrated_edit_field47")) data-pageid="@(Model.displayVar("pageid"))" data-field="Remarks" data-fieldname="Remarks">
+
+	<LABEL class="r-edit-label control-label" for="@(Model.displayVar("labelfor_Remarks"))">
+		@foreach (string _Remarks_label in Model.GetSection("Remarks_label", this)){@(Model.displayVar("label applicationUnderAssessment Remarks"))}
+	</label>
+	<div class="r-edit-field">
+		@(Model.displayVar("Remarks_editcontrol"))	</div>
+	<DIV class="r-edit-tooltip" data-helpfor="Remarks" {$tooltipAttr applicationUnderAssessment Remarks }>
+		<div class="text-muted" >
+		@(Model.displayVar("tooltip applicationUnderAssessment Remarks"))		</div>
+	</div>
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+			</tbody></table>
+}
+		  </div>
+		</div>
+	</div>
+	
+				}
+	</div>
+<div class="r-below">
+					@foreach (string _below_grid_block in Model.GetSection("below-grid_block", this)){
+<DIV class="r-form" data-location="below-grid" id="form_below-grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_below-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="below-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_below-grid_c1")) class="			col-md-12
+	
+">
+		 
+		<SPAN data-itemtype="add_save" data-itemid="add_save" @(Model.displayVar("item_add_save")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" @(Model.displayVar("savebutton_attrs"))>
+							Save			</a>
+</span>
+	 
+		<SPAN data-itemtype="add_reset" data-itemid="add_reset" @(Model.displayVar("item_add_reset")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" id="resetButton@(Model.displayVar("id"))">
+							Reset			</a>
+</span>
+	 
+		@foreach (string _back_button in Model.GetSection("back_button", this)){
+<SPAN data-itemtype="add_back_list" data-itemid="add_back_list" @(Model.displayVar("item_add_back_list")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" id="backButton@(Model.displayVar("id"))">
+							Back to list			</a>
+</span>
+}
+	 
+		@foreach (string _cancel_button in Model.GetSection("cancel_button", this)){
+<SPAN data-itemtype="add_cancel" data-itemid="add_cancel" @(Model.displayVar("item_add_cancel")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" id="cancelButton@(Model.displayVar("id"))">
+							Cancel			</a>
+</span>
+}
+		</div>					</div>
+			</div>		
+}
+	</div>
+
+
+
+
+										@{Html.RenderSharedView("footer");}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	}
+	</body>
+</html>

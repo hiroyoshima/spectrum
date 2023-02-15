@@ -1,0 +1,26 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<html>
+    <head>
+       <META http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <SCRIPT type="text/javascript" src="include/js/jquery.min.js"></script>
+		<SCRIPT type="text/javascript" src="include/js/chart.js"></script>
+		@(Model.displayVar("load_flash_player"))
+    </head>
+    
+    <body>
+	<div class="center_div">@(Model.displayVar("chart_constructor"))</div>
+    </body>
+</html>

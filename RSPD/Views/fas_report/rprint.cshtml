@@ -1,0 +1,1909 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-rprint">
+	@foreach (string _body in Model.GetSection("body", this)){
+		{Html.RenderSharedView("header");}
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+		@(Model.displayVar("locking"))
+		<div class="r-small-page" 
+			data-body-align="left"
+			data-body-width="standard"
+		>
+							@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="r-form" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="top_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c1")) class=" r-ori-vert			col-md-12
+	
+">
+		 
+		@foreach (string _pdflink_block in Model.GetSection("pdflink_block", this)){
+<SPAN data-itemtype="print_pdf" data-itemid="print_pdf" @(Model.displayVar("item_print_pdf")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	pdflink" data-pdfpage="rprint" data-scope="0" data-split="0" data-records="10" data-orientation="portrait" data-scale="100" data-filename="FAS Report.pdf" data-pagesize="LETTER" data-pagetype="rprint" @(Model.displayVar("pdflink_attrs"))>
+							PDF View			</a>
+</span>
+}
+		</div>					</div>
+			 
+				<div class="row">
+			 
+				<DIV data-cellId="top_c2" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c2")) class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<H2 data-itemtype="print_header" data-itemid="print_header" @(Model.displayVar("item_print_header")) data-pageid="@(Model.displayVar("pageid"))">@(Model.displayVar("pagetitlelabel FAS_Report rprint"))</h2>
+	 
+		@foreach (string _printtabheader in Model.GetSection("printtabheader", this)){
+<SPAN data-itemtype="print_subheader" data-itemid="print_subheader" @(Model.displayVar("item_print_subheader")) data-pageid="@(Model.displayVar("pageid"))">
+@(Model.displayVar("printtabheader_text"))
+</span>
+}
+		</div>					</div>
+			</div>		
+}
+									@foreach (string _above_grid_block in Model.GetSection("above-grid_block", this)){
+<DIV class="r-form" data-location="above-grid" id="form_above-grid_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_above-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="above-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c1")) class=" r-ori-vert			col-md-12
+	
+">
+		@foreach (string _firstAboveGridCell in Model.GetSection("firstAboveGridCell", this)){
+		 
+		<SPAN data-itemtype="print_pages" data-itemid="print_pages" @(Model.displayVar("item_print_pages")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+	@(Model.displayVar("print_pages_labelprint_pages"))
+</span>			}	
+	</div>					</div>
+			</div>		
+}
+									@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+foreach (string _message_block in Model.GetSection("message_block", this)){
+<DIV data-grid-message data-pageid="@(Model.displayVar("pageid"))" class="alert @(Model.displayVar("message_class"))" role="alert" @(Model.displayVar("grid_message_attrs"))>@(Model.displayVar("message"))</div>
+}<style>@MvcHtmlString.Create(@"
+	td.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary {
+		background-color: #ffffbb;
+	}
+	td.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary {background-color: #ffe0b0;
+	}
+	.rnr-report {
+		width: 100%;
+	}
+	td {
+		padding: 2px 4px;
+	}
+		.blackshade {
+		font-size: 120%;
+	}
+	.summaryrow > * {
+		border:solid #808080 1px; 
+		border-left: none; 
+		border-right: none;
+	}")</style>
+<TABLE data-location="grid" id="form_grid_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_grid")) data-pageid="@(Model.displayVar("pageid"))" class=" table-striped table-bordered table  r-report " cellpadding="0" data-body-height="1">
+<tbody>	
+							@foreach (string _grid_header in Model.GetSection("grid_header", this)){
+
+ 
+	<TR data-section="head" data-group data-rowidx="0" @(Model.displayVar("rowattrs")) @(Model.displayVar("row_grid_0")) class="@(Model.displayVar("rowclass")) 
+		
+				r-gridrow
+			">
+		 
+			@foreach (string _cellblock_grid_headcell_field in Model.GetSection("cellblock_grid_headcell_field", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="referenceID" data-cellId="grid_headcell_field" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label" @(Model.displayVar("item_report_advanced_field_label")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="referenceID" data-fieldname="referenceID">
+@(Model.displayVar("label FAS_Report referenceID"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field1 in Model.GetSection("cellblock_grid_headcell_field1", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field1")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="applicationNo" data-cellId="grid_headcell_field1" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label1" @(Model.displayVar("item_report_advanced_field_label1")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="applicationNo" data-fieldname="applicationNo">
+@(Model.displayVar("label FAS_Report applicationNo"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field2 in Model.GetSection("cellblock_grid_headcell_field2", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field2")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="companyNameA" data-cellId="grid_headcell_field2" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label2" @(Model.displayVar("item_report_advanced_field_label2")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="companyNameA" data-fieldname="companyNameA">
+@(Model.displayVar("label FAS_Report companyNameA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field3 in Model.GetSection("cellblock_grid_headcell_field3", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field3")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="userCreate" data-cellId="grid_headcell_field3" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label3" @(Model.displayVar("item_report_advanced_field_label3")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="userCreate" data-fieldname="userCreate">
+@(Model.displayVar("label FAS_Report userCreate"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field4 in Model.GetSection("cellblock_grid_headcell_field4", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field4")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="userUpdate" data-cellId="grid_headcell_field4" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label4" @(Model.displayVar("item_report_advanced_field_label4")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="userUpdate" data-fieldname="userUpdate">
+@(Model.displayVar("label FAS_Report userUpdate"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field5 in Model.GetSection("cellblock_grid_headcell_field5", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field5")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="dateCreated" data-cellId="grid_headcell_field5" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label5" @(Model.displayVar("item_report_advanced_field_label5")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="dateCreated" data-fieldname="dateCreated">
+@(Model.displayVar("label FAS_Report dateCreated"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field6 in Model.GetSection("cellblock_grid_headcell_field6", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field6")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="dateUpdated" data-cellId="grid_headcell_field6" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label6" @(Model.displayVar("item_report_advanced_field_label6")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="dateUpdated" data-fieldname="dateUpdated">
+@(Model.displayVar("label FAS_Report dateUpdated"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field7 in Model.GetSection("cellblock_grid_headcell_field7", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field7")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="companyNameB" data-cellId="grid_headcell_field7" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label7" @(Model.displayVar("item_report_advanced_field_label7")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="companyNameB" data-fieldname="companyNameB">
+@(Model.displayVar("label FAS_Report companyNameB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field8 in Model.GetSection("cellblock_grid_headcell_field8", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field8")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="siteNameA" data-cellId="grid_headcell_field8" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label8" @(Model.displayVar("item_report_advanced_field_label8")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteNameA" data-fieldname="siteNameA">
+@(Model.displayVar("label FAS_Report siteNameA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field9 in Model.GetSection("cellblock_grid_headcell_field9", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field9")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="siteNameB" data-cellId="grid_headcell_field9" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label9" @(Model.displayVar("item_report_advanced_field_label9")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteNameB" data-fieldname="siteNameB">
+@(Model.displayVar("label FAS_Report siteNameB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field10 in Model.GetSection("cellblock_grid_headcell_field10", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field10")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="siteIDA" data-cellId="grid_headcell_field10" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label10" @(Model.displayVar("item_report_advanced_field_label10")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteIDA" data-fieldname="siteIDA">
+@(Model.displayVar("label FAS_Report siteIDA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field11 in Model.GetSection("cellblock_grid_headcell_field11", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field11")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="siteIDB" data-cellId="grid_headcell_field11" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label11" @(Model.displayVar("item_report_advanced_field_label11")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteIDB" data-fieldname="siteIDB">
+@(Model.displayVar("label FAS_Report siteIDB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field12 in Model.GetSection("cellblock_grid_headcell_field12", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field12")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="coordinateA" data-cellId="grid_headcell_field12" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label12" @(Model.displayVar("item_report_advanced_field_label12")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="coordinateA" data-fieldname="coordinateA">
+@(Model.displayVar("label FAS_Report coordinateA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field13 in Model.GetSection("cellblock_grid_headcell_field13", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field13")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="coordinateB" data-cellId="grid_headcell_field13" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label13" @(Model.displayVar("item_report_advanced_field_label13")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="coordinateB" data-fieldname="coordinateB">
+@(Model.displayVar("label FAS_Report coordinateB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field14 in Model.GetSection("cellblock_grid_headcell_field14", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field14")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="elevationA" data-cellId="grid_headcell_field14" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label14" @(Model.displayVar("item_report_advanced_field_label14")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevationA" data-fieldname="elevationA">
+@(Model.displayVar("label FAS_Report elevationA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field15 in Model.GetSection("cellblock_grid_headcell_field15", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field15")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="elevationB" data-cellId="grid_headcell_field15" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label15" @(Model.displayVar("item_report_advanced_field_label15")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevationB" data-fieldname="elevationB">
+@(Model.displayVar("label FAS_Report elevationB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field16 in Model.GetSection("cellblock_grid_headcell_field16", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field16")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="makeTypeModelA" data-cellId="grid_headcell_field16" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label16" @(Model.displayVar("item_report_advanced_field_label16")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeTypeModelA" data-fieldname="makeTypeModelA">
+@(Model.displayVar("label FAS_Report makeTypeModelA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field17 in Model.GetSection("cellblock_grid_headcell_field17", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field17")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="gainA" data-cellId="grid_headcell_field17" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label17" @(Model.displayVar("item_report_advanced_field_label17")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="gainA" data-fieldname="gainA">
+@(Model.displayVar("label FAS_Report gainA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field18 in Model.GetSection("cellblock_grid_headcell_field18", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field18")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="diameterA" data-cellId="grid_headcell_field18" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label18" @(Model.displayVar("item_report_advanced_field_label18")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="diameterA" data-fieldname="diameterA">
+@(Model.displayVar("label FAS_Report diameterA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field19 in Model.GetSection("cellblock_grid_headcell_field19", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field19")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="beamwidthA" data-cellId="grid_headcell_field19" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label19" @(Model.displayVar("item_report_advanced_field_label19")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="beamwidthA" data-fieldname="beamwidthA">
+@(Model.displayVar("label FAS_Report beamwidthA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field20 in Model.GetSection("cellblock_grid_headcell_field20", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field20")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="polarizationA" data-cellId="grid_headcell_field20" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label20" @(Model.displayVar("item_report_advanced_field_label20")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="polarizationA" data-fieldname="polarizationA">
+@(Model.displayVar("label FAS_Report polarizationA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field21 in Model.GetSection("cellblock_grid_headcell_field21", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field21")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="azimuthA" data-cellId="grid_headcell_field21" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label21" @(Model.displayVar("item_report_advanced_field_label21")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="azimuthA" data-fieldname="azimuthA">
+@(Model.displayVar("label FAS_Report azimuthA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field22 in Model.GetSection("cellblock_grid_headcell_field22", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field22")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="elevAngleA" data-cellId="grid_headcell_field22" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label22" @(Model.displayVar("item_report_advanced_field_label22")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevAngleA" data-fieldname="elevAngleA">
+@(Model.displayVar("label FAS_Report elevAngleA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field23 in Model.GetSection("cellblock_grid_headcell_field23", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field23")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="heightAGLA" data-cellId="grid_headcell_field23" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label23" @(Model.displayVar("item_report_advanced_field_label23")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="heightAGLA" data-fieldname="heightAGLA">
+@(Model.displayVar("label FAS_Report heightAGLA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field24 in Model.GetSection("cellblock_grid_headcell_field24", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field24")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="feederLengthA" data-cellId="grid_headcell_field24" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label24" @(Model.displayVar("item_report_advanced_field_label24")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="feederLengthA" data-fieldname="feederLengthA">
+@(Model.displayVar("label FAS_Report feederLengthA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field25 in Model.GetSection("cellblock_grid_headcell_field25", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field25")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="makeTypeModelB" data-cellId="grid_headcell_field25" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label25" @(Model.displayVar("item_report_advanced_field_label25")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeTypeModelB" data-fieldname="makeTypeModelB">
+@(Model.displayVar("label FAS_Report makeTypeModelB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field26 in Model.GetSection("cellblock_grid_headcell_field26", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field26")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="gainB" data-cellId="grid_headcell_field26" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label26" @(Model.displayVar("item_report_advanced_field_label26")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="gainB" data-fieldname="gainB">
+@(Model.displayVar("label FAS_Report gainB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field27 in Model.GetSection("cellblock_grid_headcell_field27", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field27")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="diameterB" data-cellId="grid_headcell_field27" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label27" @(Model.displayVar("item_report_advanced_field_label27")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="diameterB" data-fieldname="diameterB">
+@(Model.displayVar("label FAS_Report diameterB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field28 in Model.GetSection("cellblock_grid_headcell_field28", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field28")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="beamwidthB" data-cellId="grid_headcell_field28" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label28" @(Model.displayVar("item_report_advanced_field_label28")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="beamwidthB" data-fieldname="beamwidthB">
+@(Model.displayVar("label FAS_Report beamwidthB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field29 in Model.GetSection("cellblock_grid_headcell_field29", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field29")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="polarizationB" data-cellId="grid_headcell_field29" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label29" @(Model.displayVar("item_report_advanced_field_label29")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="polarizationB" data-fieldname="polarizationB">
+@(Model.displayVar("label FAS_Report polarizationB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field30 in Model.GetSection("cellblock_grid_headcell_field30", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field30")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="azimuthB" data-cellId="grid_headcell_field30" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label30" @(Model.displayVar("item_report_advanced_field_label30")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="azimuthB" data-fieldname="azimuthB">
+@(Model.displayVar("label FAS_Report azimuthB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field31 in Model.GetSection("cellblock_grid_headcell_field31", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field31")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="elevAngleB" data-cellId="grid_headcell_field31" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label31" @(Model.displayVar("item_report_advanced_field_label31")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevAngleB" data-fieldname="elevAngleB">
+@(Model.displayVar("label FAS_Report elevAngleB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field32 in Model.GetSection("cellblock_grid_headcell_field32", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field32")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="heightAGLB" data-cellId="grid_headcell_field32" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label32" @(Model.displayVar("item_report_advanced_field_label32")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="heightAGLB" data-fieldname="heightAGLB">
+@(Model.displayVar("label FAS_Report heightAGLB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field33 in Model.GetSection("cellblock_grid_headcell_field33", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field33")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="feederLengthB" data-cellId="grid_headcell_field33" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label33" @(Model.displayVar("item_report_advanced_field_label33")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="feederLengthB" data-fieldname="feederLengthB">
+@(Model.displayVar("label FAS_Report feederLengthB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field34 in Model.GetSection("cellblock_grid_headcell_field34", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field34")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="longtitudeA" data-cellId="grid_headcell_field34" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label34" @(Model.displayVar("item_report_advanced_field_label34")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="longtitudeA" data-fieldname="longtitudeA">
+@(Model.displayVar("label FAS_Report longtitudeA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field35 in Model.GetSection("cellblock_grid_headcell_field35", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field35")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="longtitudeB" data-cellId="grid_headcell_field35" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label35" @(Model.displayVar("item_report_advanced_field_label35")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="longtitudeB" data-fieldname="longtitudeB">
+@(Model.displayVar("label FAS_Report longtitudeB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field36 in Model.GetSection("cellblock_grid_headcell_field36", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field36")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="latitudeA" data-cellId="grid_headcell_field36" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label36" @(Model.displayVar("item_report_advanced_field_label36")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="latitudeA" data-fieldname="latitudeA">
+@(Model.displayVar("label FAS_Report latitudeA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field37 in Model.GetSection("cellblock_grid_headcell_field37", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field37")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="latitudeB" data-cellId="grid_headcell_field37" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label37" @(Model.displayVar("item_report_advanced_field_label37")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="latitudeB" data-fieldname="latitudeB">
+@(Model.displayVar("label FAS_Report latitudeB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field38 in Model.GetSection("cellblock_grid_headcell_field38", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field38")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="callSignA" data-cellId="grid_headcell_field38" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label38" @(Model.displayVar("item_report_advanced_field_label38")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="callSignA" data-fieldname="callSignA">
+@(Model.displayVar("label FAS_Report callSignA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field39 in Model.GetSection("cellblock_grid_headcell_field39", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field39")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="callSignB" data-cellId="grid_headcell_field39" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label39" @(Model.displayVar("item_report_advanced_field_label39")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="callSignB" data-fieldname="callSignB">
+@(Model.displayVar("label FAS_Report callSignB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field40 in Model.GetSection("cellblock_grid_headcell_field40", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field40")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="applicationType" data-cellId="grid_headcell_field40" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label40" @(Model.displayVar("item_report_advanced_field_label40")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="applicationType" data-fieldname="applicationType">
+@(Model.displayVar("label FAS_Report applicationType"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field41 in Model.GetSection("cellblock_grid_headcell_field41", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field41")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="unit_a" data-cellId="grid_headcell_field41" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label41" @(Model.displayVar("item_report_advanced_field_label41")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="unit_a" data-fieldname="unit_a">
+@(Model.displayVar("label FAS_Report unit_a"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field42 in Model.GetSection("cellblock_grid_headcell_field42", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field42")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="street_a" data-cellId="grid_headcell_field42" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label42" @(Model.displayVar("item_report_advanced_field_label42")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="street_a" data-fieldname="street_a">
+@(Model.displayVar("label FAS_Report street_a"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field43 in Model.GetSection("cellblock_grid_headcell_field43", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field43")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="barangay_a" data-cellId="grid_headcell_field43" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label43" @(Model.displayVar("item_report_advanced_field_label43")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="barangay_a" data-fieldname="barangay_a">
+@(Model.displayVar("label FAS_Report barangay_a"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field44 in Model.GetSection("cellblock_grid_headcell_field44", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field44")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="city_a" data-cellId="grid_headcell_field44" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label44" @(Model.displayVar("item_report_advanced_field_label44")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="city_a" data-fieldname="city_a">
+@(Model.displayVar("label FAS_Report city_a"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field45 in Model.GetSection("cellblock_grid_headcell_field45", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field45")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="province_a" data-cellId="grid_headcell_field45" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label45" @(Model.displayVar("item_report_advanced_field_label45")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="province_a" data-fieldname="province_a">
+@(Model.displayVar("label FAS_Report province_a"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field46 in Model.GetSection("cellblock_grid_headcell_field46", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field46")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="zipcode_a" data-cellId="grid_headcell_field46" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label46" @(Model.displayVar("item_report_advanced_field_label46")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="zipcode_a" data-fieldname="zipcode_a">
+@(Model.displayVar("label FAS_Report zipcode_a"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field47 in Model.GetSection("cellblock_grid_headcell_field47", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field47")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="unit_b" data-cellId="grid_headcell_field47" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label47" @(Model.displayVar("item_report_advanced_field_label47")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="unit_b" data-fieldname="unit_b">
+@(Model.displayVar("label FAS_Report unit_b"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field48 in Model.GetSection("cellblock_grid_headcell_field48", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field48")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="street_b" data-cellId="grid_headcell_field48" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label48" @(Model.displayVar("item_report_advanced_field_label48")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="street_b" data-fieldname="street_b">
+@(Model.displayVar("label FAS_Report street_b"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field49 in Model.GetSection("cellblock_grid_headcell_field49", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field49")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="barangay_b" data-cellId="grid_headcell_field49" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label49" @(Model.displayVar("item_report_advanced_field_label49")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="barangay_b" data-fieldname="barangay_b">
+@(Model.displayVar("label FAS_Report barangay_b"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field50 in Model.GetSection("cellblock_grid_headcell_field50", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field50")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="city_b" data-cellId="grid_headcell_field50" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label50" @(Model.displayVar("item_report_advanced_field_label50")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="city_b" data-fieldname="city_b">
+@(Model.displayVar("label FAS_Report city_b"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field51 in Model.GetSection("cellblock_grid_headcell_field51", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field51")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="province_b" data-cellId="grid_headcell_field51" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label51" @(Model.displayVar("item_report_advanced_field_label51")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="province_b" data-fieldname="province_b">
+@(Model.displayVar("label FAS_Report province_b"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field52 in Model.GetSection("cellblock_grid_headcell_field52", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field52")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="zipcode_b" data-cellId="grid_headcell_field52" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label52" @(Model.displayVar("item_report_advanced_field_label52")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="zipcode_b" data-fieldname="zipcode_b">
+@(Model.displayVar("label FAS_Report zipcode_b"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field53 in Model.GetSection("cellblock_grid_headcell_field53", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field53")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="map" data-cellId="grid_headcell_field53" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label53" @(Model.displayVar("item_report_advanced_field_label53")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="map" data-fieldname="map">
+@(Model.displayVar("label FAS_Report map"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field54 in Model.GetSection("cellblock_grid_headcell_field54", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field54")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="stage" data-cellId="grid_headcell_field54" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label54" @(Model.displayVar("item_report_advanced_field_label54")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="stage" data-fieldname="stage">
+@(Model.displayVar("label FAS_Report stage"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field55 in Model.GetSection("cellblock_grid_headcell_field55", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field55")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="stageStatus" data-cellId="grid_headcell_field55" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label55" @(Model.displayVar("item_report_advanced_field_label55")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="stageStatus" data-fieldname="stageStatus">
+@(Model.displayVar("label FAS_Report stageStatus"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field56 in Model.GetSection("cellblock_grid_headcell_field56", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field56")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="makeModelA" data-cellId="grid_headcell_field56" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label56" @(Model.displayVar("item_report_advanced_field_label56")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelA" data-fieldname="makeModelA">
+@(Model.displayVar("label FAS_Report makeModelA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field57 in Model.GetSection("cellblock_grid_headcell_field57", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field57")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="capacityA" data-cellId="grid_headcell_field57" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label57" @(Model.displayVar("item_report_advanced_field_label57")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityA" data-fieldname="capacityA">
+@(Model.displayVar("label FAS_Report capacityA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field58 in Model.GetSection("cellblock_grid_headcell_field58", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field58")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="powerA" data-cellId="grid_headcell_field58" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label58" @(Model.displayVar("item_report_advanced_field_label58")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerA" data-fieldname="powerA">
+@(Model.displayVar("label FAS_Report powerA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field59 in Model.GetSection("cellblock_grid_headcell_field59", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field59")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="modA" data-cellId="grid_headcell_field59" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label59" @(Model.displayVar("item_report_advanced_field_label59")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modA" data-fieldname="modA">
+@(Model.displayVar("label FAS_Report modA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field60 in Model.GetSection("cellblock_grid_headcell_field60", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field60")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="BWEA" data-cellId="grid_headcell_field60" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label60" @(Model.displayVar("item_report_advanced_field_label60")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEA" data-fieldname="BWEA">
+@(Model.displayVar("label FAS_Report BWEA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field61 in Model.GetSection("cellblock_grid_headcell_field61", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field61")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="serialNoA" data-cellId="grid_headcell_field61" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label61" @(Model.displayVar("item_report_advanced_field_label61")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoA" data-fieldname="serialNoA">
+@(Model.displayVar("label FAS_Report serialNoA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field62 in Model.GetSection("cellblock_grid_headcell_field62", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field62")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="makeModelB" data-cellId="grid_headcell_field62" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label62" @(Model.displayVar("item_report_advanced_field_label62")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelB" data-fieldname="makeModelB">
+@(Model.displayVar("label FAS_Report makeModelB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field63 in Model.GetSection("cellblock_grid_headcell_field63", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field63")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="capacityB" data-cellId="grid_headcell_field63" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label63" @(Model.displayVar("item_report_advanced_field_label63")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityB" data-fieldname="capacityB">
+@(Model.displayVar("label FAS_Report capacityB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field64 in Model.GetSection("cellblock_grid_headcell_field64", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field64")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="powerB" data-cellId="grid_headcell_field64" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label64" @(Model.displayVar("item_report_advanced_field_label64")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerB" data-fieldname="powerB">
+@(Model.displayVar("label FAS_Report powerB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field65 in Model.GetSection("cellblock_grid_headcell_field65", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field65")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="modB" data-cellId="grid_headcell_field65" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label65" @(Model.displayVar("item_report_advanced_field_label65")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modB" data-fieldname="modB">
+@(Model.displayVar("label FAS_Report modB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field66 in Model.GetSection("cellblock_grid_headcell_field66", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field66")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="BWEB" data-cellId="grid_headcell_field66" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label66" @(Model.displayVar("item_report_advanced_field_label66")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEB" data-fieldname="BWEB">
+@(Model.displayVar("label FAS_Report BWEB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field67 in Model.GetSection("cellblock_grid_headcell_field67", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field67")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="serialNoB" data-cellId="grid_headcell_field67" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label67" @(Model.displayVar("item_report_advanced_field_label67")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoB" data-fieldname="serialNoB">
+@(Model.displayVar("label FAS_Report serialNoB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field68 in Model.GetSection("cellblock_grid_headcell_field68", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field68")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="rspdID" data-cellId="grid_headcell_field68" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label68" @(Model.displayVar("item_report_advanced_field_label68")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rspdID" data-fieldname="rspdID">
+@(Model.displayVar("label FAS_Report rspdID"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field69 in Model.GetSection("cellblock_grid_headcell_field69", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field69")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="txA" data-cellId="grid_headcell_field69" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label69" @(Model.displayVar("item_report_advanced_field_label69")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txA" data-fieldname="txA">
+@(Model.displayVar("label FAS_Report txA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field70 in Model.GetSection("cellblock_grid_headcell_field70", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field70")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="txB" data-cellId="grid_headcell_field70" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label70" @(Model.displayVar("item_report_advanced_field_label70")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txB" data-fieldname="txB">
+@(Model.displayVar("label FAS_Report txB"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field71 in Model.GetSection("cellblock_grid_headcell_field71", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field71")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="rxA" data-cellId="grid_headcell_field71" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label71" @(Model.displayVar("item_report_advanced_field_label71")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxA" data-fieldname="rxA">
+@(Model.displayVar("label FAS_Report rxA"))</span>
+
+	
+	</th>
+	}
+		 
+			@foreach (string _cellblock_grid_headcell_field72 in Model.GetSection("cellblock_grid_headcell_field72", this)){
+	<TH @(Model.displayVar("cell_grid_headcell_field72")) @(Model.displayVar("recordattrs")) class="
+		blackshade   r-ori-vert			" data-field="rxB" data-cellId="grid_headcell_field72" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field_label" data-itemid="report_advanced_field_label72" @(Model.displayVar("item_report_advanced_field_label72")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxB" data-fieldname="rxB">
+@(Model.displayVar("label FAS_Report rxB"))</span>
+
+	
+	</th>
+	}
+			</tr>
+
+	}
+									@foreach (string _grid_row in Model.GetSection("grid_row", this)){
+
+ 
+	<TR data-section="body" data-group data-rowidx="1" @(Model.displayVar("rowattrs")) @(Model.displayVar("row_grid_1")) class="@(Model.displayVar("rowclass")) 
+		
+				r-gridrow
+			">
+		 
+			@foreach (string _cellblock_grid_cell_field in Model.GetSection("cellblock_grid_cell_field", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("referenceID_class"))  r-ori-vert		 @(Model.displayVar("referenceID_class"))	" data-field="referenceID" data-cellId="grid_cell_field" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field" @(Model.displayVar("item_report_advanced_field")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="referenceID" data-fieldname="referenceID">
+@(Model.displayVar("referenceID_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field1 in Model.GetSection("cellblock_grid_cell_field1", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field1")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("applicationNo_class"))  r-ori-vert		 @(Model.displayVar("applicationNo_class"))	" data-field="applicationNo" data-cellId="grid_cell_field1" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field1" @(Model.displayVar("item_report_advanced_field1")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="applicationNo" data-fieldname="applicationNo">
+@(Model.displayVar("applicationNo_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field2 in Model.GetSection("cellblock_grid_cell_field2", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field2")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("companyNameA_class"))  r-ori-vert		 @(Model.displayVar("companyNameA_class"))	" data-field="companyNameA" data-cellId="grid_cell_field2" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field2" @(Model.displayVar("item_report_advanced_field2")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="companyNameA" data-fieldname="companyNameA">
+@(Model.displayVar("companyNameA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field3 in Model.GetSection("cellblock_grid_cell_field3", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field3")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("userCreate_class"))  r-ori-vert		 @(Model.displayVar("userCreate_class"))	" data-field="userCreate" data-cellId="grid_cell_field3" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field3" @(Model.displayVar("item_report_advanced_field3")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="userCreate" data-fieldname="userCreate">
+@(Model.displayVar("userCreate_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field4 in Model.GetSection("cellblock_grid_cell_field4", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field4")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("userUpdate_class"))  r-ori-vert		 @(Model.displayVar("userUpdate_class"))	" data-field="userUpdate" data-cellId="grid_cell_field4" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field4" @(Model.displayVar("item_report_advanced_field4")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="userUpdate" data-fieldname="userUpdate">
+@(Model.displayVar("userUpdate_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field5 in Model.GetSection("cellblock_grid_cell_field5", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field5")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("dateCreated_class"))  r-ori-vert		 @(Model.displayVar("dateCreated_class"))	" data-field="dateCreated" data-cellId="grid_cell_field5" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field5" @(Model.displayVar("item_report_advanced_field5")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="dateCreated" data-fieldname="dateCreated">
+@(Model.displayVar("dateCreated_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field6 in Model.GetSection("cellblock_grid_cell_field6", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field6")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("dateUpdated_class"))  r-ori-vert		 @(Model.displayVar("dateUpdated_class"))	" data-field="dateUpdated" data-cellId="grid_cell_field6" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field6" @(Model.displayVar("item_report_advanced_field6")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="dateUpdated" data-fieldname="dateUpdated">
+@(Model.displayVar("dateUpdated_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field7 in Model.GetSection("cellblock_grid_cell_field7", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field7")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("companyNameB_class"))  r-ori-vert		 @(Model.displayVar("companyNameB_class"))	" data-field="companyNameB" data-cellId="grid_cell_field7" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field7" @(Model.displayVar("item_report_advanced_field7")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="companyNameB" data-fieldname="companyNameB">
+@(Model.displayVar("companyNameB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field8 in Model.GetSection("cellblock_grid_cell_field8", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field8")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("siteNameA_class"))  r-ori-vert		 @(Model.displayVar("siteNameA_class"))	" data-field="siteNameA" data-cellId="grid_cell_field8" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field8" @(Model.displayVar("item_report_advanced_field8")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteNameA" data-fieldname="siteNameA">
+@(Model.displayVar("siteNameA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field9 in Model.GetSection("cellblock_grid_cell_field9", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field9")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("siteNameB_class"))  r-ori-vert		 @(Model.displayVar("siteNameB_class"))	" data-field="siteNameB" data-cellId="grid_cell_field9" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field9" @(Model.displayVar("item_report_advanced_field9")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteNameB" data-fieldname="siteNameB">
+@(Model.displayVar("siteNameB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field10 in Model.GetSection("cellblock_grid_cell_field10", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field10")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("siteIDA_class"))  r-ori-vert		 @(Model.displayVar("siteIDA_class"))	" data-field="siteIDA" data-cellId="grid_cell_field10" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field10" @(Model.displayVar("item_report_advanced_field10")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteIDA" data-fieldname="siteIDA">
+@(Model.displayVar("siteIDA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field11 in Model.GetSection("cellblock_grid_cell_field11", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field11")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("siteIDB_class"))  r-ori-vert		 @(Model.displayVar("siteIDB_class"))	" data-field="siteIDB" data-cellId="grid_cell_field11" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field11" @(Model.displayVar("item_report_advanced_field11")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="siteIDB" data-fieldname="siteIDB">
+@(Model.displayVar("siteIDB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field12 in Model.GetSection("cellblock_grid_cell_field12", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field12")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("coordinateA_class"))  r-ori-vert		 @(Model.displayVar("coordinateA_class"))	" data-field="coordinateA" data-cellId="grid_cell_field12" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field12" @(Model.displayVar("item_report_advanced_field12")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="coordinateA" data-fieldname="coordinateA">
+@(Model.displayVar("coordinateA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field13 in Model.GetSection("cellblock_grid_cell_field13", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field13")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("coordinateB_class"))  r-ori-vert		 @(Model.displayVar("coordinateB_class"))	" data-field="coordinateB" data-cellId="grid_cell_field13" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field13" @(Model.displayVar("item_report_advanced_field13")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="coordinateB" data-fieldname="coordinateB">
+@(Model.displayVar("coordinateB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field14 in Model.GetSection("cellblock_grid_cell_field14", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field14")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("elevationA_class"))  r-ori-vert		 @(Model.displayVar("elevationA_class"))	" data-field="elevationA" data-cellId="grid_cell_field14" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field14" @(Model.displayVar("item_report_advanced_field14")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevationA" data-fieldname="elevationA">
+@(Model.displayVar("elevationA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field15 in Model.GetSection("cellblock_grid_cell_field15", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field15")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("elevationB_class"))  r-ori-vert		 @(Model.displayVar("elevationB_class"))	" data-field="elevationB" data-cellId="grid_cell_field15" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field15" @(Model.displayVar("item_report_advanced_field15")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevationB" data-fieldname="elevationB">
+@(Model.displayVar("elevationB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field16 in Model.GetSection("cellblock_grid_cell_field16", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field16")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("makeTypeModelA_class"))  r-ori-vert		 @(Model.displayVar("makeTypeModelA_class"))	" data-field="makeTypeModelA" data-cellId="grid_cell_field16" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field16" @(Model.displayVar("item_report_advanced_field16")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeTypeModelA" data-fieldname="makeTypeModelA">
+@(Model.displayVar("makeTypeModelA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field17 in Model.GetSection("cellblock_grid_cell_field17", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field17")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("gainA_class"))  r-ori-vert		 @(Model.displayVar("gainA_class"))	" data-field="gainA" data-cellId="grid_cell_field17" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field17" @(Model.displayVar("item_report_advanced_field17")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="gainA" data-fieldname="gainA">
+@(Model.displayVar("gainA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field18 in Model.GetSection("cellblock_grid_cell_field18", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field18")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("diameterA_class"))  r-ori-vert		 @(Model.displayVar("diameterA_class"))	" data-field="diameterA" data-cellId="grid_cell_field18" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field18" @(Model.displayVar("item_report_advanced_field18")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="diameterA" data-fieldname="diameterA">
+@(Model.displayVar("diameterA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field19 in Model.GetSection("cellblock_grid_cell_field19", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field19")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("beamwidthA_class"))  r-ori-vert		 @(Model.displayVar("beamwidthA_class"))	" data-field="beamwidthA" data-cellId="grid_cell_field19" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field19" @(Model.displayVar("item_report_advanced_field19")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="beamwidthA" data-fieldname="beamwidthA">
+@(Model.displayVar("beamwidthA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field20 in Model.GetSection("cellblock_grid_cell_field20", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field20")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("polarizationA_class"))  r-ori-vert		 @(Model.displayVar("polarizationA_class"))	" data-field="polarizationA" data-cellId="grid_cell_field20" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field20" @(Model.displayVar("item_report_advanced_field20")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="polarizationA" data-fieldname="polarizationA">
+@(Model.displayVar("polarizationA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field21 in Model.GetSection("cellblock_grid_cell_field21", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field21")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("azimuthA_class"))  r-ori-vert		 @(Model.displayVar("azimuthA_class"))	" data-field="azimuthA" data-cellId="grid_cell_field21" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field21" @(Model.displayVar("item_report_advanced_field21")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="azimuthA" data-fieldname="azimuthA">
+@(Model.displayVar("azimuthA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field22 in Model.GetSection("cellblock_grid_cell_field22", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field22")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("elevAngleA_class"))  r-ori-vert		 @(Model.displayVar("elevAngleA_class"))	" data-field="elevAngleA" data-cellId="grid_cell_field22" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field22" @(Model.displayVar("item_report_advanced_field22")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevAngleA" data-fieldname="elevAngleA">
+@(Model.displayVar("elevAngleA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field23 in Model.GetSection("cellblock_grid_cell_field23", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field23")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("heightAGLA_class"))  r-ori-vert		 @(Model.displayVar("heightAGLA_class"))	" data-field="heightAGLA" data-cellId="grid_cell_field23" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field23" @(Model.displayVar("item_report_advanced_field23")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="heightAGLA" data-fieldname="heightAGLA">
+@(Model.displayVar("heightAGLA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field24 in Model.GetSection("cellblock_grid_cell_field24", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field24")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("feederLengthA_class"))  r-ori-vert		 @(Model.displayVar("feederLengthA_class"))	" data-field="feederLengthA" data-cellId="grid_cell_field24" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field24" @(Model.displayVar("item_report_advanced_field24")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="feederLengthA" data-fieldname="feederLengthA">
+@(Model.displayVar("feederLengthA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field25 in Model.GetSection("cellblock_grid_cell_field25", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field25")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("makeTypeModelB_class"))  r-ori-vert		 @(Model.displayVar("makeTypeModelB_class"))	" data-field="makeTypeModelB" data-cellId="grid_cell_field25" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field25" @(Model.displayVar("item_report_advanced_field25")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeTypeModelB" data-fieldname="makeTypeModelB">
+@(Model.displayVar("makeTypeModelB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field26 in Model.GetSection("cellblock_grid_cell_field26", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field26")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("gainB_class"))  r-ori-vert		 @(Model.displayVar("gainB_class"))	" data-field="gainB" data-cellId="grid_cell_field26" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field26" @(Model.displayVar("item_report_advanced_field26")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="gainB" data-fieldname="gainB">
+@(Model.displayVar("gainB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field27 in Model.GetSection("cellblock_grid_cell_field27", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field27")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("diameterB_class"))  r-ori-vert		 @(Model.displayVar("diameterB_class"))	" data-field="diameterB" data-cellId="grid_cell_field27" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field27" @(Model.displayVar("item_report_advanced_field27")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="diameterB" data-fieldname="diameterB">
+@(Model.displayVar("diameterB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field28 in Model.GetSection("cellblock_grid_cell_field28", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field28")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("beamwidthB_class"))  r-ori-vert		 @(Model.displayVar("beamwidthB_class"))	" data-field="beamwidthB" data-cellId="grid_cell_field28" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field28" @(Model.displayVar("item_report_advanced_field28")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="beamwidthB" data-fieldname="beamwidthB">
+@(Model.displayVar("beamwidthB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field29 in Model.GetSection("cellblock_grid_cell_field29", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field29")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("polarizationB_class"))  r-ori-vert		 @(Model.displayVar("polarizationB_class"))	" data-field="polarizationB" data-cellId="grid_cell_field29" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field29" @(Model.displayVar("item_report_advanced_field29")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="polarizationB" data-fieldname="polarizationB">
+@(Model.displayVar("polarizationB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field30 in Model.GetSection("cellblock_grid_cell_field30", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field30")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("azimuthB_class"))  r-ori-vert		 @(Model.displayVar("azimuthB_class"))	" data-field="azimuthB" data-cellId="grid_cell_field30" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field30" @(Model.displayVar("item_report_advanced_field30")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="azimuthB" data-fieldname="azimuthB">
+@(Model.displayVar("azimuthB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field31 in Model.GetSection("cellblock_grid_cell_field31", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field31")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("elevAngleB_class"))  r-ori-vert		 @(Model.displayVar("elevAngleB_class"))	" data-field="elevAngleB" data-cellId="grid_cell_field31" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field31" @(Model.displayVar("item_report_advanced_field31")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="elevAngleB" data-fieldname="elevAngleB">
+@(Model.displayVar("elevAngleB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field32 in Model.GetSection("cellblock_grid_cell_field32", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field32")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("heightAGLB_class"))  r-ori-vert		 @(Model.displayVar("heightAGLB_class"))	" data-field="heightAGLB" data-cellId="grid_cell_field32" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field32" @(Model.displayVar("item_report_advanced_field32")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="heightAGLB" data-fieldname="heightAGLB">
+@(Model.displayVar("heightAGLB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field33 in Model.GetSection("cellblock_grid_cell_field33", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field33")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("feederLengthB_class"))  r-ori-vert		 @(Model.displayVar("feederLengthB_class"))	" data-field="feederLengthB" data-cellId="grid_cell_field33" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field33" @(Model.displayVar("item_report_advanced_field33")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="feederLengthB" data-fieldname="feederLengthB">
+@(Model.displayVar("feederLengthB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field34 in Model.GetSection("cellblock_grid_cell_field34", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field34")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("longtitudeA_class"))  r-ori-vert		 @(Model.displayVar("longtitudeA_class"))	" data-field="longtitudeA" data-cellId="grid_cell_field34" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field34" @(Model.displayVar("item_report_advanced_field34")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="longtitudeA" data-fieldname="longtitudeA">
+@(Model.displayVar("longtitudeA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field35 in Model.GetSection("cellblock_grid_cell_field35", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field35")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("longtitudeB_class"))  r-ori-vert		 @(Model.displayVar("longtitudeB_class"))	" data-field="longtitudeB" data-cellId="grid_cell_field35" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field35" @(Model.displayVar("item_report_advanced_field35")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="longtitudeB" data-fieldname="longtitudeB">
+@(Model.displayVar("longtitudeB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field36 in Model.GetSection("cellblock_grid_cell_field36", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field36")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("latitudeA_class"))  r-ori-vert		 @(Model.displayVar("latitudeA_class"))	" data-field="latitudeA" data-cellId="grid_cell_field36" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field36" @(Model.displayVar("item_report_advanced_field36")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="latitudeA" data-fieldname="latitudeA">
+@(Model.displayVar("latitudeA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field37 in Model.GetSection("cellblock_grid_cell_field37", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field37")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("latitudeB_class"))  r-ori-vert		 @(Model.displayVar("latitudeB_class"))	" data-field="latitudeB" data-cellId="grid_cell_field37" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field37" @(Model.displayVar("item_report_advanced_field37")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="latitudeB" data-fieldname="latitudeB">
+@(Model.displayVar("latitudeB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field38 in Model.GetSection("cellblock_grid_cell_field38", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field38")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("callSignA_class"))  r-ori-vert		 @(Model.displayVar("callSignA_class"))	" data-field="callSignA" data-cellId="grid_cell_field38" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field38" @(Model.displayVar("item_report_advanced_field38")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="callSignA" data-fieldname="callSignA">
+@(Model.displayVar("callSignA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field39 in Model.GetSection("cellblock_grid_cell_field39", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field39")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("callSignB_class"))  r-ori-vert		 @(Model.displayVar("callSignB_class"))	" data-field="callSignB" data-cellId="grid_cell_field39" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field39" @(Model.displayVar("item_report_advanced_field39")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="callSignB" data-fieldname="callSignB">
+@(Model.displayVar("callSignB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field40 in Model.GetSection("cellblock_grid_cell_field40", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field40")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("applicationType_class"))  r-ori-vert		 @(Model.displayVar("applicationType_class"))	" data-field="applicationType" data-cellId="grid_cell_field40" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field40" @(Model.displayVar("item_report_advanced_field40")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="applicationType" data-fieldname="applicationType">
+@(Model.displayVar("applicationType_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field41 in Model.GetSection("cellblock_grid_cell_field41", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field41")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("unit_a_class"))  r-ori-vert		 @(Model.displayVar("unit_a_class"))	" data-field="unit_a" data-cellId="grid_cell_field41" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field41" @(Model.displayVar("item_report_advanced_field41")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="unit_a" data-fieldname="unit_a">
+@(Model.displayVar("unit_a_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field42 in Model.GetSection("cellblock_grid_cell_field42", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field42")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("street_a_class"))  r-ori-vert		 @(Model.displayVar("street_a_class"))	" data-field="street_a" data-cellId="grid_cell_field42" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field42" @(Model.displayVar("item_report_advanced_field42")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="street_a" data-fieldname="street_a">
+@(Model.displayVar("street_a_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field43 in Model.GetSection("cellblock_grid_cell_field43", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field43")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("barangay_a_class"))  r-ori-vert		 @(Model.displayVar("barangay_a_class"))	" data-field="barangay_a" data-cellId="grid_cell_field43" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field43" @(Model.displayVar("item_report_advanced_field43")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="barangay_a" data-fieldname="barangay_a">
+@(Model.displayVar("barangay_a_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field44 in Model.GetSection("cellblock_grid_cell_field44", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field44")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("city_a_class"))  r-ori-vert		 @(Model.displayVar("city_a_class"))	" data-field="city_a" data-cellId="grid_cell_field44" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field44" @(Model.displayVar("item_report_advanced_field44")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="city_a" data-fieldname="city_a">
+@(Model.displayVar("city_a_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field45 in Model.GetSection("cellblock_grid_cell_field45", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field45")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("province_a_class"))  r-ori-vert		 @(Model.displayVar("province_a_class"))	" data-field="province_a" data-cellId="grid_cell_field45" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field45" @(Model.displayVar("item_report_advanced_field45")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="province_a" data-fieldname="province_a">
+@(Model.displayVar("province_a_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field46 in Model.GetSection("cellblock_grid_cell_field46", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field46")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("zipcode_a_class"))  r-ori-vert		 @(Model.displayVar("zipcode_a_class"))	" data-field="zipcode_a" data-cellId="grid_cell_field46" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field46" @(Model.displayVar("item_report_advanced_field46")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="zipcode_a" data-fieldname="zipcode_a">
+@(Model.displayVar("zipcode_a_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field47 in Model.GetSection("cellblock_grid_cell_field47", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field47")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("unit_b_class"))  r-ori-vert		 @(Model.displayVar("unit_b_class"))	" data-field="unit_b" data-cellId="grid_cell_field47" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field47" @(Model.displayVar("item_report_advanced_field47")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="unit_b" data-fieldname="unit_b">
+@(Model.displayVar("unit_b_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field48 in Model.GetSection("cellblock_grid_cell_field48", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field48")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("street_b_class"))  r-ori-vert		 @(Model.displayVar("street_b_class"))	" data-field="street_b" data-cellId="grid_cell_field48" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field48" @(Model.displayVar("item_report_advanced_field48")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="street_b" data-fieldname="street_b">
+@(Model.displayVar("street_b_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field49 in Model.GetSection("cellblock_grid_cell_field49", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field49")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("barangay_b_class"))  r-ori-vert		 @(Model.displayVar("barangay_b_class"))	" data-field="barangay_b" data-cellId="grid_cell_field49" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field49" @(Model.displayVar("item_report_advanced_field49")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="barangay_b" data-fieldname="barangay_b">
+@(Model.displayVar("barangay_b_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field50 in Model.GetSection("cellblock_grid_cell_field50", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field50")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("city_b_class"))  r-ori-vert		 @(Model.displayVar("city_b_class"))	" data-field="city_b" data-cellId="grid_cell_field50" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field50" @(Model.displayVar("item_report_advanced_field50")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="city_b" data-fieldname="city_b">
+@(Model.displayVar("city_b_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field51 in Model.GetSection("cellblock_grid_cell_field51", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field51")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("province_b_class"))  r-ori-vert		 @(Model.displayVar("province_b_class"))	" data-field="province_b" data-cellId="grid_cell_field51" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field51" @(Model.displayVar("item_report_advanced_field51")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="province_b" data-fieldname="province_b">
+@(Model.displayVar("province_b_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field52 in Model.GetSection("cellblock_grid_cell_field52", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field52")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("zipcode_b_class"))  r-ori-vert		 @(Model.displayVar("zipcode_b_class"))	" data-field="zipcode_b" data-cellId="grid_cell_field52" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field52" @(Model.displayVar("item_report_advanced_field52")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="zipcode_b" data-fieldname="zipcode_b">
+@(Model.displayVar("zipcode_b_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field53 in Model.GetSection("cellblock_grid_cell_field53", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field53")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("map_class"))  r-ori-vert		 @(Model.displayVar("map_class"))	" data-field="map" data-cellId="grid_cell_field53" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field53" @(Model.displayVar("item_report_advanced_field53")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="map" data-fieldname="map">
+@(Model.displayVar("map_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field54 in Model.GetSection("cellblock_grid_cell_field54", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field54")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("stage_class"))  r-ori-vert		 @(Model.displayVar("stage_class"))	" data-field="stage" data-cellId="grid_cell_field54" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field54" @(Model.displayVar("item_report_advanced_field54")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="stage" data-fieldname="stage">
+@(Model.displayVar("stage_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field55 in Model.GetSection("cellblock_grid_cell_field55", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field55")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("stageStatus_class"))  r-ori-vert		 @(Model.displayVar("stageStatus_class"))	" data-field="stageStatus" data-cellId="grid_cell_field55" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field55" @(Model.displayVar("item_report_advanced_field55")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="stageStatus" data-fieldname="stageStatus">
+@(Model.displayVar("stageStatus_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field56 in Model.GetSection("cellblock_grid_cell_field56", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field56")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("makeModelA_class"))  r-ori-vert		 @(Model.displayVar("makeModelA_class"))	" data-field="makeModelA" data-cellId="grid_cell_field56" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field56" @(Model.displayVar("item_report_advanced_field56")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelA" data-fieldname="makeModelA">
+@(Model.displayVar("makeModelA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field57 in Model.GetSection("cellblock_grid_cell_field57", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field57")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("capacityA_class"))  r-ori-vert		 @(Model.displayVar("capacityA_class"))	" data-field="capacityA" data-cellId="grid_cell_field57" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field57" @(Model.displayVar("item_report_advanced_field57")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityA" data-fieldname="capacityA">
+@(Model.displayVar("capacityA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field58 in Model.GetSection("cellblock_grid_cell_field58", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field58")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("powerA_class"))  r-ori-vert		 @(Model.displayVar("powerA_class"))	" data-field="powerA" data-cellId="grid_cell_field58" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field58" @(Model.displayVar("item_report_advanced_field58")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerA" data-fieldname="powerA">
+@(Model.displayVar("powerA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field59 in Model.GetSection("cellblock_grid_cell_field59", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field59")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("modA_class"))  r-ori-vert		 @(Model.displayVar("modA_class"))	" data-field="modA" data-cellId="grid_cell_field59" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field59" @(Model.displayVar("item_report_advanced_field59")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modA" data-fieldname="modA">
+@(Model.displayVar("modA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field60 in Model.GetSection("cellblock_grid_cell_field60", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field60")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("BWEA_class"))  r-ori-vert		 @(Model.displayVar("BWEA_class"))	" data-field="BWEA" data-cellId="grid_cell_field60" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field60" @(Model.displayVar("item_report_advanced_field60")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEA" data-fieldname="BWEA">
+@(Model.displayVar("BWEA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field61 in Model.GetSection("cellblock_grid_cell_field61", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field61")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("serialNoA_class"))  r-ori-vert		 @(Model.displayVar("serialNoA_class"))	" data-field="serialNoA" data-cellId="grid_cell_field61" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field61" @(Model.displayVar("item_report_advanced_field61")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoA" data-fieldname="serialNoA">
+@(Model.displayVar("serialNoA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field62 in Model.GetSection("cellblock_grid_cell_field62", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field62")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("makeModelB_class"))  r-ori-vert		 @(Model.displayVar("makeModelB_class"))	" data-field="makeModelB" data-cellId="grid_cell_field62" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field62" @(Model.displayVar("item_report_advanced_field62")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="makeModelB" data-fieldname="makeModelB">
+@(Model.displayVar("makeModelB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field63 in Model.GetSection("cellblock_grid_cell_field63", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field63")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("capacityB_class"))  r-ori-vert		 @(Model.displayVar("capacityB_class"))	" data-field="capacityB" data-cellId="grid_cell_field63" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field63" @(Model.displayVar("item_report_advanced_field63")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="capacityB" data-fieldname="capacityB">
+@(Model.displayVar("capacityB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field64 in Model.GetSection("cellblock_grid_cell_field64", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field64")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("powerB_class"))  r-ori-vert		 @(Model.displayVar("powerB_class"))	" data-field="powerB" data-cellId="grid_cell_field64" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field64" @(Model.displayVar("item_report_advanced_field64")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="powerB" data-fieldname="powerB">
+@(Model.displayVar("powerB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field65 in Model.GetSection("cellblock_grid_cell_field65", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field65")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("modB_class"))  r-ori-vert		 @(Model.displayVar("modB_class"))	" data-field="modB" data-cellId="grid_cell_field65" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field65" @(Model.displayVar("item_report_advanced_field65")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="modB" data-fieldname="modB">
+@(Model.displayVar("modB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field66 in Model.GetSection("cellblock_grid_cell_field66", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field66")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("BWEB_class"))  r-ori-vert		 @(Model.displayVar("BWEB_class"))	" data-field="BWEB" data-cellId="grid_cell_field66" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field66" @(Model.displayVar("item_report_advanced_field66")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="BWEB" data-fieldname="BWEB">
+@(Model.displayVar("BWEB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field67 in Model.GetSection("cellblock_grid_cell_field67", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field67")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("serialNoB_class"))  r-ori-vert		 @(Model.displayVar("serialNoB_class"))	" data-field="serialNoB" data-cellId="grid_cell_field67" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field67" @(Model.displayVar("item_report_advanced_field67")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="serialNoB" data-fieldname="serialNoB">
+@(Model.displayVar("serialNoB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field68 in Model.GetSection("cellblock_grid_cell_field68", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field68")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("rspdID_class"))  r-ori-vert		 @(Model.displayVar("rspdID_class"))	" data-field="rspdID" data-cellId="grid_cell_field68" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field68" @(Model.displayVar("item_report_advanced_field68")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rspdID" data-fieldname="rspdID">
+@(Model.displayVar("rspdID_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field69 in Model.GetSection("cellblock_grid_cell_field69", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field69")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("txA_class"))  r-ori-vert		 @(Model.displayVar("txA_class"))	" data-field="txA" data-cellId="grid_cell_field69" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field69" @(Model.displayVar("item_report_advanced_field69")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txA" data-fieldname="txA">
+@(Model.displayVar("txA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field70 in Model.GetSection("cellblock_grid_cell_field70", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field70")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("txB_class"))  r-ori-vert		 @(Model.displayVar("txB_class"))	" data-field="txB" data-cellId="grid_cell_field70" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field70" @(Model.displayVar("item_report_advanced_field70")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="txB" data-fieldname="txB">
+@(Model.displayVar("txB_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field71 in Model.GetSection("cellblock_grid_cell_field71", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field71")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("rxA_class"))  r-ori-vert		 @(Model.displayVar("rxA_class"))	" data-field="rxA" data-cellId="grid_cell_field71" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field71" @(Model.displayVar("item_report_advanced_field71")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxA" data-fieldname="rxA">
+@(Model.displayVar("rxA_value"))
+</span>
+	
+	</td>
+	}
+		 
+			@foreach (string _cellblock_grid_cell_field72 in Model.GetSection("cellblock_grid_cell_field72", this)){
+	<TD @(Model.displayVar("cell_grid_cell_field72")) @(Model.displayVar("recordattrs")) class="
+		 @(Model.displayVar("rxB_class"))  r-ori-vert		 @(Model.displayVar("rxB_class"))	" data-field="rxB" data-cellId="grid_cell_field72" data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))">
+
+	 
+		<SPAN data-itemtype="report_advanced_field" data-itemid="report_advanced_field72" @(Model.displayVar("item_report_advanced_field72")) data-pageid="@(Model.displayVar("pageid"))" data-record-id="@(Model.displayVar("recId"))" data-field="rxB" data-fieldname="rxB">
+@(Model.displayVar("rxB_value"))
+</span>
+	
+	</td>
+	}
+			</tr>
+
+	}
+										
+</tbody>	
+	
+</table>
+}
+									@foreach (string _below_grid_block in Model.GetSection("below-grid_block", this)){
+<DIV class="r-form" data-location="below-grid" id="form_below-grid_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_below-grid")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="below-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_below-grid_c1")) class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+}
+			</div>
+		{Html.RenderSharedView("footer");}
+	}
+	</body>
+</html>

@@ -1,0 +1,6 @@
+Import into dbo.province
+14/02/2023 1:04:32 pm
+
+84 out of 84 records processed successfully.
+84 records added.
+0 records updated.

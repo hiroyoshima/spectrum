@@ -1,0 +1,173 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-export">
+	@foreach (string _body in Model.GetSection("body", this)){
+		{Html.RenderSharedView("header");}
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+			<div class="r-panel-page">
+								@foreach (string _supertop_block in Model.GetSection("supertop_block", this)){
+<DIV class="r-form" data-location="supertop" id="form_supertop_@(Model.displayVar("pageid"))" data-makeup="panel" @(Model.displayVar("form_supertop")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_supertop_c1")) class="r-align-center r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+}
+					<div class="bs-pagepanel panel panel-primary">
+					<div class="panel-heading">
+									@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="panel-title r-panel-top row" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="panel" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+		 
+			<DIV data-cellId="top_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c1")) class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<H3 class="panel-title" data-itemtype="export_header" data-itemid="export_header" @(Model.displayVar("item_export_header")) data-pageid="@(Model.displayVar("pageid"))">@(Model.displayVar("pagetitlelabel admin_users export"))</h3>
+		</div>			</div>		
+}
+						</div>
+					<div class="panel-body">
+																		@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+<div class="col-sm-12 col-md-12">
+@foreach (string _range_block in Model.GetSection("range_block", this)){
+	<div class="row">
+		<div class="col-md-4 col-sm-4">
+			<div class="radio bs-desktop-right">
+				Data range			</div>
+		</div>
+		<div class="col-md-8 col-sm-8">
+			<div class="radio">
+				<label>
+					<INPUT type="radio" name="records" value="all" checked="checked" @(Model.displayVar("allpageradio_attrs")) />
+					All records				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<INPUT type="radio" name="records" value="page" @(Model.displayVar("pageradio_attrs")) />
+					Current page only				</label>
+			</div>
+		</div>
+  </div>
+}
+
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<div class="radio bs-desktop-right">
+				Data format			</div>
+		</div>
+		<div class="col-sm-8 col-md-8">
+			<div class="radio">
+			  <label>
+				<INPUT type="radio" name="txtformatting" value="formatted" checked />
+				formatted values			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+				<INPUT type="radio" name="txtformatting" value="raw" />
+				raw values			  </label>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<div class="radio bs-desktop-right">
+				Output format			</div>
+		</div>
+		<div class="col-md-8 col-sm-8">
+			
+			<div class="radio">
+					 <label>
+				<INPUT TYPE="radio" NAME="type" VALUE="excel" CHECKED @(Model.displayVar("excelradio_attrs")) />
+				<span> <IMG src="images/excel.gif" align="absmiddle" alt=" " />&nbsp;Excel</span>
+			</label>
+					</div>
+					<div class="radio">
+			  <label>
+				<INPUT TYPE="radio" NAME="type" VALUE="word" @(Model.displayVar("wordradio_attrs")) />
+				<span> <IMG src="images/word.gif" align="absmiddle" alt=" " />&nbsp;Word</span>
+			  </label>
+			</div>
+					<div class="radio">
+			  <label>
+				<INPUT TYPE="radio" NAME="type" VALUE="csv" @(Model.displayVar("csvradio_attrs")) />
+				<span> <IMG src="images/csv.gif" align="absmiddle" alt=" " />&nbsp;CSV (comma separated values)</span>
+			  </label>
+			</div>
+						
+		</div>
+	</div>
+
+</div>
+}
+											@foreach (string _footer_block in Model.GetSection("footer_block", this)){
+<DIV class="r-form" data-location="footer" id="form_footer_@(Model.displayVar("pageid"))" data-makeup="panel" @(Model.displayVar("form_footer")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="footer_c1" data-pageid="@(Model.displayVar("pageid"))" data-page="admin_users_export" @(Model.displayVar("cell_footer_c1")) class=" r-ori-vert			col-md-6
+	
+">
+			</div>			 
+				<DIV data-cellId="footer_c2" data-pageid="@(Model.displayVar("pageid"))" data-page="admin_users_export" @(Model.displayVar("cell_footer_c2")) class="			col-md-6
+	
+">
+		 
+		<SPAN data-itemtype="export_export" data-itemid="export_export" @(Model.displayVar("item_export_export")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-primary   
+	" href="#" @(Model.displayVar("exportlink_attrs"))>
+							Export			</a>
+</span>
+	 
+		@foreach (string _cancel_button in Model.GetSection("cancel_button", this)){
+<SPAN data-itemtype="export_cancel" data-itemid="export_cancel" @(Model.displayVar("item_export_cancel")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" id="cancelButton@(Model.displayVar("id"))" href="#">
+							Cancel			</a>
+</span>
+}
+		</div>					</div>
+			</div>		
+}
+						</div>
+				</div>
+						
+			</div>
+		{Html.RenderSharedView("footer");}
+	}
+	</body>
+</html>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64FFBE60-C56A-4f53-85EF-829D7A32391E}</ProjectGuid>
+    <ProjectTypeGuids>{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>runnerDotNet</RootNamespace>
+    <AssemblyName>VBEvents</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <SccProjectName></SccProjectName>
+    <SccLocalPath></SccLocalPath>
+    <SccAuxPath></SccAuxPath>
+    <SccProvider></SccProvider>
+	<FileUpgradeFlags />
+	<UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="BCrypt.Net">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="runnerDotNet">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\runnerDotNet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="adodb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\adodb.dll</HintPath>
+    </Reference>
+    <Reference Include="BCrypt.Net">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="cdosys">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\cdosys.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ImageProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor.Plugins.WebP">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ImageProcessor.Plugins.WebP.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ADODB">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Interop.ADODB.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.CDO">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Interop.CDO.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\JWT.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Twilio.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+
+
+    <Compile Include="include\dbo_rspdheader_TableEvents.vb"/>
+
+
+    <Compile Include="include\radioequipment_TableEvents.vb"/>
+
+
+
+
+
+
+
+
+
+    <Compile Include="include\admin_users_TableEvents.vb"/>
+
+
+    <Compile Include="include\stagestatus_TableEvents.vb"/>
+
+
+
+
+
+
+
+    <Compile Include="include\rspd_application_received_TableEvents.vb"/>
+
+    <Compile Include="include\applicationsrecieved_TableEvents.vb"/>
+
+
+
+
+    <Compile Include="include\applicationendorsed_TableEvents.vb"/>
+
+    <Compile Include="include\applicationunderassessment_TableEvents.vb"/>
+
+    <Compile Include="include\applicationundertechnicalevaluation_TableEvents.vb"/>
+
+    <Compile Include="include\CommonEvents.vb"/>
+    <Compile Include="include\CustomExpressions.vb"/>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

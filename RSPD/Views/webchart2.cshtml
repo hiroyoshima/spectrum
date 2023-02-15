@@ -1,0 +1,156 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html lang="en">
+    <head>
+        <title>Chart: Group By</title>
+		<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+		
+        @(Model.displayVar("h_includes"))
+		<style>@MvcHtmlString.Create(@"
+			.rnr-page { 
+				margin: auto;
+				width: 950px;
+			}")</style>
+    </head>
+    <BODY class="@(Model.displayVar("wr_pagestylepath"))">
+        @(Model.displayVar("b_includes"))
+	@{Html.RenderSharedView("header");}
+   <div class="rnr-page">
+		<div class="rnr-top">
+			<DIV class="rnr-s-1 @(Model.displayVar("wr_pagestylepath"))">
+				<div class="rnr-c rnr-cv">
+					<div class="style2" align=center>
+						Chart: Group By@(Model.displayVar("chart_title"))@(Model.displayVar("chart_table"))
+					</div>
+					<div class="style1 rnr-b-wrapper">
+						<DIV class="rnr-s-fields @(Model.displayVar("wr_pagestylepath"))">
+							<div class="rnr-c rnr-cv">
+								<div class="style1">										
+									<table class="fieldGrid" id="table_wh">
+										<tr>
+											<td align=center>Column</td>
+											<td align=center>Filter</td>
+											<td align=center>OR...</td>
+											<td align=center>OR...</td>
+											<td align=center>OR...</td>
+											<td align=center>Sort type</td>
+											<td align=center>Sort order</td>
+											<td align=center>
+												<INPUT type="checkbox" name="group_by_toggle" id="group_by_toggle" />
+												<label for="group_by_toggle">Group By</label>
+											</td>
+											<td align=center>Having</td>
+										</tr>
+										<tr class="condition-row" id="cond_row_0">
+											<td class="field_value">
+												<select id="field_opt" name="field_opt">
+													<OPTION selected value="-1" />
+													@(Model.displayVar("fields"))
+												</select>
+											</td>
+											<td class="filter_value">
+												<INPUT type="text" name="filter_value" id="filter_value" size="9" />
+											</td>
+											<td class="first_or_value">
+												<INPUT type="text" name="first_or_value" id="first_or_value" size="9" />
+											</td>
+											<td class="second_or_value">
+												<INPUT type="text" name="second_or_value" id="second_or_value" size="9" />
+											</td>
+											<td class="third_or_value">
+												<INPUT type="text" name="third_or_value" id="third_or_value" size="9" />
+											</td>
+											<td class="sort_dir">
+												<select id="sort_dir" name="sort_dir">
+													<OPTION value="-1"></OPTION>
+													<OPTION value="ASC">Ascending</OPTION>
+													<OPTION value="DESC">Descending</OPTION>
+												</select>																	
+											</td>
+											<td class="sort_order">
+												<select id="sort_order" name="sort_order" style="display:none">
+													<OPTION selected value="-1" />
+												</select>																	
+											</td>
+											<td class="group_by_value">
+												<select id="group_by_value" name="group_by_value" disabled="">
+													<OPTION selected value="-1" />
+													<OPTION value="GROUP BY">GROUP BY</OPTION>
+													<OPTION value="SUM">SUM</OPTION>
+													<OPTION value="MIN">MIN</OPTION>
+													<OPTION value="MAX">MAX</OPTION>
+													<OPTION value="AVG">AVG</OPTION>
+													<OPTION value="COUNT">COUNT</OPTION>
+												</select>																	
+											</td>
+											<td class="having_value">
+												<INPUT type="text" name="having_value" id="having_value" size="9" disabled />
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div id="btns" class="style2" align=center>
+									<A id="backbtn" name="backbtn" class="rnr-button" href="#">Back</a>
+									<span style="position:absolute;" id="jumptospan"></span>
+									<A id="jumpto" name="jumpto" class="rnr-button" href="#" onclick="event.cancelBubble = true;return false;" onmouseover="event.cancelBubble = true;return false;">Jump to ...</a>
+									<A id="sqlbtn" name="sqlbtn" class="rnr-button" href="#">SQL Query</a>
+									<A id="sql_query" class="various fancybox.iframe" href="web_query?type=webcharts&name=group_by_condition&ie=UTF-8&iframe"></a>
+									<A id="nextbtn" name="nextbtn" class="rnr-button" href="#">Next</a>
+									@foreach (string _b_is_chart_save in Model.GetSection("b_is_chart_save", this)){
+									<A id="saveasbtn" name="saveasbtn" class="rnr-button" href="#">Save as...</a>
+									}															
+									@foreach (string _b_is_chart_name in Model.GetSection("b_is_chart_name", this)){
+									<A id="savebtn" name="savebtn" class="rnr-button" href="#">Save</a>
+									}	
+									<A id="previewbtn" name="previewbtn" class="rnr-button" href="#">Preview</a>
+									<A id="preview" class="various fancybox.iframe" href="dchart_preview?cname=@(Model.displayVar("chart_name_preview"))&ie=UTF-8&iframe"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	@{Html.RenderSharedView("footer");}
+        
+        <style>@MvcHtmlString.Create(@"
+{literal}
+	div.action { position: absolute; width: 170px; padding: 0;font-size:11px }
+	td {font-size:11px;}
+{/literal}")</style>
+<iframe id="framejump" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+<div id="menujump" class=action style="display:none;position:absolute;">
+	<table width=100% cellpadding=5 cellspacing=0 border=0 style="background-color:#F4F7FB;border: solid 1px blue;">
+		<tr><td id=row0 style="cursor:pointer;padding:5px;">Tables</td></tr>
+		<tr><td id=row1 style="cursor:pointer;padding:5px;">Table Relations</td></tr>
+		<tr><td id=row2 style="cursor:pointer;padding:5px;">Group By</td></tr>
+		<tr><td id=row3 style="cursor:pointer;padding:5px;">Type</td></tr>
+		<tr><td id=row4 style="cursor:pointer;padding:5px;">Parameters</td></tr>
+		<tr><td id=row5 style="cursor:pointer;padding:5px;">Appearance</td></tr>
+		<tr><td id=row6 style="cursor:pointer;padding:5px;">Chart Settings</td></tr>
+		<tr><td id=row7 style="cursor:pointer;padding:5px;">Dynamic Permissions</td></tr>
+		<tr><td id=row8 style="cursor:pointer;padding:5px;border-top:1px solid blue;">Back to Web Reports menu</td></tr>
+		<tr><td id=row9 style="cursor:pointer;padding:5px;">Back to main application</td></tr>
+	</table>
+</div>
+	<iframe id="aframe" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>	
+        <div id="alert">
+		</div>
+    </body>
+</html>

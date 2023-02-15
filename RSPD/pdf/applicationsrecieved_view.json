@@ -1,0 +1,1537 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel dbo_applicationsRecieved view}","hidden":"{$item_hide_view_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"33%", 
+							{END col_grid_0}
+												{BEGIN col_grid_1}
+						"33%", 
+							{END col_grid_1}
+												{BEGIN col_grid_2}
+						"33%", 
+							{END col_grid_2}
+												{BEGIN col_grid_3}
+						"16.5%", 
+							{END col_grid_3}
+												{BEGIN col_grid_4}
+						"16.5%", 
+							{END col_grid_4}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
+			 
+								{BEGIN row_grid_5}
+						
+			"%",
+						{END row_grid_5}
+			 
+								{BEGIN row_grid_6}
+						
+			"%",
+						{END row_grid_6}
+			 
+								{BEGIN row_grid_7}
+						
+			"%",
+						{END row_grid_7}
+			 
+								{BEGIN row_grid_8}
+						
+			"%",
+						{END row_grid_8}
+			 
+								{BEGIN row_grid_9}
+						
+			"%",
+						{END row_grid_9}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved applicationType }","bold":true}," ",{$applicationType_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field29}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+																							{BEGIN cellblock_grid_c10}
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+					{BEGIN rowspan_grid_c10}
+			rowSpan: {$rowspan_grid_c10},
+			{END rowspan_grid_c10}
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved modeOfOperation }","bold":true}," ",{$modeOfOperation_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field46}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved Remarks }","bold":true}," ",{$Remarks_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field47}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+																							{BEGIN cellblock_grid_c11}
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c11}
+																							{BEGIN cellblock_grid_c14}
+{
+	cellId: 'c14',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c14}
+			colSpan: {$colspan_grid_c14},
+			{END colspan_grid_c14}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c14}
+																		{ 
+				cellId: 'c14',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_0}
+						{BEGIN row_grid_1}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved companyNameA }","bold":true}," ",{$companyNameA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved externalReferenceNo }","bold":true}," ",{$externalReferenceNo_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field44}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved classStationService }","bold":true}," ",{$classStationService_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field45}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved dateOfApprovedBrief }","bold":true}," ",{$dateOfApprovedBrief_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field48}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+																		{ 
+				cellId: 'c10',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c9}
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+					{BEGIN rowspan_grid_c9}
+			rowSpan: {$rowspan_grid_c9},
+			{END rowspan_grid_c9}
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c9}
+																							{BEGIN cellblock_grid_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c}
+			colSpan: {$colspan_grid_c},
+			{END colspan_grid_c}
+		
+					{BEGIN rowspan_grid_c}
+			rowSpan: {$rowspan_grid_c},
+			{END rowspan_grid_c}
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c}
+																		{ 
+				cellId: 'c',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_1}
+						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_c22}
+{
+	cellId: 'c22',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"<h2><u>STATION LOCATIONS</u></h2>","hidden":"{$item_hide_text}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c22}
+																		{ 
+				cellId: 'c10',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c9',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  1,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_c20}
+{
+	cellId: 'c20',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved siteNameA }","bold":true}," ",{$siteNameA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field2}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved siteIDA }","bold":true}," ",{$siteIDA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field30}"},
+				
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section',
+			widths: ['*'],
+			body: [
+				[{text: 'Location Details', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section_0}
+									"*", 
+								{END col_section_0}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section_0}
+				[
+																{BEGIN cellblock_section_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved province_a }","bold":true}," ",{$province_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field36}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved city_a }","bold":true}," ",{$city_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field35}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved zipcode_a }","bold":true}," ",{$zipcode_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field37}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved barangay_a }","bold":true}," ",{$barangay_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field34}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved street_a }","bold":true}," ",{$street_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field33}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved unit_a }","bold":true}," ",{$unit_a_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field32}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section_c1}
+											],
+				{END row_section_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c20}
+																							{BEGIN cellblock_grid_c15}
+{
+	cellId: 'c15',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved siteNameB }","bold":true}," ",{$siteNameB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field3}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved siteIDB }","bold":true}," ",{$siteIDB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field31}"},
+				
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section1',
+			widths: ['*'],
+			body: [
+				[{text: 'Location Details', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section1_0}
+									"*", 
+								{END col_section1_0}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section1_0}
+				[
+																{BEGIN cellblock_section1_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved province_b }","bold":true}," ",{$province_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field42}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved city_b }","bold":true}," ",{$city_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field41}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved zipcode_b }","bold":true}," ",{$zipcode_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field43}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved barangay_b }","bold":true}," ",{$barangay_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field40}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved street_b }","bold":true}," ",{$street_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field39}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved unit_b }","bold":true}," ",{$unit_b_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field38}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section1_c1}
+											],
+				{END row_section1_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c15}
+																							{BEGIN cellblock_grid_c18}
+{
+	cellId: 'c18',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+					{BEGIN rowspan_grid_c18}
+			rowSpan: {$rowspan_grid_c18},
+			{END rowspan_grid_c18}
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c18}
+																		{ 
+				cellId: 'c',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  2,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
+				[
+																{BEGIN cellblock_grid_c29}
+{
+	cellId: 'c29',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"<h2><u>COORDINATES</u></h2>","hidden":"{$item_hide_text1}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c29}
+																							{BEGIN cellblock_grid_c31}
+{
+	cellId: 'c31',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c31}
+																		{ 
+				cellId: 'c18',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  3,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  3,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
+				[
+																{BEGIN cellblock_grid_c30}
+{
+	cellId: 'c30',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved longtitudeA }","bold":true}," ",{$longtitudeA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field25}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved latitudeA }","bold":true}," ",{$latitudeA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field27}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved elevationA }","bold":true}," ",{$elevationA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field5}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c30}
+																							{BEGIN cellblock_grid_c32}
+{
+	cellId: 'c32',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved longtitudeB }","bold":true}," ",{$longtitudeB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field26}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved latitudeB }","bold":true}," ",{$latitudeB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field28}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved elevationB }","bold":true}," ",{$elevationB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field6}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c32}
+																		{ 
+				cellId: 'c18',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  4,
+				col:  0,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  4,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_5}
+						{BEGIN row_grid_6}
+				[
+																{BEGIN cellblock_grid_c21}
+{
+	cellId: 'c21',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c21}
+			colSpan: {$colspan_grid_c21},
+			{END colspan_grid_c21}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_radioequipment}
+			{$displayDetailTable_radioequipment }
+		{END details_radioequipment},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c21}
+																		{ 
+				cellId: 'c21',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c21',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c21',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+														{ 
+				cellId: 'c21',
+				row:  0,
+				col:  4,
+				text: ''
+			},
+							],
+				{END row_grid_6}
+						{BEGIN row_grid_7}
+				[
+																{BEGIN cellblock_grid_c25}
+{
+	cellId: 'c25',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"<h2><u>ANTENNA SYSTEM</u></h2>","hidden":"{$item_hide_text2}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c25}
+																							{BEGIN cellblock_grid_c26}
+{
+	cellId: 'c26',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c26}
+																							{BEGIN cellblock_grid_c27}
+{
+	cellId: 'c27',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c27}
+																							{BEGIN cellblock_grid_c28}
+{
+	cellId: 'c28',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c28}
+			colSpan: {$colspan_grid_c28},
+			{END colspan_grid_c28}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c28}
+																		{ 
+				cellId: 'c28',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_7}
+						{BEGIN row_grid_8}
+				[
+																{BEGIN cellblock_grid_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved makeTypeModelA }","bold":true}," ",{$makeTypeModelA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field7}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved gainA }","bold":true}," ",{$gainA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field8}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved diameterA }","bold":true}," ",{$diameterA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field9}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved beamwidthA }","bold":true}," ",{$beamwidthA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field10}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved polarizationA }","bold":true}," ",{$polarizationA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field11}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved azimuthA }","bold":true}," ",{$azimuthA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field12}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved elevAngleA }","bold":true}," ",{$elevAngleA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field13}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved heightAGLA }","bold":true}," ",{$heightAGLA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field14}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved feederLengthA }","bold":true}," ",{$feederLengthA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field15}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c12}
+																							{BEGIN cellblock_grid_c23}
+{
+	cellId: 'c23',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved makeTypeModelB }","bold":true}," ",{$makeTypeModelB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field16}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved gainB }","bold":true}," ",{$gainB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field17}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved diameterB }","bold":true}," ",{$diameterB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field18}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved beamwidthB }","bold":true}," ",{$beamwidthB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field19}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved polarizationB }","bold":true}," ",{$polarizationB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field20}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved azimuthB }","bold":true}," ",{$azimuthB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field21}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved elevAngleB }","bold":true}," ",{$elevAngleB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field22}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved heightAGLB }","bold":true}," ",{$heightAGLB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field23}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved feederLengthB }","bold":true}," ",{$feederLengthB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field24}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c23}
+																							{BEGIN cellblock_grid_c19}
+{
+	cellId: 'c19',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c19}
+																							{BEGIN cellblock_grid_c13}
+{
+	cellId: 'c13',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c13}
+			colSpan: {$colspan_grid_c13},
+			{END colspan_grid_c13}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c13}
+																		{ 
+				cellId: 'c13',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_8}
+						{BEGIN row_grid_9}
+				[
+																{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved callSignA }","bold":true}," ",{$callSignA_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field1}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c6}
+																							{BEGIN cellblock_grid_c24}
+{
+	cellId: 'c24',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved callSignB }","bold":true}," ",{$callSignB_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field4}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c24}
+																							{BEGIN cellblock_grid_c17}
+{
+	cellId: 'c17',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved recommendations }","bold":true}," ",{$recommendations_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field50}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved natureOfService }","bold":true}," ",{$natureOfService_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field49}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved fb }","bold":true}," ",{$fb_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field55}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved bc }","bold":true}," ",{$bc_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field58}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved ma }","bold":true}," ",{$ma_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field61}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved naturoOfRequest }","bold":true}," ",{$naturoOfRequest_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field64}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved frequencyRange }","bold":true}," ",{$frequencyRange_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field67}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved evaluator }","bold":true}," ",{$evaluator_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field70}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c17}
+																							{BEGIN cellblock_grid_c16}
+{
+	cellId: 'c16',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved applicationCategory }","bold":true}," ",{$applicationCategory_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field51}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved rt }","bold":true}," ",{$rt_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field53}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved ml }","bold":true}," ",{$ml_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field56}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved fc }","bold":true}," ",{$fc_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field59}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved tc }","bold":true}," ",{$tc_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field62}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved serviceArea }","bold":true}," ",{$serviceArea_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field65}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved directivity }","bold":true}," ",{$directivity_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field68}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved position }","bold":true}," ",{$position_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field71}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c16}
+																							{BEGIN cellblock_grid_c5}
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved address }","bold":true}," ",{$address_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field52}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved fx }","bold":true}," ",{$fx_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field54}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved p }","bold":true}," ",{$p_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field57}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved fa }","bold":true}," ",{$fa_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field60}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved other_ClassSS }","bold":true}," ",{$other_ClassSS_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field63}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved caseNo }","bold":true}," ",{$caseNo_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field66}"},
+				
+				
+			{"text":[{"text":"{$jslabel dbo_applicationsRecieved encoder }","bold":true}," ",{$encoder_pdfvalue}],"hidden":"{$item_hide_integrated_edit_field69}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c5}
+											],
+				{END row_grid_9}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_view_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_view_close}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+};
+
+pdfFonts = {$pdfFonts};
+  

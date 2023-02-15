@@ -1,0 +1,60 @@
+[data-cellid="grid_c10"][data-page="dbo_rspdheader_add"][data-cellid="grid_c10"][data-page="dbo_rspdheader_add"][data-cellid="grid_c10"][data-page="dbo_rspdheader_add"] {
+  width: 33%;
+}
+[data-cellid="grid_c2"][data-page="dbo_rspdheader_add"][data-cellid="grid_c2"][data-page="dbo_rspdheader_add"][data-cellid="grid_c2"][data-page="dbo_rspdheader_add"] {
+  width: 33%;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="details_preview4"] {
+  font-weight: bold;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section2"] > .panel-heading {
+  color: #FFF;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section2"] > .panel-heading {
+  background-color: #0033c4;
+  background-image: none;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section3"] > .panel-heading {
+  color: #FFF;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section3"] > .panel-heading {
+  background-color: #0033c4;
+  background-image: none;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section4"] > .panel-heading {
+  color: #FFF;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section4"] > .panel-heading {
+  background-color: #0033c4;
+  background-image: none;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section5"] > .panel-heading {
+  color: #fff;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="section5"] > .panel-heading {
+  background-color: #0033c4;
+  background-image: none;
+}
+[data-page="dbo_rspdheader_add"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+
+.panel-info > .panel-heading .btn.btn-info:not(:hover) {
+background-color: darkgray;
+      border-color: darkgray;
+}
+
+.panel-info > .panel-heading{
+    background-color: lightgray;
+    border-color: gray;
+    color:black;
+}
+
+.panel-info {
+    border-color: gray;
+}
+
+.btn-info {
+    border-color: gray;
+}

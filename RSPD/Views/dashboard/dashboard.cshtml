@@ -1,0 +1,389 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-dashboard">
+	@foreach (string _body in Model.GetSection("body", this)){
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+		<div class="r-vbar-page">
+			<DIV data-width="250px" data-fixed class="r-left clearfix @(Model.displayVar("leftbar_class"))">
+								<DIV data-location="left" id="form_left_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_left")) data-pageid="@(Model.displayVar("pageid"))">
+@foreach (string _left_block in Model.GetSection("left_block", this)){
+ 
+     
+         
+
+			<DIV data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell class="clearfix " data-itemid="logo" @(Model.displayVar("item_logo"))>
+				@foreach (string _logo_block in Model.GetSection("logo_block", this)){
+	<A data-itemtype="logo" data-itemid="logo" @(Model.displayVar("item_logo")) data-pageid="@(Model.displayVar("pageid"))" class="navbar-brand" href="@(Model.displayVar("home_link"))" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("logo_hiddenattr"))>
+		@(Model.displayVar("logo"))
+	</A>
+}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<DIV class="clearfix " data-cellId="left_c0" data-pageid="@(Model.displayVar("pageid"))" data-logo-cell data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-topcell-item-type="expand_button">
+				<SPAN data-itemtype="expand_button" data-itemid="expand_button" @(Model.displayVar("item_expand_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Expand" class="btn btn-link   
+	" href="#">
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<DIV data-cellId="left_c1" data-pageid="@(Model.displayVar("pageid"))" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))">
+				@foreach (string _menuitems_main in Model.GetSection("menuitems_main", this)){
+<UL data-itemtype="menu" data-itemid="menu" @(Model.displayVar("item_menu")) data-pageid="@(Model.displayVar("pageid"))" class="r-menu nav navbar-nav" data-menulevel="1">
+
+@foreach (string _item_children1 in Model.GetSection("item_children1", this)){
+<LI class="
+	@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}} 
+	@(Model.displayVar("item_current"))">
+<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v data-menu-top>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link r-menu-expanded "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+		<span class="r-menu-collapsed">@(Model.displayVar("item_collicon"))@(Model.displayVar("item_firstcap"))</span>
+	</a>
+@foreach (string _item_showchildren2 in Model.GetSection("item_showchildren2", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="2">
+	@foreach (string _item_children2 in Model.GetSection("item_children2", this)){
+		foreach (string _item_menulink2 in Model.GetSection("item_menulink2", this)){
+		<LI class="
+						@{foreach (string _item_haschildren2 in Model.GetSection("item_haschildren2", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren2_1 in Model.GetSection("item_haschildren2", this)){
+		foreach (string _item_expand_icon_1 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren3 in Model.GetSection("item_showchildren3", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="3">
+	@foreach (string _item_children3 in Model.GetSection("item_children3", this)){
+		foreach (string _item_menulink3 in Model.GetSection("item_menulink3", this)){
+		<LI class="
+						@{foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren3 in Model.GetSection("item_haschildren3", this)){
+		foreach (string _item_expand_icon_2 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren4 in Model.GetSection("item_showchildren4", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="4">
+	@foreach (string _item_children4 in Model.GetSection("item_children4", this)){
+		foreach (string _item_menulink4 in Model.GetSection("item_menulink4", this)){
+		<LI class="
+						@{foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren4 in Model.GetSection("item_haschildren4", this)){
+		foreach (string _item_expand_icon_3 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+			@foreach (string _item_showchildren5 in Model.GetSection("item_showchildren5", this)){
+<UL class="
+			dropdown-menu
+			@(Model.displayVar("submenu_class"))" id="submenu@(Model.displayVar("item_id"))" data-menulevel="5">
+	@foreach (string _item_children5 in Model.GetSection("item_children5", this)){
+		foreach (string _item_menulink5 in Model.GetSection("item_menulink5", this)){
+		<LI class="
+						@{foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){@MvcHtmlString.Create(@" dropdown ")}}
+						@(Model.displayVar("item_current"))">
+			<A @(Model.displayVar("item_attrs")) title="@(Model.displayVar("item_tooltip"))" data-menu-link data-menu-v>
+	@(Model.displayVar("item_separator"))
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		@(Model.displayVar("item_icon")) @(Model.displayVar("item_title"))
+		</span>
+		@foreach (string _item_haschildren5 in Model.GetSection("item_haschildren5", this)){
+		foreach (string _item_expand_icon_4 in Model.GetSection("item_expand_icon", this)){
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		}
+		}
+	</span>
+	</a>
+					</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+		</li>
+		}
+	}
+</ul>
+}
+</li>
+}
+</ul>
+}
+			</div>
+		
+    }
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									@foreach (string _supertop_block in Model.GetSection("supertop_block", this)){
+<NAV class="navbar navbar-default" data-location="supertop" id="form_supertop_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_supertop")) data-pageid="@(Model.displayVar("pageid"))">
+			 
+							 
+				<SPAN class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-topcell-item-type="expand_menu_button">
+				<SPAN data-itemtype="expand_menu_button" data-itemid="expand_menu_button" @(Model.displayVar("item_expand_menu_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#">		
+				
+								</a>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-topcell-item-type="collapse_button">
+				<SPAN data-itemtype="collapse_button" data-itemid="collapse_button" @(Model.displayVar("item_collapse_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#">		
+				
+								</a>
+</span>
+			</span>
+		 
+				<SPAN class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" data-itemid="breadcrumb" @(Model.displayVar("item_breadcrumb")) data-topcell-item-type="breadcrumb">
+				@foreach (string _breadcrumb in Model.GetSection("breadcrumb", this)){
+<OL class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" @(Model.displayVar("item_breadcrumb")) data-pageid="@(Model.displayVar("pageid"))">
+<li ><A href="@(Model.displayVar("crumb_home_link"))"><span class="glyphicon glyphicon-home"></span></a>@(Model.displayVar("crumb_dropdown"))</li>
+@foreach (string _crumb in Model.GetSection("crumb", this)){
+  <LI class="@(Model.displayVar("crumb_item_class"))">
+@foreach (string _crumb_title_link in Model.GetSection("crumb_title_link", this)){
+	<A @(Model.displayVar("crumb_attrs"))>@(Model.displayVar("crumb_title"))</a>
+}
+@foreach (string _crumb_title_span in Model.GetSection("crumb_title_span", this)){
+	<SPAN @(Model.displayVar("crumb_attrs"))>@(Model.displayVar("crumb_title"))</span>
+}	
+	@(Model.displayVar("crumb_dropdown"))
+  </li>
+}
+</ol>
+}			</span>
+							 
+							 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="simple_search" @(Model.displayVar("item_simple_search")) data-topcell-item-type="simple_search">
+				<SPAN data-itemtype="simple_search" data-itemid="simple_search" @(Model.displayVar("item_simple_search")) data-pageid="@(Model.displayVar("pageid"))" class="form-group">
+
+<div  class="input-group">
+@foreach (string _searchform_text in Model.GetSection("searchform_text", this)){
+	<INPUT type="search" class="form-control" @(Model.displayVar("searchfor_attrs")) size="25" />
+}
+	<span class="input-group-btn">
+	@foreach (string _searchform_showall in Model.GetSection("searchform_showall", this)){
+				<BUTTON class="btn btn-default" @(Model.displayVar("showAllCont_attrs")) @(Model.displayVar("showallbutton_attrs")) title="Show all">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	}
+
+	@foreach (string _searchform_search in Model.GetSection("searchform_search", this)){
+	<BUTTON @(Model.displayVar("searchbutton_attrs")) class="btn btn-primary">
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+	}
+	</span>
+</div>
+		
+</span>			</span>
+		 
+				<SPAN class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="@(Model.displayVar("pageid"))" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-topcell-item-type="username_button">
+				@foreach (string _loggedas_message in Model.GetSection("loggedas_message", this)){
+<SPAN data-itemtype="username_button" data-itemid="username_button" @(Model.displayVar("item_username_button")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			@foreach (string _userbutton_icon in Model.GetSection("userbutton_icon", this)){							<span class="glyphicon glyphicon-user"></span>
+						}@(Model.displayVar("userbutton_image"))			@(Model.displayVar("username"))			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							@foreach (string _userinfo_link in Model.GetSection("userinfo_link", this)){
+	<LI data-itemtype="userinfo_link" data-itemid="userinfo_link" @(Model.displayVar("item_userinfo_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="userinfo" title>
+				
+		User Profile		
+		</a>
+	</li>
+}
+							@foreach (string _logoutbutton in Model.GetSection("logoutbutton", this)){
+	<LI data-itemtype="logout_link" data-itemid="logout_link" @(Model.displayVar("item_logout_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="#" @(Model.displayVar("logoutlink_attrs")) title>
+				
+		Log out		
+		</a>
+	</li>
+}
+							@foreach (string _adminarea_link in Model.GetSection("adminarea_link", this)){
+	<LI data-itemtype="adminarea_link" data-itemid="adminarea_link" @(Model.displayVar("item_adminarea_link")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="admin_rights/list" title>
+				
+		Admin Area		
+		</a>
+	</li>
+}
+					</ul>
+	</span>
+</span>
+}
+			</span>
+								</nav>
+}
+						@(Model.displayVar("locking"))
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="full">
+					@{Html.RenderSharedView("header");}
+					<div class="r-top">
+									@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="r-form" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	</div>		
+}
+						</div>
+											<div class="r-above">
+			</div>
+<div class="r-grid">
+	@foreach (string _grid_tabs in Model.GetSection("grid_tabs", this)){
+  <ul class="nav nav-tabs bsgrid_tabs">
+	@(Model.displayVar("grid_tabs_content"))
+  </ul>
+}
+					@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+<TABLE class="r-fluid r-form" data-location="grid" id="form_grid_@(Model.displayVar("pageid"))" data-makeup="leftbar" @(Model.displayVar("form_grid")) data-pageid="@(Model.displayVar("pageid"))" data-dashboard>
+	<tbody>
+											
+			<TR @(Model.displayVar("row_grid_0")) data-row-width="2">
+									<TD class=" r-ori-vert			" data-cellId="grid_c1" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<DIV data-dashtype="0" id="dashelement_dbo_rspd_application_received_grid@(Model.displayVar("pageid"))" data-tablocation="above" data-itemtype="dashboard-item" data-itemid="dashboard-item" @(Model.displayVar("item_dashboard-item")) data-pageid="@(Model.displayVar("pageid"))" data-page="dashboard_dashboard">
+	@(Model.displayVar("db_dbo_rspd_application_received_grid"))
+</div></td>
+									<TD class=" r-ori-vert			" data-cellId="grid_c" data-pageid="@(Model.displayVar("pageid"))">
+</td>
+							</tr>
+											
+			<TR @(Model.displayVar("row_grid_1")) data-row-width="2">
+									<TD class=" r-ori-vert			" data-cellId="grid_c2" data-pageid="@(Model.displayVar("pageid"))">
+ 
+<DIV data-dashtype="6" id="dashelement_dbo_rspdHeader_map@(Model.displayVar("pageid"))" data-tablocation="above" data-itemtype="dashboard-item" data-itemid="dashboard-item1" @(Model.displayVar("item_dashboard-item1")) data-pageid="@(Model.displayVar("pageid"))" data-page="dashboard_dashboard">
+	@(Model.displayVar("db_dbo_rspdHeader_map"))
+</div></td>
+									<TD class=" r-ori-vert			" data-cellId="grid_c3" data-pageid="@(Model.displayVar("pageid"))">
+</td>
+							</tr>
+		
+	</tbody>
+</table>
+}
+
+
+
+
+
+
+
+
+	</div>
+<div class="r-below">
+			</div>
+
+
+
+
+										@{Html.RenderSharedView("footer");}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	}
+	</body>
+</html>

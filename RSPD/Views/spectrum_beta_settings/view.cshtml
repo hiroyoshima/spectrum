@@ -1,0 +1,270 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-view">
+	@foreach (string _body in Model.GetSection("body", this)){
+		{Html.RenderSharedView("header");}
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+		@(Model.displayVar("locking"))
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="r-form" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))" data-v-width="4" data-v-margin="1">		
+	 
+		<div class="row">
+			 
+				<DIV data-cellId="top_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c1")) class=" r-ori-vert			col-md-12
+	">
+	 
+		<H2 data-itemtype="view_header" data-itemid="view_header" @(Model.displayVar("item_view_header")) data-pageid="@(Model.displayVar("pageid"))">@(Model.displayVar("pagetitlelabel dbo_spectrum_beta_settings view"))</h2>
+	</div>					</div>
+	</div>		
+}
+									@foreach (string _above_grid_block in Model.GetSection("above-grid_block", this)){
+<DIV class="r-form" data-location="above-grid" id="form_above-grid_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_above-grid")) data-pageid="@(Model.displayVar("pageid"))" data-v-width="4" data-v-margin="1">		
+	 
+		<div class="row">
+			 
+				<DIV data-cellId="above-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_above-grid_c1")) class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+}
+									@foreach (string _grid_block in Model.GetSection("grid_block", this)){
+
+
+
+
+ 
+	 
+												<TABLE data-body-align="center" data-location="grid" id="form_grid_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_grid")) data-pageid="@(Model.displayVar("pageid"))" class="r-edit-form" cellpadding="0" cellspacing="0" @(Model.displayVar("grid_hiddenattr")) data-form-width="1" data-v-width="4">
+	<tbody>
+										<TR @(Model.displayVar("row_grid_0"))>
+										
+
+@foreach (string _cellblock_grid_c3 in Model.GetSection("cellblock_grid_c3", this)){
+<TD @(Model.displayVar("cell_grid_c3")) class=" r-ori-vert" data-fullwidth data-cellId="grid_c3" data-pageid="@(Model.displayVar("pageid"))" data-v-cell="4">
+	<div edit-form-cell class="clearfix">
+				
+@foreach (string _ID_fieldblock in Model.GetSection("ID_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_ID"))  r-vertical-field" data-fieldname="ID" data-signal-error-for="ID@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" @(Model.displayVar("item_integrated_edit_field")) data-pageid="@(Model.displayVar("pageid"))" data-field="ID" data-fieldname="ID" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_ID"))">
+		
+		@foreach (string _ID_label in Model.GetSection("ID_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings ID"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("ID_value"))	</div>
+
+		
+</div>
+
+
+}
+											
+@foreach (string _TYPE_fieldblock in Model.GetSection("TYPE_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_TYPE"))  r-vertical-field" data-fieldname="TYPE" data-signal-error-for="TYPE@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" @(Model.displayVar("item_integrated_edit_field1")) data-pageid="@(Model.displayVar("pageid"))" data-field="TYPE" data-fieldname="TYPE" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_TYPE"))">
+		
+		@foreach (string _TYPE_label in Model.GetSection("TYPE_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings TYPE"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("TYPE_value"))	</div>
+
+		
+</div>
+
+
+}
+											
+@foreach (string _NAME_fieldblock in Model.GetSection("NAME_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_NAME"))  r-vertical-field" data-fieldname="NAME" data-signal-error-for="NAME@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" @(Model.displayVar("item_integrated_edit_field2")) data-pageid="@(Model.displayVar("pageid"))" data-field="NAME" data-fieldname="NAME" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_NAME"))">
+		
+		@foreach (string _NAME_label in Model.GetSection("NAME_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings NAME"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("NAME_value"))	</div>
+
+		
+</div>
+
+
+}
+											
+@foreach (string _USERNAME_fieldblock in Model.GetSection("USERNAME_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_USERNAME"))  r-vertical-field" data-fieldname="USERNAME" data-signal-error-for="USERNAME@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" @(Model.displayVar("item_integrated_edit_field3")) data-pageid="@(Model.displayVar("pageid"))" data-field="USERNAME" data-fieldname="USERNAME" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_USERNAME"))">
+		
+		@foreach (string _USERNAME_label in Model.GetSection("USERNAME_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings USERNAME"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("USERNAME_value"))	</div>
+
+		
+</div>
+
+
+}
+											
+@foreach (string _COOKIE_fieldblock in Model.GetSection("COOKIE_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_COOKIE"))  r-vertical-field" data-fieldname="COOKIE" data-signal-error-for="COOKIE@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" @(Model.displayVar("item_integrated_edit_field4")) data-pageid="@(Model.displayVar("pageid"))" data-field="COOKIE" data-fieldname="COOKIE" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_COOKIE"))">
+		
+		@foreach (string _COOKIE_label in Model.GetSection("COOKIE_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings COOKIE"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("COOKIE_value"))	</div>
+
+		
+</div>
+
+
+}
+											
+@foreach (string _SEARCH_fieldblock in Model.GetSection("SEARCH_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_SEARCH"))  r-vertical-field" data-fieldname="SEARCH" data-signal-error-for="SEARCH@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" @(Model.displayVar("item_integrated_edit_field5")) data-pageid="@(Model.displayVar("pageid"))" data-field="SEARCH" data-fieldname="SEARCH" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_SEARCH"))">
+		
+		@foreach (string _SEARCH_label in Model.GetSection("SEARCH_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings SEARCH"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("SEARCH_value"))	</div>
+
+		
+</div>
+
+
+}
+											
+@foreach (string _TABLENAME_fieldblock in Model.GetSection("TABLENAME_fieldblock", this)){
+
+
+<DIV class="r-integrated-field form-group clearfix @(Model.displayVar("fielddispclass_TABLENAME"))  r-vertical-field" data-fieldname="TABLENAME" data-signal-error-for="TABLENAME@(Model.displayVar("id"))" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" @(Model.displayVar("item_integrated_edit_field6")) data-pageid="@(Model.displayVar("pageid"))" data-field="TABLENAME" data-fieldname="TABLENAME" data-compact>
+
+	
+	<LABEL class="col-md-offset-3 col-md-6" for="@(Model.displayVar("labelfor_TABLENAME"))">
+		
+		@foreach (string _TABLENAME_label in Model.GetSection("TABLENAME_label", this)){@(Model.displayVar("label dbo_spectrum_beta_settings TABLENAME"))}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		@(Model.displayVar("TABLENAME_value"))	</div>
+
+		
+</div>
+
+
+}
+	
+								</td>
+			}
+								</tr>
+			</tbody></table>
+}
+									@foreach (string _below_grid_block in Model.GetSection("below-grid_block", this)){
+<DIV class="r-form" data-location="below-grid" id="form_below-grid_@(Model.displayVar("pageid"))" data-makeup="small" @(Model.displayVar("form_below-grid")) data-pageid="@(Model.displayVar("pageid"))" data-v-width="4" data-v-margin="1">		
+	 
+		<div class="row">
+			 
+				<DIV data-cellId="below-grid_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_below-grid_c1")) class="			col-md-6
+	">
+	 
+		@foreach (string _back_button in Model.GetSection("back_button", this)){
+<SPAN data-itemtype="view_back_list" data-itemid="view_back_list" @(Model.displayVar("item_view_back_list")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" @(Model.displayVar("backbutton_attrs"))>
+							Back to list			</a>
+</span>
+}
+	 
+		@foreach (string _close_button in Model.GetSection("close_button", this)){
+<SPAN data-itemtype="view_close" data-itemid="view_close" @(Model.displayVar("item_view_close")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<A type="button" title class="btn btn-default   
+	" href="#" @(Model.displayVar("closebutton_attrs"))>
+							Close window			</a>
+</span>
+}
+	</div>			 
+				<DIV data-cellId="below-grid_c2" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_below-grid_c2")) class="r-align-right r-ori-vert			col-md-6
+	">
+	 
+		<SPAN data-itemtype="hamburger" data-itemid="hamburger" @(Model.displayVar("item_hamburger")) data-pageid="@(Model.displayVar("pageid"))" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							@foreach (string _edit_page_button in Model.GetSection("edit_page_button", this)){
+	<LI data-itemtype="view_edit" data-itemid="view_edit" @(Model.displayVar("item_view_edit")) data-pageid="@(Model.displayVar("pageid"))" data-small>
+				<A href="spectrum_beta_settings/edit?@(Model.displayVar("editlink"))" @(Model.displayVar("edit_page_button_attrs")) title>
+				
+		Edit		
+		</a>
+	</li>
+}
+					</ul>
+	</span>
+</span>
+	</div>					</div>
+	</div>		
+}
+			</div>
+		{Html.RenderSharedView("footer");}
+	}
+	</body>
+</html>

@@ -1,0 +1,192 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+	<head>
+				<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<META name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@(Model.displayVar("pagetitle"))</title>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<BASE href="@(Model.displayVar("projectPath"))" />
+		<LINK REL="stylesheet" href="styles/default.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	@foreach (string _rtlCSS in Model.GetSection("rtlCSS", this)){
+	<LINK REL="stylesheet" href="styles/defaultRTL.css?@(Model.displayVar("wizardBuildKey"))" type="text/css" />
+	}
+	@foreach (string _styleCSSFiles in Model.GetSection("styleCSSFiles", this)){
+	<LINK REL="stylesheet" href="@(Model.displayVar("stylepath"))" type="text/css" />
+	}
+			
+	</head>
+
+	<BODY class="@(Model.displayVar("stylename")) function-import">
+	@foreach (string _body in Model.GetSection("body", this)){
+		{Html.RenderSharedView("header");}
+		<style>@MvcHtmlString.Create(@"")@(Model.displayVar("containerCss"))@MvcHtmlString.Create(@"")</style>
+			<div class="r-panel-page">
+								@foreach (string _supertop_block in Model.GetSection("supertop_block", this)){
+<DIV class="r-form" data-location="supertop" id="form_supertop_@(Model.displayVar("pageid"))" data-makeup="panel" @(Model.displayVar("form_supertop")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+				<div class="row">
+			 
+				<DIV data-cellId="supertop_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_supertop_c1")) class="r-align-center r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+}
+					<div class="bs-pagepanel panel panel-primary">
+					<div class="panel-heading">
+									@foreach (string _top_block in Model.GetSection("top_block", this)){
+<DIV class="panel-title r-panel-top row" data-location="top" id="form_top_@(Model.displayVar("pageid"))" data-makeup="panel" @(Model.displayVar("form_top")) data-pageid="@(Model.displayVar("pageid"))">		
+	 
+		 
+			<DIV data-cellId="top_c1" data-pageid="@(Model.displayVar("pageid"))" @(Model.displayVar("cell_top_c1")) class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<H3 class="panel-title" data-itemtype="import_header" data-itemid="import_header" @(Model.displayVar("item_import_header")) data-pageid="@(Model.displayVar("pageid"))">@(Model.displayVar("pagetitlelabel admin_users import"))</h3>
+		</div>			</div>		
+}
+						</div>
+					<div class="panel-body">
+													<!-- bsimportheader_text data-brick="importheader_text" data-pageid="{$pageid}" {$importheader_text_hiddenattr}-->
+	<DIV id="importheaderText@(Model.displayVar("id"))" class="form-group">
+		Drag and drop a comma-separated (.csv) or Excel (.xlsx) file or choose an option below.	</div>
+
+	<!-- bsimportfields data-brick="importfields" data-pageid="{$pageid}" {$importfields_hiddenattr}-->
+	<DIV id="importFields@(Model.displayVar("id"))" class="form-group">
+		<DIV id="importUploadFallback@(Model.displayVar("id"))" style="display: none;">
+			<table class="fieldGrid">
+				<tr>
+					<td>
+						Select file with data.					</td>
+					<td>
+						<INPUT type="File" id="importFile@(Model.displayVar("id"))" name="importFile@(Model.displayVar("id"))" />
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="rnr-import-settings">
+			<BUTTON type="button" class="btn btn-default" id="uploadImportFile@(Model.displayVar("id"))">Browse...</button>
+		</div>
+
+		<DIV id="importDropzone@(Model.displayVar("id"))" class="rnr-dragndrop-area" style="display: none;">
+			<div class="rnr-dragtext"> Drag files here </div>
+		</div>
+
+		<div class="rnr-import-settings">
+			<BUTTON type="button" class="btn btn-default" id="switchToTextInsertion@(Model.displayVar("id"))">Copy and paste text</button>
+		</div>
+	</div>
+
+	<!-- bsimport_rawtext_control brickname_attr data-brick="import_rawtext_control" data-pageid="{$pageid}" {$import_rawtext_control_hiddenattr}-->
+	<DIV id="copyAndPasteText@(Model.displayVar("id"))" class="form-group" style="display:none;">
+		<div>Copy and Paste your text data here:</div>
+		<TEXTAREA class="rnr-import-textarea" id="importText@(Model.displayVar("id"))">
+		</textarea>
+	</div>
+
+	<!-- bsimport_preview data-brick="import_preview" data-pageid="{$pageid}" {$import_preview_hiddenattr}-->
+	<DIV id="importPreview@(Model.displayVar("id"))" class="form-group" style="display:none;">
+		<DIV id="importSettings@(Model.displayVar("id"))" class="rnr-import-settings form-group">
+			<div class="rnr-is-control checkbox">
+				<label>
+					<INPUT class="rnr-checkbox" id="headersLineOption@(Model.displayVar("id"))" name="headersLineOption" type="checkbox" />
+					Column headers in line #					<INPUT type="number" class="rnr-import-input-small" id="headersLineNumber@(Model.displayVar("id"))" value="1" />
+				</label>
+			</div>
+			<div class="rnr-is-control checkbox">
+				<label>
+					<INPUT class="rnr-checkbox" id="skipLinesOption@(Model.displayVar("id"))" name="skipLinesOption" type="checkbox" />
+					@(Model.displayVar("messagepart IMPORT_SKIP_N_LINES 1"))
+					<INPUT type="number" class="rnr-import-input-small" id="skipLinesAmount@(Model.displayVar("id"))" value="1" /> 
+					@(Model.displayVar("messagepart IMPORT_SKIP_N_LINES 2"))
+				</label>
+			</div>
+
+
+			<UL id="delimiterSettings@(Model.displayVar("id"))" style="display:none;" class="rnr-is-control list-inline">
+				<li class="radio">
+					<label>
+						<INPUT name="importDelimiter" class="importDelimiters" type="radio" value="," />
+						Comma					</label>
+				</li>
+				<li class="radio">
+					<label>
+						<INPUT name="importDelimiter" class="importDelimiters" type="radio" value="&#9;" />
+						Tab					</label>
+				</li>
+				<li class="radio">
+					<label>
+						<INPUT name="importDelimiter" class="importDelimiters" type="radio" value="other" />
+						Other					</label>
+					<INPUT id="customDelimiter@(Model.displayVar("id"))" value=";" type="text" />
+				</li>
+			</ul>
+
+			<DIV id="dateFormatSettings@(Model.displayVar("id"))" class="rnr-is-control" style="display:none;">
+				<label>Date format:</label>
+				<INPUT id="importDateFormat@(Model.displayVar("id"))" type="text" />
+			</div>
+		</div>
+
+		<DIV id="importGridHead@(Model.displayVar("id"))" class="rnr-import-head-preview">
+		</div>
+		<DIV id="importGridBody@(Model.displayVar("id"))" class="rnr-import-body-preview form-group">
+			<TABLE id="importPreviewBodyTable@(Model.displayVar("id"))"></table>
+		</div>
+		<DIV id="importErrorMessage@(Model.displayVar("id"))" class="alert alert-danger" style="display:none;"></div>
+	</div>
+
+	<!-- bsimport_process data-brick="import_process" data-pageid="{$pageid}" {$import_process_hiddenattr} -->
+	<DIV id="importProgress@(Model.displayVar("id"))" class="rnr-import-progress form-group" style="display:none;">
+	</div>
+
+	<!-- bsimport_results data-brick="import_results" data-pageid="{$pageid}" {$import_results_hiddenattr}-->
+	<DIV id="reportText@(Model.displayVar("id"))" class="rnr-import-report form-group" style="display:none;">
+	</div>
+
+	<!-- bsimportbuttons data-brick="importbuttons" data-pageid="{$pageid}" {$importbuttons_hiddenattr}-->
+	<DIV id="importButtons@(Model.displayVar("id"))">
+		<div class="rnr-buttons-right">
+			<BUTTON type="button" class="btn btn-default" id="backToList@(Model.displayVar("id"))">
+				Back to list			</button>
+			<BUTTON type="button" class="btn btn-default" id="newImport@(Model.displayVar("id"))" style="display: none;">
+				New import			</button>
+		</div>
+		<div class="rnr-buttons-left">
+			<BUTTON type="button" class="btn btn-primary disabled" id="continueTextImport@(Model.displayVar("id"))" style="display: none;">
+				Continue			</button>
+			<BUTTON type="button" class="btn btn-primary" id="importButton@(Model.displayVar("id"))" style="display: none;">
+				Import Data			</button>
+			<BUTTON type="button" class="btn btn-default" id="backTo@(Model.displayVar("id"))" style="display: none;">
+				Back			</button>
+			<BUTTON type="button" class="btn btn-default" id="saveReport@(Model.displayVar("id"))" style="display: none;">
+				Save Report			</button>
+			<BUTTON type="button" class="btn btn-default errorReportButtons@(Model.displayVar("id"))" id="saveUnprocessedData@(Model.displayVar("id"))" style="display: none;">
+				Download unprocessed data			</button>
+			<BUTTON type="button" class="btn btn-default errorReportButtons@(Model.displayVar("id"))" id="saveErrorReport@(Model.displayVar("id"))" style="display: none;">
+				Download error log			</button>
+		</div>
+	</div>
+											</div>
+				</div>
+				
+			</div>
+		{Html.RenderSharedView("footer");}
+	}
+	</body>
+</html>

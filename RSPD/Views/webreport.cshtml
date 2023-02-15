@@ -1,0 +1,91 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html lang="en">
+    <head>
+        <title>Web Reports and Charts</title>
+		<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+		<style>@MvcHtmlString.Create(@"
+			.div_list_report{overflow-y:auto;")@(Model.displayVar("css_height_report"))@MvcHtmlString.Create(@"border:1px solid #E2DEDE;}
+			.div_list_chart{overflow-y:auto;")@(Model.displayVar("css_height_chart"))@MvcHtmlString.Create(@"border:1px solid #E2DEDE;}")</style>
+        @(Model.displayVar("h_includes"))
+    </head>
+    <BODY class="@(Model.displayVar("wr_pagestylepath"))">
+        @(Model.displayVar("b_includes"))
+        
+@{Html.RenderSharedView("header");}
+	<div class="rnr-page">
+		<div class="rnr-top">
+						<DIV class="rnr-s-1 @(Model.displayVar("wr_pagestylepath"))">
+				<div class="rnr-c rnr-cv">
+					<div class="style2"  align=center>
+						Web Reports and Charts
+					</div>
+					<div class="style1 rnr-b-wrapper">
+						<DIV class="rnr-s-fields @(Model.displayVar("wr_pagestylepath"))">
+							<div class="rnr-c rnr-cv">
+								<div class="style1">
+									@(Model.displayVar("login_mess"))
+								</div>
+								<div class="style1">
+									<table class="fieldGrid">
+										<tr>
+																							<td id="stl" style="width:400px">Shared</td>
+												<td id="ptl" style="width:400px">My Reports</td>
+										</tr>
+										<tr>
+																							<td>
+													<div class="div_list_report">@(Model.displayVar("shared_reports"))</div>
+												</td>
+												<td>
+													<div class="div_list_report">@(Model.displayVar("private_reports"))</div>
+												</td>
+										</tr>
+										<tr>
+																						<td id="stl">Shared</td>
+											<td id="ptl">My Charts</td>
+										</tr>
+										<tr>
+																							<td>
+													<div class="div_list_chart">@(Model.displayVar("shared_charts"))</div>
+												</td>
+												<td>
+													<div class="div_list_chart">@(Model.displayVar("private_charts"))</div>
+												</td>
+										</tr>
+									</table>
+								</div>
+								<div id="sbtns" class="style2"  align=center>
+									@(Model.displayVar("create_report_chart"))
+									@(Model.displayVar("admin_page"))
+									@(Model.displayVar("users_list_page"))
+									@(Model.displayVar("admin_sql"))
+									@(Model.displayVar("back_to_app"))
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+							
+@{Html.RenderSharedView("footer");}
+        <iframe id="aframe" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+		<div id="alert" />
+    </body>
+</html>

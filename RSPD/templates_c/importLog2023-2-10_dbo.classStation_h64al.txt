@@ -1,0 +1,6 @@
+Import into dbo.classStation
+10/02/2023 4:31:15 pm
+
+8 out of 8 records processed successfully.
+8 records added.
+0 records updated.

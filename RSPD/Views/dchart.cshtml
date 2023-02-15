@@ -1,0 +1,65 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html>
+    <head>
+        <title>@(Model.displayVar("chart_title"))</title>
+        <META http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+		<LINK rel="stylesheet" href="include/css/stylesheet.css" type="text/css" media="screen" />
+        <SCRIPT type="text/javascript" src="include/js/jquery.min.js"></script>
+		<SCRIPT type="text/javascript" src="include/js/chart.js"></script>
+		@(Model.displayVar("load_flash_player"))
+    </head>
+    
+    <BODY @(Model.displayVar("onload")) class="@(Model.displayVar("wr_pagestylepath"))">
+        @{Html.RenderSharedView("header");}
+		<div class="rnr-page dreport">
+			<div class="rnr-top ">
+								<DIV class="rnr-cw-toplinks rnr-s-2 asbuttons @(Model.displayVar("wr_pagestylepath"))">
+					<div class="rnr-c rnr-ch rnr-c-toplinks">
+						@foreach (string _back_to_menu in Model.GetSection("back_to_menu", this)){
+						<div align=center class="style1 rnr-bl rnr-b-toplinks_print" >
+							<A class="rnr-button" href="webreport">Back to menu</a>
+						</div>
+						}
+						@foreach (string _testAdvSearch in Model.GetSection("testAdvSearch", this)){
+						<div align="center" class="style1 rnr-bl rnr-b-toplinks_advsearch" >
+							<A class="rnr-button" href="#" onclick="window.location.@(Model.displayVar("searchHref"))">Advanced search</a>
+						</div>
+						}
+						<div align="center" class="style1 rnr-bl rnr-b-toplinks_export" >
+							<A id=ExpPDF class="rnr-button" href="#" onclick="chart.saveAsPDF();">Export to PDF</a>
+						</div>
+						<div class="rnr-hfiller"></div>					
+					</div>
+				</div>
+
+				<DIV class="rnr-s-fields @(Model.displayVar("wr_pagestylepath"))">
+					<div class="rnr-c rnr-cv">	
+						<div class="style1">
+										<!--doevent name="ChartOnLoad"-->
+										@foreach (string _chart_block in Model.GetSection("chart_block", this)){
+										<div class="center_div" id="showchart" style="width:800px;height:600px">@(Model.displayVar("chart_constructor"))</div>
+										}
+						</div> 
+					</div> 		
+				</div>       
+			</div>
+		</div> 
+@{Html.RenderSharedView("footer");}
+    </body>
+</html>

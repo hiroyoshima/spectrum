@@ -1,0 +1,807 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!DOCTYPE HTML>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<html lang="en">
+    <head>
+        <title>@(Model.displayVar("reportTitle"))</title>
+		<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+        @foreach (string _style_block in Model.GetSection("style_block", this)){
+		<LINK type="text/css" href="styles/default.css" rel="stylesheet" />
+		<LINK type="text/css" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" rel="stylesheet" />
+        <style>@MvcHtmlString.Create(@"
+			.report	{font-size:11px}
+            .report-title		{font:bold 12px arial, verdana, sans serif, helvetica;}
+            table.report		{border-collapse: collapse; border: solid 2px #000;}
+				table.report td	{padding: 2px; border: solid 1px #ccc;}
+            .groupsummary		{border-bottom: solid 1px #000;}
+            td.pagesummary		{background: #ffffbb;}
+            td.globalsummary	{background: #ffe0b0;}
+			.page-summary		{border-top: 4px double #333;}
+			select.apply-style	{line-height: 1.4em; width: 90%;}
+			.buttonborder 		{margin-right: 10px;}
+			#wnd_header			{cursor: move;}")@foreach (string _group_field_colors in Model.GetSection("group_field_colors", this)){@MvcHtmlString.Create(@"
+            td.group_")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@",
+            td.nbgroup_")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@"		{background: #")@(Model.displayVar("color1"))@MvcHtmlString.Create(@";}
+            td.header_")@(Model.displayVar("iteration"))@MvcHtmlString.Create(@"		{background: #")@(Model.displayVar("color2"))@MvcHtmlString.Create(@";}")}@MvcHtmlString.Create(@"")@(Model.displayVar("styleStr"))@MvcHtmlString.Create(@"")</style>
+		@(Model.displayVar("includes"))
+        }
+		<style>@MvcHtmlString.Create(@"
+		.rnr-cv{ overflow-y:visible !important; }")</style>
+		
+    </head>
+	
+<BODY @(Model.displayVar("onload")) class="@(Model.displayVar("wr_pagestylepath"))">
+@{Html.RenderSharedView("header");}
+<div class="rnr-page dreport">
+	<div class="rnr-top ">
+			@foreach (string _top_menu_block in Model.GetSection("top_menu_block", this)){
+			<DIV class="rnr-cw-toplinks rnr-s-2 asbuttons @(Model.displayVar("wr_pagestylepath"))">
+				<div class="rnr-c rnr-ch rnr-c-toplinks">
+					<div class="style1 rnr-bl rnr-b-toplinks_advsearch" >
+						<span class="report-title">@(Model.displayVar("reportTitle"))</span>
+					</div>
+					@foreach (string _back_to_menu in Model.GetSection("back_to_menu", this)){
+					<div class="style1 rnr-bl rnr-b-toplinks_print" >
+						<A class="rnr-button" href="webreport">Back to menu</a>
+					</div>
+					}
+					@foreach (string _adv_search_block in Model.GetSection("adv_search_block", this)){
+					<div class="style1 rnr-bl rnr-b-toplinks_advsearch" >
+						<A class="rnr-button" @(Model.displayVar("searchHref"))>Advanced search</a>
+					</div>
+					}
+					@foreach (string _print_friendly_block in Model.GetSection("print_friendly_block", this)){
+					<div class="style1 rnr-bl rnr-b-toplinks_print">
+						<A class="rnr-button" target="_blank" href="dreport?mode=print&rname=@(Model.displayVar("reportName"))@(Model.displayVar("searchClause"))">Print this page</a>
+					</div>
+					<div class="style1 rnr-bl rnr-b-toplinks_print">
+						<A class="rnr-button" target="_blank" href="dreport?mode=print&rname=@(Model.displayVar("reportName"))&all=1@(Model.displayVar("searchClause"))">Print whole report</a>
+					</div>
+					<div  class="style1 rnr-bl rnr-b-toplinks_export" >
+						<A href="dreport?mode=print&all=1&format=excel&rname=@(Model.displayVar("reportName"))@(Model.displayVar("searchClause"))"><IMG src="images/excel.gif" border="0" /></a>
+						<A href="dreport?mode=print&all=1&format=word&rname=@(Model.displayVar("reportName"))@(Model.displayVar("searchClause"))"><IMG src="images/word.gif" border="0" /></a>
+					</div>
+					}
+					<div class="rnr-hfiller"></div>					
+				</div>
+			</div>
+}
+		@foreach (string _records_display_block in Model.GetSection("records_display_block", this)){
+						<DIV class="rnr-cw-toplinks rnr-s-2 asbuttons @(Model.displayVar("wr_pagestylepath"))">
+							<div class="rnr-c rnr-ch rnr-c-toplinks">
+								<div class="style1 rnr-bl rnr-b-toplinks_advsearch" >
+									@foreach (string _groups_per_page_block in Model.GetSection("groups_per_page_block", this)){<text>
+									Groups per page:&nbsp;
+									</text><SELECT onChange="document.location='dreport?rname=@(Model.displayVar("reportNamejs"))&pagesize='+this.options[this.selectedIndex].value;">
+										<OPTION value="1" @(Model.displayVar("gpp1_selected"))>1</OPTION>
+										<OPTION value="3" @(Model.displayVar("gpp3_selected"))>3</OPTION>
+										<OPTION value="5" @(Model.displayVar("gpp5_selected"))>5</OPTION>
+										<OPTION value="10" @(Model.displayVar("gpp10_selected"))>10</OPTION>
+										<OPTION value="50" @(Model.displayVar("gpp50_selected"))>50</OPTION>
+										<OPTION value="100" @(Model.displayVar("gpp100_selected"))>100</OPTION>
+										<OPTION value="-1" @(Model.displayVar("gpp0_selected"))>All</OPTION>
+									</select>
+									}
+									@foreach (string _records_per_page_block in Model.GetSection("records_per_page_block", this)){<text>
+									Records Per Page:&nbsp;
+									</text><SELECT onChange="document.location='dreport?rname=@(Model.displayVar("reportNamejs"))&pagesize='+this.options[this.selectedIndex].value;">
+										<OPTION value="10" @(Model.displayVar("rpp10_selected"))>10</OPTION>
+										<OPTION value="20" @(Model.displayVar("rpp20_selected"))>20</OPTION>
+										<OPTION value="50" @(Model.displayVar("rpp50_selected"))>50</OPTION>
+										<OPTION value="100" @(Model.displayVar("rpp100_selected"))>100</OPTION>
+										<OPTION value="500" @(Model.displayVar("rpp500_selected"))>500</OPTION>
+										<OPTION value="-1" @(Model.displayVar("rpp0_selected"))>All</OPTION>
+									</select>
+									}
+								</div>
+							<div class="rnr-hfiller"></div>					
+							</div>
+						</div>
+		}
+	
+        @foreach (string _grid_block in Model.GetSection("grid_block", this)){
+			foreach (string _data_block in Model.GetSection("data_block", this)){
+	<DIV class="rnr-s-grid @(Model.displayVar("wr_pagestylepath"))">
+        <TABLE class="report rnr-b-report" width="100%" cellpadding="1" cellspacing="2" align="center" id="legend" @{foreach (string _legend_disp in Model.GetSection("legend_disp", this)){@MvcHtmlString.Create(@"style=""display: none;"" ")}}>
+	@foreach (string _grid_row in Model.GetSection("grid_row", this)){
+		foreach (string _group in Model.GetSection("group", this)){
+		<!-- group headers -->
+		foreach (string _newgroup in Model.GetSection("newgroup", this)){
+		<tr>
+			<TD class="header_@(Model.displayVar("group_order")) class@(Model.displayVar("groupId4"))g class@(Model.displayVar("groupId4"))g0f0u" groupname="@(Model.displayVar("groupId4"))" colspan=@(Model.displayVar("align_testAgr"))>
+				@(Model.displayVar("group_label")) <font style="font-weight:900">@(Model.displayVar("grval"))</font>
+			</td>
+		</tr>
+		foreach (string _last_group_block in Model.GetSection("last_group_block", this)){
+		<tr>
+			@foreach (string _not_group_fields_values in Model.GetSection("not_group_fields_values", this)){
+			<TD class="blackshade class40g class@(Model.displayVar("fieldNum"))f class40g@(Model.displayVar("fieldNum"))f0u" groupname="40" fieldname="@(Model.displayVar("fieldNum"))">@(Model.displayVar("field_label"))</td>
+			}
+		</tr>
+		}
+		}
+		<!--end group headers-->
+		}
+
+		foreach (string _details_summary_block in Model.GetSection("details_summary_block", this)){
+		<!-- data -->
+		foreach (string _row_data in Model.GetSection("row_data", this)){
+		<tr>
+			@foreach (string _not_group_fields_values_1 in Model.GetSection("not_group_fields_values", this)){
+			<TD class="data class25g class@(Model.displayVar("fieldNum"))f class25g@(Model.displayVar("fieldNum"))f0u" groupname="25" fieldname="@(Model.displayVar("fieldNum"))">@(Model.displayVar("field_value"))</td>
+			}			
+		</tr>
+		}
+		<!--end data-->
+		}
+
+		<!-------------------------------------  group summary ----------------------------------------->
+		foreach (string _group_summary_block in Model.GetSection("group_summary_block", this)){
+		<tr>
+			@foreach (string _group_summary_totals in Model.GetSection("group_summary_totals", this)){
+			<TD style="font-weight:bold;" groupname="@(Model.displayVar("groupIdSummary"))" class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdSummary"))g class@(Model.displayVar("groupIdSummary"))g0f0u" colspan=@(Model.displayVar("align_testAgr"))>Summary for @(Model.displayVar("label")) @(Model.displayVar("grval")) - @(Model.displayVar("total_cnt")) records total</td>
+			}
+		</tr>
+		<!--sum-->
+		foreach (string _sum_aggregation_block in Model.GetSection("sum_aggregation_block", this)){
+		<tr>
+			@foreach (string _group_summary_fields_sum in Model.GetSection("group_summary_fields_sum", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdSum"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdSum"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdSum"))" fieldname="@(Model.displayVar("iteration"))">
+				@foreach (string _first_block in Model.GetSection("first_block", this)){<text>
+				Sum
+				</text>}
+				@foreach (string _sum_field_flag in Model.GetSection("sum_field_flag", this)){
+				@(Model.displayVar("group_total_sum_value"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--avg-->
+		foreach (string _avg_aggregation_block in Model.GetSection("avg_aggregation_block", this)){
+		<tr>
+			@foreach (string _group_summary_fields_avg in Model.GetSection("group_summary_fields_avg", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdAvg"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdAvg"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdAvg"))" fieldname="@(Model.displayVar("iteration"))">
+				@foreach (string _first_block_1 in Model.GetSection("first_block", this)){<text>
+				Average
+				</text>}
+				@foreach (string _avg_field_flag in Model.GetSection("avg_field_flag", this)){
+				@(Model.displayVar("group_total_avg_value"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--min-->
+		foreach (string _min_aggregation_block in Model.GetSection("min_aggregation_block", this)){
+		<tr>
+			@foreach (string _group_summary_fields_min in Model.GetSection("group_summary_fields_min", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMin"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMin"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMin"))" fieldname="@(Model.displayVar("iteration"))">
+				@foreach (string _first_block_2 in Model.GetSection("first_block", this)){<text>
+				Min
+				</text>}
+				@foreach (string _min_field_flag in Model.GetSection("min_field_flag", this)){
+				@(Model.displayVar("group_total_min_value"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--max-->
+		foreach (string _max_aggregation_block in Model.GetSection("max_aggregation_block", this)){
+		<tr>
+			@foreach (string _group_summary_fields_max in Model.GetSection("group_summary_fields_max", this)){
+			<TD class="group_@(Model.displayVar("group_order")) class@(Model.displayVar("groupIdMax"))g class@(Model.displayVar("iteration"))f class@(Model.displayVar("groupIdMax"))g@(Model.displayVar("iteration"))f0u" groupname="@(Model.displayVar("groupIdMax"))" fieldname="@(Model.displayVar("iteration"))">
+				@foreach (string _first_block_3 in Model.GetSection("first_block", this)){<text>
+				Max
+				</text>}
+				@foreach (string _max_field_flag in Model.GetSection("max_field_flag", this)){
+				@(Model.displayVar("group_total_max_value"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--end group summary-->
+		}
+	<!--end grid row-->
+	}
+
+		@foreach (string _summary_footer in Model.GetSection("summary_footer", this)){
+		<tr class="page-summary">
+			@foreach (string _not_group_fields in Model.GetSection("not_group_fields", this)){
+			<TD class="blackshade class40g class@(Model.displayVar("fieldId4"))f class40g@(Model.displayVar("fieldId4"))f0u" groupname="40" fieldname="@(Model.displayVar("fieldId4"))">@(Model.displayVar("label"))</td>
+			}
+		</tr>
+		}
+
+		@foreach (string _page_summary_block in Model.GetSection("page_summary_block", this)){
+		<!-- page summary-->
+		<tr>
+			<TD style="font-weight:bold;" groupname="26" class="pagesummary class26g class26g0f0u" colspan=@(Model.displayVar("align_testAgr"))>Page summary @(Model.displayVar("page_total_cnt")) - records total</td>
+		</tr>
+		<!--  sum -->
+		foreach (string _sum_aggregation_block_1 in Model.GetSection("sum_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_sum in Model.GetSection("page_summary_fields_sum", this)){
+			<TD class="pagesummary class29g class@(Model.displayVar("fieldId4"))f class29g@(Model.displayVar("fieldId4"))f0u" groupname="29" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag in Model.GetSection("first_field_flag", this)){<text>
+				Sum
+				</text>}
+				@foreach (string _sum_field_flag_1 in Model.GetSection("sum_field_flag", this)){
+				@(Model.displayVar("page_total_sum"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--  avg -->
+		foreach (string _avg_aggregation_block_1 in Model.GetSection("avg_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_avg in Model.GetSection("page_summary_fields_avg", this)){
+			<TD class="pagesummary class30g class@(Model.displayVar("fieldId4"))f class30g@(Model.displayVar("fieldId4"))f0u" groupname="30" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_1 in Model.GetSection("first_field_flag", this)){<text>
+				Average
+				</text>}
+				@foreach (string _avg_field_flag_1 in Model.GetSection("avg_field_flag", this)){
+				@(Model.displayVar("page_total_avg"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--  min -->
+		foreach (string _min_aggregation_block_1 in Model.GetSection("min_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_min in Model.GetSection("page_summary_fields_min", this)){
+			<TD class="pagesummary class27g class@(Model.displayVar("fieldId4"))f class27g@(Model.displayVar("fieldId4"))f0u" groupname="27" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_2 in Model.GetSection("first_field_flag", this)){<text>
+				Min
+				</text>}
+				@foreach (string _min_field_flag_1 in Model.GetSection("min_field_flag", this)){
+				@(Model.displayVar("page_total_min"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--  max -->
+		foreach (string _max_aggregation_block_1 in Model.GetSection("max_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_max in Model.GetSection("page_summary_fields_max", this)){
+			<TD class="pagesummary class28g class@(Model.displayVar("fieldId4"))f class28g@(Model.displayVar("fieldId4"))f0u" groupname="28" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_3 in Model.GetSection("first_field_flag", this)){<text>
+				Max
+				</text>}
+				@foreach (string _max_field_flag_1 in Model.GetSection("max_field_flag", this)){
+				@(Model.displayVar("page_total_max"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--end page summary-->
+		}
+
+		@foreach (string _global_summary_block in Model.GetSection("global_summary_block", this)){
+		<!-- global summary-->
+		<tr>
+			<TD style="font-weight:bold;" groupname="31" class="globalsummary class31g class31g0f0u" colspan=@(Model.displayVar("align_testAgr"))>Global summary @(Model.displayVar("global_total_cnt")) - records total</td>
+		</tr>
+		<!-- sum -->
+		foreach (string _sum_aggregation_block_2 in Model.GetSection("sum_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_sum_1 in Model.GetSection("page_summary_fields_sum", this)){
+			<TD class="globalsummary class34g class@(Model.displayVar("fieldId4"))f class34g@(Model.displayVar("fieldId4"))f0u" groupname="34" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_4 in Model.GetSection("first_field_flag", this)){<text>
+				Sum
+				</text>}
+				@foreach (string _sum_field_flag_2 in Model.GetSection("sum_field_flag", this)){
+				@(Model.displayVar("global_total_sum"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--  avg -->
+		foreach (string _avg_aggregation_block_2 in Model.GetSection("avg_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_avg_1 in Model.GetSection("page_summary_fields_avg", this)){
+			<TD class="globalsummary class35g class@(Model.displayVar("fieldId4"))f class35g@(Model.displayVar("fieldId4"))f0u" groupname="35" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_5 in Model.GetSection("first_field_flag", this)){<text>
+				Average
+				</text>}
+				@foreach (string _avg_field_flag_2 in Model.GetSection("avg_field_flag", this)){
+				@(Model.displayVar("global_total_avg"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--  min -->
+		foreach (string _min_aggregation_block_2 in Model.GetSection("min_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_min_1 in Model.GetSection("page_summary_fields_min", this)){
+			<TD class="globalsummary class32g class@(Model.displayVar("fieldId4"))f class32g@(Model.displayVar("fieldId4"))f0u" groupname="32" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_6 in Model.GetSection("first_field_flag", this)){<text>
+				Min
+				</text>}
+				@foreach (string _min_field_flag_2 in Model.GetSection("min_field_flag", this)){
+				@(Model.displayVar("global_total_min"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--  max -->
+		foreach (string _max_aggregation_block_2 in Model.GetSection("max_aggregation_block", this)){
+		<tr>
+			@foreach (string _page_summary_fields_max_1 in Model.GetSection("page_summary_fields_max", this)){
+			<TD class="globalsummary class33g class@(Model.displayVar("fieldId4"))f class33g@(Model.displayVar("fieldId4"))f0u" groupname="33" fieldname="@(Model.displayVar("fieldId"))">
+				@foreach (string _first_field_flag_7 in Model.GetSection("first_field_flag", this)){<text>
+				Max
+				</text>}
+				@foreach (string _max_field_flag_2 in Model.GetSection("max_field_flag", this)){
+				@(Model.displayVar("global_total_max"))
+				}
+			</td>
+			}
+		</tr>
+		}
+		<!--end page summary-->
+		}
+	  </table>
+</div>	
+			}
+			foreach (string _message_block in Model.GetSection("message_block", this)){
+		<DIV class="rnr-cw-message rnr-s-2 asbuttons @(Model.displayVar("wr_pagestylepath"))">
+			<div class="rnr-c rnr-ch rnr-c-message">
+				<div class="style1 rnr-bc rnr-b-message">
+					<span><div class="rnr-message">@(Model.displayVar("message"))</div></span>
+				</div>
+			</div>
+		</div>
+}
+		<DIV id="location" src=@(Model.displayVar("reportName")) style="display: none;"></div>
+        }
+        
+		@foreach (string _bottom_pagination_block in Model.GetSection("bottom_pagination_block", this)){
+		<DIV class="rnr-cw-pagination rnr-s-2 asbuttons @(Model.displayVar("wr_pagestylepath"))">
+			<div class="rnr-c rnr-ch rnr-c-pagination">
+				<div class="style1 rnr-bc rnr-b-pagination">
+					@(Model.displayVar("pagination"))
+				</div>
+			</div>
+		</div>
+		}
+	</div>	
+</div>
+
+@{Html.RenderSharedView("footer");}
+
+@foreach (string _editor_block in Model.GetSection("editor_block", this)){
+			<div id="example" class="myDialog">
+		<div class="rnr-page">
+			<div class="rnr-top">
+				<DIV class="rnr-s-1 @(Model.displayVar("wr_pagestylepath"))">
+					<div class="rnr-c rnr-cv">
+						<div class="style2" align=center id="wnd_header">
+							Report: Style Editor
+						</div>
+						<div class="style1 rnr-b-wrapper">
+							<DIV class="rnr-s-fields @(Model.displayVar("wr_pagestylepath"))">
+								<div class="rnr-c rnr-cv">
+									<div class="style1">
+										<table class="fieldGrid" id="params">
+											<tr>
+												<td>Background</td>
+												<td>Font color</td>
+												<td>Font family</td>
+												<td>Font size</td>
+												<td>Font style</td>
+												<td>Align Layout</td>
+												<td>Padding</td>
+											</tr>
+											<tr>
+												<td>
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div id="picker2" act="background" class="ColorPickerDivSample" style="width: 80px; background: #f0f8ff;" />
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG id="pick" class="selector" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td>
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div id="picker1" act="color" class="ColorPickerDivSample" style="width: 80px; background: #f0f8ff;"/>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG class="selector" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td>
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div id="fontfamily" class="ColorPickerDivSample" style="width: 80px; background: #ffffff;">
+																	Default
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG class="selectorfamily" src="images/selector.png" />
+															</td>
+														</tr>
+														<tr style="position: absolute; display: none;z-index:150;" id="fontfamilyselect">
+															<td colspan="2" style="padding: 0px 0px 0px 5px;" class="SelectorDiv">
+																<table style="width: 100%;">
+																	<tr><td class="selectstyle">Default</td></tr>
+																	<tr><td class="selectstyle">Arial</td></tr>
+																	<tr><td class="selectstyle">Comic Sans MS</td></tr>
+																	<tr><td class="selectstyle">Courier New</td></tr>
+																	<tr><td class="selectstyle" nowrap>Times New Roman</td></tr>
+																	<tr><td class="selectstyle">Verdana</td></tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td>
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div id="fontsize" class="ColorPickerDivSample" style="width: 80px; background: #ffffff;">
+																	Default
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG class="selectorfontsize" src="images/selector.png" />
+															</td>
+														</tr>
+														<tr style="position: absolute; display: none;z-index:150;" id="fontsizeselect">
+															<td colspan="2" style="padding: 0px 0px 0px 5px;" class="SelectorDiv">
+																<table style="width: 100%;">
+																	<tr><td class="selectstyle">Default</td></tr>
+																	<tr><td class="selectstyle">7px</td></tr>
+																	<tr><td class="selectstyle">8px</td></tr>
+																	<tr><td class="selectstyle">9px</td></tr>
+																	<tr><td class="selectstyle">10px</td></tr>
+																	<tr><td class="selectstyle">11px</td></tr>
+																	<tr><td class="selectstyle">12px</td></tr>
+																	<tr><td class="selectstyle">13px</td></tr>
+																	<tr><td class="selectstyle">14px</td></tr>
+																	<tr><td class="selectstyle">15px</td></tr>
+																	<tr><td class="selectstyle">16px</td></tr>
+																	<tr><td class="selectstyle">17px</td></tr>
+																</table>
+															</td>
+														</tr>
+													</table>																	
+												</td>
+												<td>
+													<INPUT type="checkbox" id="bold" name="bold" value="bold" />&nbsp;<label for="bold">Bold</label>&nbsp;<INPUT type="checkbox" id="italic" name="italic" value="italic" />&nbsp;<label for="italic">Italic</label>
+												</td>
+												<td style="padding-left: 0px;">
+													<table width="100" align="center" id="aligntable">
+														<tr>
+															<TD id="left" onclick="changeact('textAlign','left',this);"><IMG src="./images/leftalign.jpg" /></td>
+															<TD id="center" onclick="changeact('textAlign','center',this);"><IMG src="./images/centeralign.jpg" /></td>
+															<TD id="right" onclick="changeact('textAlign','right',this);"><IMG src="./images/rightalign.jpg" /></td>
+														</tr>
+													</table>
+												</td>
+												<td id="paddingSet">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div id="padding" class="ColorPickerDivSample" style="width: 80px; background: #ffffff;">
+																	2px
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG class="selectorpadding" src="images/selector.png" />
+															</td>
+														</tr>
+														<tr style="position: absolute; display: none;z-index:150;" id="paddingselect">
+															<td colspan="2" style="padding: 0px 0px 0px 5px;" class="SelectorDiv">
+																<table style="width: 100%;">
+																	<tr><td class="selectstyle">1px</td></tr>
+																	<tr><td class="selectstyle">2px</td></tr>
+																	<tr><td class="selectstyle">3px</td></tr>
+																	<tr><td class="selectstyle">4px</td></tr>
+																	<tr><td class="selectstyle">5px</td></tr>
+																	<tr><td class="selectstyle">6px</td></tr>
+																	<tr><td class="selectstyle">7px</td></tr>
+																	<tr><td class="selectstyle">8px</td></tr>
+																	<tr><td class="selectstyle">9px</td></tr>
+																	<tr><td class="selectstyle">10px</td></tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr id="middlepanel" class="middlepanel">
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width:80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="backgroundColor" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>					
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width: 80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="color" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width: 80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="fontFamily" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width: 80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="fontSize" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width: 80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="font" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width: 80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="textAlign" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td align="center">
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="padding: 0px 0px 0px 5px;">
+																<div class="ColorPickerDivSample" style="width: 80px; background: #FFFFFF">
+																	apply to
+																</div>
+															</td>
+															<td style="padding: 2px 0px 0px 0px;">
+																<IMG act="padding" class="selectorApply" src="images/selector.png" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="style2" align=center id="btns">
+										<A id="backbtn" name="backbtn" class="rnr-button" href="#">Back</a>
+										<span style="position:absolute;" id="jumptospan"></span>
+										<A id="jumpto" name="jumpto" class="rnr-button" href="#" onclick="event.cancelBubble = true;return false;" onmouseover="event.cancelBubble = true;return false;">Jump to ...</a>
+										<A id="nextbtn" name="nextbtn" class="rnr-button" href="#">Next</a>
+										@foreach (string _b_is_report_save in Model.GetSection("b_is_report_save", this)){
+										<A id="saveasbtn" name="saveasbtn" class="rnr-button" href="#">Save as...</a>
+										}	
+										@foreach (string _b_is_report_name in Model.GetSection("b_is_report_name", this)){
+										<A id="savebtn" name="savebtn" class="rnr-button" href="#">Save</a>
+										}														
+										<A id="default" name="default" class="rnr-button" href="#">Reset</a>
+										<A id="previewbtn" name="previewbtn" class="rnr-button" href="#">Preview</a>
+										<A id="preview" class="various fancybox.iframe" href="dreport?rname=@(Model.displayVar("report_name_preview"))&param=preview&ie=UTF-8&iframe"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<style>@MvcHtmlString.Create(@"
+{literal}
+	div.action { position: absolute;  width: 170px; padding: 0; font-size:11px}
+	td {font-size:11px}
+{/literal}")</style>
+<iframe id="framejump" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+<div id="menujump" class=action style="display:none;position:absolute;">
+	<table width=100% cellpadding=0 cellspacing=0 border=0 style="background-color:#F4F7FB;border: solid 1px blue;">
+		<tr><td id=row0 style="cursor:pointer;padding:5px;">Tables</td></tr>
+		<tr><td id=row1 style="cursor:pointer;padding:5px;">Table Relations</td></tr>
+		<tr><td id=row2 style="cursor:pointer;padding:5px;">Where Condition</td></tr>
+		<tr><td id=row3 style="cursor:pointer;padding:5px;">Group fields</td></tr>
+		<tr><td id=row4 style="cursor:pointer;padding:5px;">Totals</td></tr>
+		<tr><td id=row5 style="cursor:pointer;padding:5px;">Miscellaneous</td></tr>
+		<tr><td id=row6 style="cursor:pointer;padding:5px;">Sort fields</td></tr>
+		<tr><td id=row7 style="cursor:pointer;padding:5px;">Style Editor</td></tr>
+		<tr><td id=row8 style="cursor:pointer;padding:5px;">Report Settings</td></tr>
+		<tr><td id=row9 style="cursor:pointer;padding:5px;">Dynamic Permissions</td></tr>
+		<tr><td id=row10 style="cursor:pointer;padding:5px;;border-top:1px solid blue;">Back to Web Reports menu</td></tr>
+		<tr><td id=row11 style="cursor:pointer;padding:5px;">Back to main application</td></tr>
+	</table>
+</div>
+
+	<div id="alert">
+	</div>
+
+
+	<div id="groupSelectorDiv">
+	<table width=100% cellpadding=5 cellspacing=0 border=0>
+		<tr><td><div class="groupSelect" id="groupSelectGroup" value="group">group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+		<tr><td><div class="groupSelect" id="groupSelectField" value="field">field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+		<tr><td><div class="groupSelect" id="groupSelectTable" value="table">all&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+	</table>
+</div>
+<div id="colorPickerVtd">
+	<table class="tableColorPicker" cellspacing="4" style="border:2px solid gray;"> 
+		<tr class="colorPickerVtdTr"> 
+			<td class="row1cell1">&nbsp;</td>
+			<td class="row1cell2">&nbsp;</td>
+			<td class="row1cell3">&nbsp;</td>
+			<td class="row1cell4">&nbsp;</td>
+			<td class="row1cell5">&nbsp;</td>
+			<td class="row1cell6">&nbsp;</td>
+			<td class="row1cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row2cell1">&nbsp;</td>
+			<td class="row2cell2">&nbsp;</td>
+			<td class="row2cell3">&nbsp;</td>
+			<td class="row2cell4">&nbsp;</td>
+			<td class="row2cell5">&nbsp;</td>
+			<td class="row2cell6">&nbsp;</td>
+			<td class="row2cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row3cell1">&nbsp;</td>
+			<td class="row3cell2">&nbsp;</td>
+			<td class="row3cell3">&nbsp;</td>
+			<td class="row3cell4">&nbsp;</td>
+			<td class="row3cell5">&nbsp;</td>
+			<td class="row3cell6">&nbsp;</td>
+			<td class="row3cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row4cell1">&nbsp;</td>
+			<td class="row4cell2">&nbsp;</td>
+			<td class="row4cell3">&nbsp;</td>
+			<td class="row4cell4">&nbsp;</td>
+			<td class="row4cell5">&nbsp;</td>
+			<td class="row4cell6">&nbsp;</td>
+			<td class="row4cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row5cell1">&nbsp;</td>
+			<td class="row5cell2">&nbsp;</td>
+			<td class="row5cell3">&nbsp;</td>
+			<td class="row5cell4">&nbsp;</td>
+			<td class="row5cell5">&nbsp;</td>
+			<td class="row5cell6">&nbsp;</td>
+			<td class="row5cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row6cell1">&nbsp;</td>
+			<td class="row6cell2">&nbsp;</td>
+			<td class="row6cell3">&nbsp;</td>
+			<td class="row6cell4">&nbsp;</td>
+			<td class="row6cell5">&nbsp;</td>
+			<td class="row6cell6">&nbsp;</td>
+			<td class="row6cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row7cell1">&nbsp;</td>
+			<td class="row7cell2">&nbsp;</td>
+			<td class="row7cell3">&nbsp;</td>
+			<td class="row7cell4">&nbsp;</td>
+			<td class="row7cell5">&nbsp;</td>
+			<td class="row7cell6">&nbsp;</td>
+			<td class="row7cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row8cell1">&nbsp;</td>
+			<td class="row8cell2">&nbsp;</td>
+			<td class="row8cell3">&nbsp;</td>
+			<td class="row8cell4">&nbsp;</td>
+			<td class="row8cell5">&nbsp;</td>
+			<td class="row8cell6">&nbsp;</td>
+			<td class="row8cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row9cell1">&nbsp;</td>
+			<td class="row9cell2">&nbsp;</td>
+			<td class="row9cell3">&nbsp;</td>
+			<td class="row9cell4">&nbsp;</td>
+			<td class="row9cell5">&nbsp;</td>
+			<td class="row9cell6">&nbsp;</td>
+			<td class="row9cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row0cell1">&nbsp;</td>
+			<td class="row0cell2">&nbsp;</td>
+			<td class="row0cell3">&nbsp;</td>
+			<td class="row0cell4">&nbsp;</td>
+			<td class="row0cell5">&nbsp;</td>
+			<td class="row0cell6">&nbsp;</td>
+			<td class="row0cell7">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="7" id="nocolor" class="ColorPickerNoColor">No color</td>
+		</tr>
+	</table>
+</div>		
+	
+
+}
+
+@(Model.displayVar("bodyend"))
+
+</body>
+</html>

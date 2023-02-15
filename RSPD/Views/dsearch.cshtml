@@ -1,0 +1,100 @@
+﻿@using runnerDotNet;
+@{
+ XTempl Model = this.Model;
+ if(ViewBag != null && ViewBag.xt != null)
+ {
+  Model = ViewBag.xt;
+  if(Model != null)
+  {
+   Model.currentViewContext = ViewContext;
+  }
+ }
+ string webRootPath = "";
+}
+
+<!doctype html>@(new HtmlString(MVCFunctions.GetBuferContentAndClearBufer()))
+<HTML @(Model.displayVar("html_attrs"))>
+<head>
+<title>@(Model.displayVar("reportTitle")): Advanced search page</title>
+<META http-equiv="X-UA-Compatible" content="IE=Edge" />
+<LINK REL="stylesheet" href="styles/default.css" type="text/css" />
+<LINK REL="stylesheet" href="styles/@(Model.displayVar("wr_pagestylepath"))/style.css" type="text/css" />
+<LINK rel="stylesheet" href="include/css/stylesheet.css" type="text/css" media="screen" />
+</head>
+<BODY class="@(Model.displayVar("wr_pagestylepath"))">
+@foreach (string _body in Model.GetSection("body", this)){
+{Html.RenderSharedView("header");}
+foreach (string _contents_block in Model.GetSection("contents_block", this)){
+		<div class="rnr-page dreport">
+			<div class="rnr-top ">
+				<DIV class="rnr-s-1 @(Model.displayVar("wr_pagestylepath"))">
+					<div class="rnr-c rnr-cv">
+						<div class="style2" align=center>
+							@(Model.displayVar("reportTitle")) - Advanced search
+						</div>
+						@foreach (string _conditions_block in Model.GetSection("conditions_block", this)){
+						<div  class="rnr-brickcontents style1 rnr-b-srchconditions ">
+							<center>
+							<span class=fieldname>Search for:</span>	
+							<INPUT type="radio" class="rnr-radio-button" id="all_checkbox" name="type" @(Model.displayVar("all_checkbox")) /> All conditions
+							&nbsp;&nbsp;&nbsp;
+							<INPUT type="radio" class="rnr-radio-button" id="any_checkbox" name="type" @(Model.displayVar("any_checkbox")) /> Any condition
+							</center>
+						</div>
+						}
+						<div class="style1 rnr-b-wrapper">
+							<DIV class="rnr-s-fields @(Model.displayVar("wr_pagestylepath"))">
+								<div class="rnr-c rnr-cv">
+									<div class="style1">
+										<table class="fieldGrid">
+											<tr>
+												<td>&nbsp;</td>
+												<td>NOT</td>
+												<td colspan=3>&nbsp; </td>
+											</tr>
+											@foreach (string _page_order_fields in Model.GetSection("page_order_fields", this)){
+											<tr class="">
+												<td colspan=5>
+												@(Model.displayVar("fieldblock"))
+												</td>
+											</tr>
+											
+											<tr>
+												<td>
+													@(Model.displayVar("label"))
+												</td>
+												<td>
+													<INPUT type="checkbox" @(Model.displayVar("notbox")) />
+												</td>
+												<td>@(Model.displayVar("searchtype"))</td>
+												<td>@(Model.displayVar("editcontrol"))</td>
+												<td>
+													<SPAN @(Model.displayVar("second_id"))>@(Model.displayVar("editcontrol1"))</span>
+												</td>
+											</tr>
+											}
+										</table>
+									</div>
+									<div id="btns" class="style2" align=center>
+										@foreach (string _search_button in Model.GetSection("search_button", this)){
+										<A href="#" class="rnr-button" id="searchButton1" @(Model.displayVar("searchbutton_attrs"))>Search</a>
+										}
+										@foreach (string _reset_button in Model.GetSection("reset_button", this)){
+										<A href="#" class="rnr-button" id="resetButton1" @(Model.displayVar("resetbutton_attrs"))>Reset</a>
+										}
+										@foreach (string _back_button in Model.GetSection("back_button", this)){
+										<A href="#" class="rnr-button" id="backButton1" @(Model.displayVar("backbutton_attrs"))>Back to list</a>
+										}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+{Html.RenderSharedView("footer");}
+}
+</body>
+</html>
