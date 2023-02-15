@@ -1,0 +1,7 @@
+\\ Spectrum.csproj
+Microsoft (R) Build Engine version 4.8.4084.0
+[Microsoft .NET Framework, version 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+
